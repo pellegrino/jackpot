@@ -1,6 +1,7 @@
 = jackpot
 
-Description goes here.
+Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with. 
+It's future May 2011 RMU project. 
 
 == Contributing to jackpot
  
