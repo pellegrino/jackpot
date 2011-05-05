@@ -1,7 +1,13 @@
-= jackpot
+= jackpot 
 
-Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with. 
-It's future May 2011 RMU project. 
+Jackpot is (going to be) the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with.
+ 
+My may 2011 RMU project. 
+
+== Goals for the first prototype release 
+
+* Handle recurring payments 
+* Basic subscription management 
 
 == Contributing to jackpot
  
