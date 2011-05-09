@@ -1,0 +1,23 @@
+* TODO
+
+** To first version 
+ - Handle a payment 
+ - Subscriptions (plans and stuff)
+ - Handle recurring payments (billing each day 1 of the month) 
+
+** Later version
+ - Prorating the payment 
+
+
+** It won't ever do
+ - Record clients cards information                                                                                         
+** Nice to have 
+ - Setup a heroku demo project with fake credentials 
+ - Admin dashboard to control payments 
+ - API to be integrated with 3rd party apps (CRM and stuff)
+
+
+** General ideas 
+ - This app will be some sort of framework for handling payments. So,
+   it is expected from users, they extend this framework via plugins
+   or 3rd party code to handle payments.
