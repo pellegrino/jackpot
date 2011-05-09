@@ -5,6 +5,12 @@ WORK IN PROGRESS/ Jackpot is the easiest way to get paid using ruby. It abstract
 
 My May 2011 RMU project.
 
+## Goals for the first prototype release ##
+
+* Handle recurring payments
+* Basic subscription management
+
+
 ## Using jackpot ##
 
 Include jackpot at your model. Typically, you may want to use it at
