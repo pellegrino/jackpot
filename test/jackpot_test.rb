@@ -1,11 +1,8 @@
-require 'teststrap'
+require_relative 'helper'
 
-context "jackpot" do
-  setup do
-    false
-  end
 
-  asserts "i'm a failure :(" do
-    topic
+class JackpotTest < MiniTest::Unit::TestCase
+  def test_something_for_real
+    refute true, "Add real tests"
   end
 end

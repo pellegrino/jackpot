@@ -2,7 +2,7 @@
 # 'autotest' for riot
 # install watchr
 # $ sudo gem install watchr
-# 
+#
 # Run With:
 # $ watchr test.watchr
 #
@@ -24,6 +24,10 @@ def sudo(cmd)
   run("sudo #{cmd}")
 end
 
+
+def ruby(*paths)
+  run "ruby #{gem_opt} -I.:lib:test -e'%w( #{paths.flatten.join(' ')} ).each {|p| require p }'"
+end
 # --------------------------------------------------
 # Watchr Rules
 # --------------------------------------------------
@@ -39,6 +43,6 @@ Signal.trap('QUIT') do
   puts " --- Running all tests ---\n\n"
   run_all_tests
 end
- 
+
 # Ctrl-C
 Signal.trap('INT') { abort("\n") }
