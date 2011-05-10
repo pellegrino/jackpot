@@ -1,6 +1,10 @@
 require 'rubygems'
 require 'bundler'
 
+ENV['RACK_ENV'] = 'test'
+
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -11,11 +15,18 @@ end
 
 require 'minitest/unit'
 
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'jackpot'
+require 'rack/test'
+
 
 class MiniTest::Unit::TestCase
+  include Rack::Test::Methods
+
+  def assert_difference(method, &block)
+    result = eval(method)
+    yield(block)
+    assert_equal result + 1 , eval(method) , "#{method} should have changed by one but it didn't"
+  end
 end
 
 # adopted from: https://gist.github.com/839034
@@ -31,7 +42,7 @@ def context(*args, &block)
   end
   (class << klass; self end).send(:define_method, :name) { name.gsub(/\W/,'_') }
 
-  klass.send :include, DatabaseHelpers
+#  klass.send :include, DatabaseHelpers
   klass.class_eval &block
 end
 MiniTest::Unit.autorun

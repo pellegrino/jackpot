@@ -12,4 +12,12 @@ group :development do
   gem "rcov", ">= 0"
   gem "reek", "~> 1.2.8"
   gem "roodi", "~> 2.1.0"
+  gem 'ohm', '~> 0.1.3'
+  gem 'sinatra', '~> 1.2.6'
+end
+
+group :test do
+  gem 'rack-test', '~> 0.5'
+  gem 'ruby-debug19', :require => 'ruby-debug'
+
 end
