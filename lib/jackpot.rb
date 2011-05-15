@@ -1,2 +1,2 @@
-require File.join(File.dirname(__FILE__), "jackpot", "models")
+require_relative "jackpot/models"
 

@@ -1,14 +1,19 @@
 require File.expand_path(File.dirname(__FILE__) + '/../helper')
 
-require 'jackpot_app'
 class SubscriptionsAppTest < MiniTest::Unit::TestCase
 
   def app
     Sinatra::Application
   end
 
-  def setup
-    Subscription.all.each { |s| s.delete }
+  def test_list_saved_subscriptions_in_json
+    Subscription.create :name => "Gold" , :price => 12
+    Subscription.create :name => "Silver" , :price => 6
+    Subscription.create :name => "Bronze" , :price => 3
+
+    get '/subscriptions'
+    assert last_response.ok?
+    assert_equal Subscription.all.to_json, last_response.body
   end
 
   def test_it_saves_the_subscription
@@ -19,7 +24,7 @@ class SubscriptionsAppTest < MiniTest::Unit::TestCase
     subscription = Subscription.all.first
 
     assert_equal "Gold",  subscription.name
-    assert_equal '30', subscription.price
+    assert_equal 30, subscription.price
   end
 end
 
