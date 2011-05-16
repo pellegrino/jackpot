@@ -3,23 +3,42 @@ require_relative '../helper'
 class SubscriptionsClientTest < MiniTest::Unit::TestCase
 
   def setup
-    # TODO: Move to a fixture
-    @json = "[{\"id\":1,\"name\":\"Bronze\",\"price\":3,\"created_at\":\"2011-05-15T22:49:17-03:00\",\"updated_at\":\"2011-05-15T22:49:17-03:00\"},{\"id\":2,\"name\":\"Free\",\"price\":0,\"created_at\":\"2011-05-15T22:49:32-03:00\",\"updated_at\":\"2011-05-15T22:49:32-03:00\"},{\"id\":3,\"name\":\"Gold\",\"price\":10,\"created_at\":\"2011-05-15T22:49:45-03:00\",\"updated_at\":\"2011-05-15T22:49:45-03:00\"},{\"id\":4,\"name\":\"Silver\",\"price\":7,\"created_at\":\"2011-05-15T22:49:58-03:00\",\"updated_at\":\"2011-05-15T22:49:58-03:00\"}]"
+    @resource_url = "http://localhost:4567/subscriptions"
+    @subscription_hash = { :name => "Gold", :price => 10 }
 
+    @json_all_subscriptions = File.read("#{File.dirname(__FILE__)}/fixtures/subscriptions.json")
+    @json_gold_subscription = File.read("#{File.dirname(__FILE__)}/fixtures/gold_subscription.json")
+  end
 
+  def test_retrieves_a_subscription_given_its_url
+    RestClient.expects(:get).with("#{@resource_url}/1", { :accept => :json , :content_type => :json }).returns(@json_gold_subscription)
 
+    # Check test/client/fixtures for information
+    subscription = Jackpot::Subscription.find 1
+    refute_nil subscription
+    assert_equal "Gold" , subscription["name"]
+    assert_equal 10, subscription["price"]
   end
 
   def test_creates_a_new_subscription
-    subscription_hash = { :name => "Gold", :price => 10 }
-    RestClient.expects(:post).with("http://localhost:4567/subscriptions", { :subscription => subscription_hash })
+    RestClient.expects(:post).with(@resource_url, { :subscription => @subscription_hash })
 
-    Jackpot::Subscription.create subscription_hash
+    Jackpot::Subscription.create @subscription_hash
   end
 
+  def test_updates_the_subscription
+    RestClient.expects(:put).with(@resource_url, { :id => 1 , :subscription => @subscription_hash})
+
+    Jackpot::Subscription.update(1, @subscription_hash)
+  end
+
+  def test_deletes_a_subscription_given_its_id
+    RestClient.expects(:delete).with(@resource_url, { :id => 1 })
+    Jackpot::Subscription.destroy(1)
+  end
 
   def test_list_every_subscription_jackpot_has
-    RestClient.stubs(:get).returns(@json)
+    RestClient.stubs(:get).returns(@json_all_subscriptions)
 
     subscriptions = Jackpot::Subscription.list
 

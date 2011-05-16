@@ -6,6 +6,17 @@ class SubscriptionsAppTest < MiniTest::Unit::TestCase
     Sinatra::Application
   end
 
+  def test_fetches_a_subscription
+    gold = Subscription.create :name => "Gold" , :price => 12
+    silver = Subscription.create :name => "Silver" , :price => 6
+    bronze = Subscription.create :name => "Bronze" , :price => 3
+
+    get "/subscriptions/#{gold.id}"
+    assert last_response.ok?
+    assert_equal "application/json", last_response.content_type
+    assert_equal gold.to_json , last_response.body
+  end
+
   def test_list_saved_subscriptions_in_json
     Subscription.create :name => "Gold" , :price => 12
     Subscription.create :name => "Silver" , :price => 6
@@ -14,6 +25,7 @@ class SubscriptionsAppTest < MiniTest::Unit::TestCase
     get '/subscriptions'
 
     assert last_response.ok?
+    assert_equal "application/json", last_response.content_type
     assert_equal Subscription.all.to_json, last_response.body
   end
 
