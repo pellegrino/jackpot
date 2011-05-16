@@ -1,15 +1,15 @@
 source "http://rubygems.org"
 
 gem 'i18n' , '0.5.0'
-gem 'activemerchant' , "1.12.1"
-gem 'data_mapper'
-gem 'dm-core'
-gem 'dm-sqlite-adapter'
-gem 'dm-timestamps'
-gem 'dm-validations'
-gem 'dm-aggregates'
-gem 'dm-migrations'
-gem 'dm-serializer'
+gem 'activemerchant'     , "1.12.1"
+gem 'data_mapper'        , '~> 1.1'
+gem 'dm-core'            , '~> 1.1'
+gem 'dm-sqlite-adapter'  , '~> 1.1'
+gem 'dm-timestamps'      , '~> 1.1'
+gem 'dm-validations'     , '~> 1.1'
+gem 'dm-aggregates'      , '~> 1.1'
+gem 'dm-migrations'      , '~> 1.1'
+gem 'dm-serializer'      , '~> 1.1'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

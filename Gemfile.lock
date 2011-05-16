@@ -122,14 +122,14 @@ PLATFORMS
 DEPENDENCIES
   activemerchant (= 1.12.1)
   bundler (~> 1.0.0)
-  data_mapper
-  dm-aggregates
-  dm-core
-  dm-migrations
-  dm-serializer
-  dm-sqlite-adapter
-  dm-timestamps
-  dm-validations
+  data_mapper (~> 1.1)
+  dm-aggregates (~> 1.1)
+  dm-core (~> 1.1)
+  dm-migrations (~> 1.1)
+  dm-serializer (~> 1.1)
+  dm-sqlite-adapter (~> 1.1)
+  dm-timestamps (~> 1.1)
+  dm-validations (~> 1.1)
   i18n (= 0.5.0)
   jeweler (~> 1.5.2)
   minitest

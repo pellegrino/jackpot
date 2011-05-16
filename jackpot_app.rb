@@ -1,6 +1,6 @@
-require File.join(File.dirname(__FILE__), 'environment')
 require_relative 'lib/jackpot'
-
+require 'sinatra'
+require 'json'
 
 
 post '/subscriptions' do
@@ -8,6 +8,8 @@ post '/subscriptions' do
 end
 
 get '/subscriptions' do
+  content_type :json
+
   subscriptions = Subscription.all
   subscriptions.to_json
 end

@@ -1,0 +1,7 @@
+
+development:
+  database: "sqlite3:///development.db"
+
+test:
+  database: "sqlite3:memory:"
+
