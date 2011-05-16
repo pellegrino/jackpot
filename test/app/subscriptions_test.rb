@@ -39,5 +39,15 @@ class SubscriptionsAppTest < MiniTest::Unit::TestCase
     assert_equal "Gold" , Subscription.first.name
   end
 
+  def test_updates_a_subscription
+    subscription = Subscription.create :name => "Gold", :price => 10
+    put '/subscriptions', id: subscription.id , subscription: { :name => "Silver" }
+
+    updated_subscription = Subscription.first
+    assert_equal "Silver",  updated_subscription.name
+    assert_equal subscription.price,  updated_subscription.price
+    assert_equal subscription.id,  updated_subscription.id
+  end
+
 end
 

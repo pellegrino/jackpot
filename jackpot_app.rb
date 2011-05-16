@@ -12,6 +12,9 @@ post '/subscriptions' do
   Subscription.create(params[:subscription])
 end
 
+put '/subscriptions' do
+  Subscription.get(params[:id]).update(params[:subscription])
+end
 get '/subscriptions' do
   content_type :json
 
