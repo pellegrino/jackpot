@@ -16,8 +16,9 @@ end
 
 require 'minitest/unit'
 
-require 'jackpot'
 require_relative '../jackpot_app'
+require_relative '../jackpot_client'
+
 require 'rack/test'
 
 Sinatra::Base.set :environment, :test

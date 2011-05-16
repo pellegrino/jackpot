@@ -8,18 +8,51 @@ My May 2011 RMU project.
 ## Goals for the first prototype release ##
 
 * Handle recurring payments
-* Basic subscription management
+* Basic subscription management (CRUD operations)
 
+## First iteration ##
+* Created the jackspot gem, which is a consumer for the rack app which
+supports basic subscription management
+
+### How to use it ###
+For using jackpot at this current version, its necessary to run this
+rack application using passenger or other rack based web server. In
+development, its okay to use Webrick with the following command
+
+        ruby jackpot_app
+
+The client, simulating an rack based app, accessing Jackpots web
+server, in this version should be initialized in a separate shell
+using the following command
+
+       ruby -r ./jackpot_client -r irb/completion
+
+That will give auto completion support and initialize the client
+pointing to a jackpot instance running in localhost:4567
+
+Currently the following methods are supported at the API:
+
+* Basic subscription management
+** Jackpot::Subscription.list
+** Jackpot::Subscription.get(id)
+** Jackpot::Subscription.create(subscription)
+** Jackpot::Subscription.destroy(id)
+** Jackpot::Subscription.update(id, subscription)
+
+For more information about usage, check tests/server/subscriptions_test.rb and tests/client/subscriptions_client_test.rb
+
+
+### For the next iteration ###
+To be defined
 
 ## Using jackpot ##
 
 Include jackpot at your model. Typically, you may want to use it at
 your users model.
 
-
-   class User < ActiveRecord::Base
-     include Jackpot::Subscription
-   end
+        class User < ActiveRecord::Base
+              include Jackpot::Subscription
+        end
 
 ## Contributing to jackpot  ##
 
