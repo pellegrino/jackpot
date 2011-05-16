@@ -15,17 +15,27 @@ My May 2011 RMU project.
 supports basic subscription management
 
 ### How to use it ###
+This application uses bundler and rvm for dependencies management, so its
+recommended to create a gemset to test it.
+
+Run the following commands at the directory where you've checked out
+jackpot.
+
+        rvm use 1.9.2@jackpot --create
+        gem install bundler
+        bundler install
+
 For using jackpot at this current version, its necessary to run this
 rack application using passenger or other rack based web server. In
 development, its okay to use Webrick with the following command
 
-        ruby jackpot_app
+        ruby jackpot_app.rb
 
 The client, simulating an rack based app, accessing Jackpots web
 server, in this version should be initialized in a separate shell
 using the following command
 
-       ruby -r ./jackpot_client -r irb/completion
+        irb -r ./jackpot_client.rb -r irb/completion
 
 That will give auto completion support and initialize the client
 pointing to a jackpot instance running in localhost:4567
@@ -33,26 +43,20 @@ pointing to a jackpot instance running in localhost:4567
 Currently the following methods are supported at the API:
 
 * Basic subscription management
-** Jackpot::Subscription.list
-** Jackpot::Subscription.get(id)
-** Jackpot::Subscription.create(subscription)
-** Jackpot::Subscription.destroy(id)
-** Jackpot::Subscription.update(id, subscription)
+  * Jackpot::Subscription.list
+  * Jackpot::Subscription.get(id)
+  * Jackpot::Subscription.create(subscription)
+  * Jackpot::Subscription.destroy(id)
+  * Jackpot::Subscription.update(id, subscription)
 
 For more information about usage, check tests/server/subscriptions_test.rb and tests/client/subscriptions_client_test.rb
 
+### Jackpot configuration file ###
+In this first iteration, only the database can (and needs to) be
+configured. Jackpot check jackpot.yml for further details.
 
-### For the next iteration ###
+## For the next iteration ##
 To be defined
-
-## Using jackpot ##
-
-Include jackpot at your model. Typically, you may want to use it at
-your users model.
-
-        class User < ActiveRecord::Base
-              include Jackpot::Subscription
-        end
 
 ## Contributing to jackpot  ##
 
