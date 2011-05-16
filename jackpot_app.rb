@@ -3,6 +3,11 @@ require 'sinatra'
 require 'json'
 
 
+delete '/subscriptions' do
+  subscription = Subscription.get(params[:id])
+  subscription.destroy
+end
+
 post '/subscriptions' do
   Subscription.create(params[:subscription])
 end

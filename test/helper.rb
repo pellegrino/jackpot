@@ -34,10 +34,10 @@ class MiniTest::Unit::TestCase
     DataMapper.auto_migrate!
   end
 
-  def assert_difference(method, &block)
+  def assert_difference(method,difference=1, &block)
     result = eval(method)
     yield(block)
-    assert_equal result + 1 , eval(method) , "#{method} should have changed by one but it didn't"
+    assert_equal result + difference , eval(method) , "#{method} should have changed by one but it didn't"
   end
 end
 

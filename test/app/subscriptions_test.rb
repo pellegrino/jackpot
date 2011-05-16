@@ -12,12 +12,13 @@ class SubscriptionsAppTest < MiniTest::Unit::TestCase
     Subscription.create :name => "Bronze" , :price => 3
 
     get '/subscriptions'
+
     assert last_response.ok?
     assert_equal Subscription.all.to_json, last_response.body
   end
 
   def test_it_saves_the_subscription
-    assert_difference("Subscription.all.count") do
+    assert_difference("Subscription.count") do
       post '/subscriptions',  subscription: { name: "Gold" , price: 30 }
     end
 
@@ -26,5 +27,17 @@ class SubscriptionsAppTest < MiniTest::Unit::TestCase
     assert_equal "Gold",  subscription.name
     assert_equal 30, subscription.price
   end
+
+  def test_deletes_a_subscription_giving_its_id
+    Subscription.create :name => "ToBeDeleted", :price => 1
+    Subscription.create :name => "Gold", :price => 10
+
+    assert_difference("Subscription.count", -1) do
+      delete '/subscriptions', { id: Subscription.first.id }
+    end
+
+    assert_equal "Gold" , Subscription.first.name
+  end
+
 end
 
