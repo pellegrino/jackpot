@@ -6,10 +6,21 @@ class SubscriptionsClientTest < MiniTest::Unit::TestCase
     # TODO: Move to a fixture
     @json = "[{\"id\":1,\"name\":\"Bronze\",\"price\":3,\"created_at\":\"2011-05-15T22:49:17-03:00\",\"updated_at\":\"2011-05-15T22:49:17-03:00\"},{\"id\":2,\"name\":\"Free\",\"price\":0,\"created_at\":\"2011-05-15T22:49:32-03:00\",\"updated_at\":\"2011-05-15T22:49:32-03:00\"},{\"id\":3,\"name\":\"Gold\",\"price\":10,\"created_at\":\"2011-05-15T22:49:45-03:00\",\"updated_at\":\"2011-05-15T22:49:45-03:00\"},{\"id\":4,\"name\":\"Silver\",\"price\":7,\"created_at\":\"2011-05-15T22:49:58-03:00\",\"updated_at\":\"2011-05-15T22:49:58-03:00\"}]"
 
-    Jackpot::Client.stubs(:get).returns(@json)
+
+
   end
 
+  def test_creates_a_new_subscription
+    subscription_hash = { :name => "Gold", :price => 10 }
+    RestClient.expects(:post).with("http://localhost:4567/subscriptions", { :subscription => subscription_hash })
+
+    Jackpot::Subscription.create subscription_hash
+  end
+
+
   def test_list_every_subscription_jackpot_has
+    RestClient.stubs(:get).returns(@json)
+
     subscriptions = Jackpot::Subscription.list
 
     assert_equal 4 , subscriptions.size
