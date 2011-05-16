@@ -27,9 +27,10 @@ Sinatra::Base.set :logging, false
 
 DataMapper.setup(:default, "sqlite3::memory:")
 
-
 class MiniTest::Unit::TestCase
   include Rack::Test::Methods
+  require 'mocha'
+
   def setup
     DataMapper.auto_migrate!
   end
@@ -37,24 +38,8 @@ class MiniTest::Unit::TestCase
   def assert_difference(method,difference=1, &block)
     result = eval(method)
     yield(block)
-    assert_equal result + difference , eval(method) , "#{method} should have changed by one but it didn't"
+    assert_equal result + difference , eval(method) , "#{method} should have changed by #{difference} but it didn't"
   end
 end
 
-# adopted from: https://gist.github.com/839034
-def context(*args, &block)
-  return super unless (name = args.first) && block
-  klass = Class.new(MiniTest::Unit::TestCase) do
-    def self.test(name, &block)
-      define_method("test_#{name.gsub(/\W/,'_')}", &block) if block
-    end
-    def self.xtest(*args) end
-    def self.setup(&block) define_method(:setup, &block) end
-    def self.teardown(&block) define_method(:teardown, &block) end
-  end
-  (class << klass; self end).send(:define_method, :name) { name.gsub(/\W/,'_') }
-
-#  klass.send :include, DatabaseHelpers
-  klass.class_eval &block
-end
 MiniTest::Unit.autorun

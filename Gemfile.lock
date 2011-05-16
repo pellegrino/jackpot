@@ -69,7 +69,9 @@ GEM
     json (1.4.6)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
+    mime-types (1.16)
     minitest (2.1.0)
+    mocha (0.9.12)
     monkey-lib (0.5.4)
       backports
     rack (1.2.2)
@@ -81,6 +83,8 @@ GEM
       ruby2ruby (~> 1.2)
       ruby_parser (~> 2.0)
       sexp_processor (~> 3.0)
+    rest-client (1.6.1)
+      mime-types (>= 1.16)
     roodi (2.1.0)
       ruby_parser
     ruby-debug-base19 (0.11.25)
@@ -133,9 +137,11 @@ DEPENDENCIES
   i18n (= 0.5.0)
   jeweler (~> 1.5.2)
   minitest
+  mocha
   rack-test (~> 0.5)
   rcov
   reek (~> 1.2.8)
+  rest-client (~> 1.6)
   roodi (~> 2.1.0)
   ruby-debug19
   sinatra (~> 1.2.6)

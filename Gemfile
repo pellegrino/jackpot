@@ -2,6 +2,7 @@ source "http://rubygems.org"
 
 gem 'i18n' , '0.5.0'
 gem 'activemerchant'     , "1.12.1"
+gem 'rest-client'        , '~> 1.6'
 gem 'data_mapper'        , '~> 1.1'
 gem 'dm-core'            , '~> 1.1'
 gem 'dm-sqlite-adapter'  , '~> 1.1'
@@ -27,4 +28,5 @@ end
 group :test do
   gem 'rack-test', '~> 0.5'
   gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'mocha'
 end
