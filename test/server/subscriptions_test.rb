@@ -6,6 +6,14 @@ class SubscriptionsAppTest < MiniTest::Unit::TestCase
     Sinatra::Application
   end
 
+  def test_has_many_customers
+    @gold = Subscription.create :name => "Gold" , :price => 12
+
+    assert_difference("@gold.customers.size") do
+      @gold.customers << Customer.new(:first_name => "Foo",  :last_name => "Bar")
+    end
+  end
+
   def test_fetches_a_subscription
     gold = Subscription.create :name => "Gold" , :price => 12
     silver = Subscription.create :name => "Silver" , :price => 6
