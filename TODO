@@ -10,9 +10,16 @@
 	- Receive payments
 	- Calculate recurring payments
 
+Gateways supported:
+         - Braintree
+         - Authorize.net (CIM)
+         - Payment Express (non-US merchants)
+         - TrustCommerce
+
 
 ** Later version
  - Prorating the payment
+
 
 
 ** It won't ever do

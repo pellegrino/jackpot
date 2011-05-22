@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'mocha'
 
   s.add_dependency 'i18n'               , '0.5.0'
-  s.add_dependency 'activemerchant'     , "1.12.1"
+  s.add_dependency 'activemerchant'     , "~> 1.15"
   s.add_dependency 'rest-client'        , '~> 1.6'
   s.add_dependency 'data_mapper'        , '~> 1.1'
   s.add_dependency 'dm-core'            , '~> 1.1'

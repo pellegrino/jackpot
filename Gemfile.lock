@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     jackpot (0.0.1)
-      activemerchant (= 1.12.1)
+      activemerchant (~> 1.15)
       data_mapper (~> 1.1)
       dm-aggregates (~> 1.1)
       dm-core (~> 1.1)
@@ -17,7 +17,7 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    activemerchant (1.12.1)
+    activemerchant (1.15.0)
       activesupport (>= 2.3.8)
       braintree (>= 2.0.0)
       builder (>= 2.0.0)
@@ -39,7 +39,7 @@ GEM
       dm-transactions (= 1.1.0)
       dm-types (= 1.1.0)
       dm-validations (= 1.1.0)
-    data_objects (0.10.5)
+    data_objects (0.10.6)
       addressable (~> 2.1)
     dm-aggregates (1.1.0)
       dm-core (~> 1.1.0)
@@ -72,8 +72,8 @@ GEM
       uuidtools (~> 2.1.2)
     dm-validations (1.1.0)
       dm-core (~> 1.1.0)
-    do_sqlite3 (0.10.5)
-      data_objects (= 0.10.5)
+    do_sqlite3 (0.10.6)
+      data_objects (= 0.10.6)
     fastercsv (1.5.4)
     i18n (0.5.0)
     json (1.4.6)

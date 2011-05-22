@@ -22,6 +22,11 @@ DataMapper.setup(:default, "sqlite3::memory:")
 
 class MiniTest::Unit::TestCase
   include Rack::Test::Methods
+
+  # payment settings
+  ActiveMerchant::Billing::Base.mode = :test
+  Jackpot::Payment.gateway = ActiveMerchant::Billing::BogusGateway.new
+
   require 'mocha'
 
   def setup
