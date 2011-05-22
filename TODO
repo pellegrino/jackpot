@@ -4,6 +4,12 @@
  - Handle a payment
  - Subscriptions (plans and stuff) (OK)
  - Handle recurring payments (billing each day 1 of the month)
+*** Second week
+	- Manage clients (OK)
+	- Overall settings
+	- Receive payments
+	- Calculate recurring payments
+
 
 ** Later version
  - Prorating the payment

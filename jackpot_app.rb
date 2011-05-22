@@ -4,6 +4,14 @@ require_relative 'lib/jackpot_server'
 require 'sinatra'
 require 'json'
 
+get "/customers" do
+  content_type :json
+  subscriptions = Subscription.all
+
+  subscriptions.to_json
+
+end
+
 delete '/subscriptions' do
   subscription = Subscription.get(params[:id])
   subscription.destroy
@@ -23,6 +31,7 @@ get '/subscriptions' do
   subscriptions = Subscription.all
   subscriptions.to_json
 end
+
 get '/subscriptions/:id' do
   content_type :json
 
