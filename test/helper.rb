@@ -22,12 +22,11 @@ DataMapper.setup(:default, "sqlite3::memory:")
 
 class MiniTest::Unit::TestCase
   include Rack::Test::Methods
+  require 'mocha'
 
   # payment settings
   ActiveMerchant::Billing::Base.mode = :test
   Jackpot::Payment.gateway = ActiveMerchant::Billing::BogusGateway.new
-
-  require 'mocha'
 
   def setup
     DataMapper.auto_migrate!
@@ -37,6 +36,22 @@ class MiniTest::Unit::TestCase
     result = eval(method)
     yield(block)
     assert_equal result + difference , eval(method) , "#{method} should have changed by #{difference} but it didn't"
+  end
+  def customer_with_valid_card
+    @customer_with_valid_card ||= Customer.create(:first_name => "Foo" ,
+                                                  :last_name => "Bar",
+                                                  :credit_card => { :number => "1",
+                                                    :month => "12",
+                                                    :year => Date.today.year + 1,
+                                                    :verification_value => "123" })
+  end
+  def customer_with_invalid_card
+    @customer_with_invalid_card ||= Customer.create(:first_name => "Foo" ,
+                                                  :last_name => "Bar",
+                                                  :credit_card => { :number => "2",
+                                                    :month => "12",
+                                                    :year => Date.today.year + 1,
+                                                    :verification_value => "123" })
   end
 end
 

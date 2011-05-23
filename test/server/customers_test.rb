@@ -1,11 +1,19 @@
 require File.expand_path(File.dirname(__FILE__) + '/../helper')
 
-class CustomersServerest < MiniTest::Unit::TestCase
+class CustomersServerTest < MiniTest::Unit::TestCase
 
   def app
     Sinatra::Application
   end
 
+  def test_create_customer
+    assert_difference("Customer.count") do
+      post '/customers', :customer => {
+        :first_name => "John",
+        :last_name => "Doe"
+      }
+    end
+  end
 
   def test_get_all_customers
     Customer.create :first_name => "Foo" , :last_name => "Bar"

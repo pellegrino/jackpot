@@ -6,10 +6,13 @@ require 'json'
 
 get "/customers" do
   content_type :json
-  subscriptions = Subscription.all
+  customers = Customer.all
 
-  subscriptions.to_json
+  customers.to_json
+end
 
+post "/customers" do
+  Customer.create(params[:customer])
 end
 
 delete '/subscriptions' do

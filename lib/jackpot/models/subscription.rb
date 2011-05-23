@@ -12,5 +12,7 @@ class Subscription
   property :created_at, DateTime
   property :updated_at, DateTime
 
-
+  def recurring_options
+    { :periodicity => :monthly  }
+  end
 end
