@@ -49,14 +49,25 @@ Currently the following methods are supported at the API:
   * Jackpot::Subscription.destroy(id)
   * Jackpot::Subscription.update(id, subscription)
 
-For more information about usage, check tests/server/subscriptions_test.rb and tests/client/subscriptions_client_test.rb
+## Added in second iteration of RMU
+* Basic customer management
+  * Jackpot::Customer
+
+* Payment support (using Active Merchant)
+  * Jackpot::Payment
+  * Supports one time payments
+  * Supports recurring payments
+
+## For the last iteration
+
+* Refine jackpot's configuration
+* Provide examples of a rack app bundled with Jackpot
+
+
 
 ### Jackpot configuration file ###
 In this first iteration, only the database can (and needs to) be
 configured. Jackpot check jackpot.yml for further details.
-
-## For the next iteration ##
-To be defined
 
 ## Contributing to jackpot  ##
 
