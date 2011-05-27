@@ -1,5 +1,5 @@
 ENV['RACK_ENV'] ||= 'development'
-require_relative 'lib/jackpot_server'
+require_relative 'lib/jackpot/server'
 
 require 'sinatra'
 require 'json'
