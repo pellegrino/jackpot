@@ -1,3 +1,5 @@
+require 'rest-client'
+
 require_relative 'clients/subscription'
 require_relative 'clients/customer'
 
