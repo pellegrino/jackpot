@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+begin 
+  require 'jackpot'
+rescue LoadError
+  require 'rubygems'
+  require 'jackpot' 
+end 
+
+
+if ARGV.first == 'client'
+	puts "running client" 
+else
+	puts "running server" 
+end 
