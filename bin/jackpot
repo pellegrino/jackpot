@@ -1,15 +1,18 @@
 #!/usr/bin/env ruby
 
-begin 
+begin
   require 'jackpot'
 rescue LoadError
   require 'rubygems'
-  require 'jackpot' 
-end 
+  require 'jackpot'
+end
 
 
 if ARGV.first == 'client'
-	puts "running client" 
+  require 'jackpot/console'
+
+  puts "Starting client"
+  Jackpot::Console.start
 else
-	puts "running server" 
-end 
+  puts "running server"
+end

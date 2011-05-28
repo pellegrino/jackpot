@@ -35,7 +35,7 @@ The client, simulating an rack based app, accessing Jackpots web
 server, in this version should be initialized in a separate shell
 using the following command
 
-        irb -r ./jackpot_client.rb -r irb/completion
+        bundle exec jackpot client
 
 That will give auto completion support and initialize the client
 pointing to a jackpot instance running in localhost:4567
