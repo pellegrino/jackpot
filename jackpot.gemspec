@@ -3,6 +3,8 @@ $:.push File.expand_path("../lib", __FILE__)
 
 require File.expand_path("../lib/jackpot/version", __FILE__)
 
+DATA_MAPPER_VERSION = '~> 1.1'
+
 Gem::Specification.new do |s|
   s.name = "jackpot"
   s.version     = Jackpot::VERSION
@@ -36,12 +38,12 @@ Gem::Specification.new do |s|
   s.add_dependency 'i18n'               , '0.5.0'
   s.add_dependency 'activemerchant'     , "~> 1.15"
   s.add_dependency 'rest-client'        , '~> 1.6'
-  s.add_dependency 'data_mapper'        , '~> 1.1'
-  s.add_dependency 'dm-core'            , '~> 1.1'
-  s.add_dependency 'dm-sqlite-adapter'  , '~> 1.1'
-  s.add_dependency 'dm-timestamps'      , '~> 1.1'
-  s.add_dependency 'dm-validations'     , '~> 1.1'
-  s.add_dependency 'dm-aggregates'      , '~> 1.1'
-  s.add_dependency 'dm-migrations'      , '~> 1.1'
-  s.add_dependency 'dm-serializer'      , '~> 1.1'
+  s.add_dependency 'data_mapper'        , DATA_MAPPER_VERSION
+  s.add_dependency 'dm-core'            , DATA_MAPPER_VERSION
+  s.add_dependency 'dm-sqlite-adapter'  , DATA_MAPPER_VERSION
+  s.add_dependency 'dm-timestamps'      , DATA_MAPPER_VERSION
+  s.add_dependency 'dm-validations'     , DATA_MAPPER_VERSION
+  s.add_dependency 'dm-aggregates'      , DATA_MAPPER_VERSION
+  s.add_dependency 'dm-migrations'      , DATA_MAPPER_VERSION
+  s.add_dependency 'dm-serializer'      , DATA_MAPPER_VERSION
 end
