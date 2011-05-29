@@ -63,11 +63,18 @@ Currently the following methods are supported at the API:
 * Refine jackpot's configuration
 * Provide examples of a rack app bundled with Jackpot
 
+## Later development (Post RMU)
+
+* Provide more examples of gateway adapters
+* Fully support gateways
+  * Cancel subscriptions
+  * Credit card storage and such
+  * Support non credit card payments such as "Bank Slip"
 
 
 ### Jackpot configuration file ###
-In this first iteration, only the database can (and needs to) be
-configured. Jackpot check jackpot.yml for further details.
+A config/jackpot.yml file is required. Check an example at
+config/jackpot.yml.example
 
 ## Contributing to jackpot  ##
 
