@@ -2,7 +2,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 require File.expand_path("../lib/jackpot/version", __FILE__)
 
-DATA_MAPPER_VERSION = '~> 1.1'
+DATA_MAPPER_VERSION ||= '~> 1.1'
 
 Gem::Specification.new do |s|
   s.name = "jackpot"

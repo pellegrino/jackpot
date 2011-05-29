@@ -23,7 +23,7 @@ jackpot.
 
         rvm use 1.9.2@jackpot --create
         gem install bundler
-        bundler install
+        bundle install
 
 For using jackpot at this current version, its necessary to run this
 rack application using passenger or other rack based web server. In
