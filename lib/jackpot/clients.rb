@@ -9,7 +9,7 @@ module Jackpot
 
   module Client
     include RestClient
-    JACKPOT_URL = "http://localhost:4567"
+    JACKPOT_URL = JACKPOT_CONFIG['server']['url']
 
     def self.get(resource, params={:accept => :json, :content_type => :json })
       RestClient.get("#{JACKPOT_URL}/#{resource}", params)

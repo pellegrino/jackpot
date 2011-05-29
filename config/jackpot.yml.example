@@ -1,10 +1,16 @@
 development:
   database: "sqlite3:///development.db"
-  application:
-    url:
+  server:
+    url: "http://localhost:4567"
 
 test:
   database: "sqlite3:memory:"
+  server:
+    url: "http://localhost:4567"
+
 
 production:
   database: "sqlite3:///production.db"
+  server:
+    url: "http://localhost:4567"
+
