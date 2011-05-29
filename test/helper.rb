@@ -8,6 +8,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
 require 'minitest/unit'
 
+require_relative '../lib/jackpot/clients'
 require_relative '../lib/jackpot/app'
 require_relative '../lib/jackpot'
 

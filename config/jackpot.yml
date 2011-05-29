@@ -1,5 +1,7 @@
 development:
   database: "sqlite3:///development.db"
+  application:
+    url:
 
 test:
   database: "sqlite3:memory:"
