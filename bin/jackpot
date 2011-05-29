@@ -16,7 +16,7 @@ if ARGV.first == 'client'
   Jackpot::Console.start
 elsif ARGV.first == 'server'
   require 'jackpot/app'
-  puts "Starting Jackpot applicatio nin #{ENV['RACK_ENV']} environment"
+  puts "Starting Jackpot application in #{ENV['RACK_ENV']} environment"
   Jackpot::Application.run!
 else
   puts "Invalid option. Available options are `server` or `client`"
