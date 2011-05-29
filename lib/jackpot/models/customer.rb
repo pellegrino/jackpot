@@ -29,7 +29,7 @@ module Jackpot
 
       # Subscribes to a subscription and setup a recurring payment on
       # this.
-      def subscribe!(subscription)
+      def subscribe(subscription)
         Customer.transaction do
           update(:subscription =>  subscription)
           response = setup_recurring_payment
@@ -37,7 +37,7 @@ module Jackpot
       end
 
       # Unsubscribes to current subscription
-      def unsubscribe!
+      def unsubscribe
         Customer.transaction do
           update(:subscription => nil)
         end
