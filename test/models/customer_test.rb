@@ -1,9 +1,10 @@
 require_relative '../helper'
 
 class CustomerModelTest < MiniTest::Unit::TestCase
+  include Jackpot::Models
 
   def test_client_is_valid_without_subscription_associated
-    assert_difference("Customer.count") do
+    assert_difference("Jackpot::Models::Customer.count") do
       @customer = Customer.create :first_name => "John" , :last_name => "Doe"
     end
 

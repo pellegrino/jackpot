@@ -1,17 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/../helper')
 
 class SubscriptionsAppTest < MiniTest::Unit::TestCase
+  include Jackpot::Models
 
   def app
     Sinatra::Application
-  end
-
-  def test_has_many_customers
-    @gold = Subscription.create :name => "Gold" , :price => 12
-
-    assert_difference("@gold.customers.size") do
-      @gold.customers << Customer.new(:first_name => "Foo",  :last_name => "Bar")
-    end
   end
 
   def test_fetches_a_subscription
@@ -38,7 +31,7 @@ class SubscriptionsAppTest < MiniTest::Unit::TestCase
   end
 
   def test_it_saves_the_subscription
-    assert_difference("Subscription.count") do
+    assert_difference("Jackpot::Models::Subscription.count") do
       post '/subscriptions',  subscription: { name: "Gold" , price: 30 }
     end
 
@@ -52,7 +45,7 @@ class SubscriptionsAppTest < MiniTest::Unit::TestCase
     Subscription.create :name => "ToBeDeleted", :price => 1
     Subscription.create :name => "Gold", :price => 10
 
-    assert_difference("Subscription.count", -1) do
+    assert_difference("Jackpot::Models::Subscription.count", -1) do
       delete '/subscriptions', { id: Subscription.first.id }
     end
 

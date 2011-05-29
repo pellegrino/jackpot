@@ -9,6 +9,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'minitest/unit'
 
 require_relative '../jackpot_app'
+require_relative '../lib/jackpot/server'
 require_relative '../lib/jackpot'
 
 require 'rack/test'
@@ -38,7 +39,7 @@ class MiniTest::Unit::TestCase
     assert_equal result + difference , eval(method) , "#{method} should have changed by #{difference} but it didn't"
   end
   def customer_with_valid_card
-    @customer_with_valid_card ||= Customer.create(:first_name => "Foo" ,
+    @customer_with_valid_card ||= Jackpot::Models::Customer.create(:first_name => "Foo" ,
                                                   :last_name => "Bar",
                                                   :credit_card => { :number => "1",
                                                     :month => "12",
@@ -46,12 +47,12 @@ class MiniTest::Unit::TestCase
                                                     :verification_value => "123" })
   end
   def customer_with_invalid_card
-    @customer_with_invalid_card ||= Customer.create(:first_name => "Foo" ,
-                                                  :last_name => "Bar",
-                                                  :credit_card => { :number => "2",
-                                                    :month => "12",
-                                                    :year => Date.today.year + 1,
-                                                    :verification_value => "123" })
+    @customer_with_invalid_card ||= Jackpot::Models::Customer.create(:first_name => "Foo" ,
+                                                    :last_name => "Bar",
+                                                    :credit_card => { :number => "2",
+                                                      :month => "12",
+                                                      :year => Date.today.year + 1,
+                                                      :verification_value => "123" })
   end
 end
 

@@ -1,18 +1,26 @@
 require 'dm-core'
 require 'dm-serializer'
 
-class Subscription
-  include DataMapper::Resource
+module Jackpot
 
-  has n,   :customers
+  module Models
 
-  property :id,         Serial
-  property :name,       String
-  property :price,      Integer
-  property :created_at, DateTime
-  property :updated_at, DateTime
+    class Subscription
+      include DataMapper::Resource
 
-  def recurring_options
-    { :periodicity => :monthly  }
+      has n,   :customers
+
+      property :id,         Serial
+      property :name,       String
+      property :price,      Integer
+      property :created_at, DateTime
+      property :updated_at, DateTime
+
+      def recurring_options
+        { :periodicity => :monthly  }
+      end
+    end
+
   end
+
 end

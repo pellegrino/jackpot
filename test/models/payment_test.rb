@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../helper')
 
 class PaymentTest < MiniTest::Unit::TestCase
-
+  include Jackpot::Models
 
   def setup
     @gold_subscription = Subscription.create(:name => "Gold", :price => 10000)
