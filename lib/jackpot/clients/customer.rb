@@ -5,7 +5,7 @@ module Jackpot
   class Customer
 
     def self.list
-      JSON.parse  Jackpot::Client.get("customers")
+      JSON.parse Jackpot::Client.get("customers")
     end
 
     def self.create(params)

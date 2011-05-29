@@ -6,8 +6,8 @@ require_relative 'models'
 require_relative 'payment'
 require_relative 'app'
 
-
 module Jackpot
+
   class Application < Sinatra::Base
     get "/customers" do
       content_type :json
@@ -48,3 +48,5 @@ module Jackpot
   end
 
 end
+
+Jackpot::Payment::Initializer.init(JACKPOT_CONFIG['payment'])

@@ -1,3 +1,5 @@
+require 'active_merchant'
+
 require 'dm-core'
 require 'dm-serializer'
 require 'dm-transactions'
@@ -43,15 +45,8 @@ module Jackpot
         end
       end
 
-
-
       private
       def setup_recurring_payment
-        Jackpot::Payment.recurring(subscription.price, self, subscription.recurring_options)
-
-      end
-
-      def cancel_recurring_payment
         Jackpot::Payment.recurring(subscription.price, self, subscription.recurring_options)
       end
     end

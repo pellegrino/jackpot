@@ -3,12 +3,11 @@ module Jackpot
 
     module Gateways
 
-      class AuthorizeNet
+      class Bogus
         require 'active_merchant'
 
-        def initialize(params)
-          @gateway = ActiveMerchant::Billing::AuthorizeNetGateway(:login    => params[:login] ,
-                                                                  :password => params[:password])
+        def initialize(params={})
+          @gateway =  ActiveMerchant::Billing::BogusGateway.new
         end
 
         def purchase(amount, credit_card, options={})
@@ -19,6 +18,8 @@ module Jackpot
           @gateway.recurring(amount, credit_card, recurring_options)
         end
       end
+
     end
+
   end
 end

@@ -25,10 +25,6 @@ class MiniTest::Unit::TestCase
   include Rack::Test::Methods
   require 'mocha'
 
-  # payment settings
-  ActiveMerchant::Billing::Base.mode = :test
-  Jackpot::Payment.gateway = ActiveMerchant::Billing::BogusGateway.new
-
   def setup
     DataMapper.auto_migrate!
   end

@@ -1,16 +1,34 @@
 development:
   database: "sqlite3:///development.db"
+  payment:
+    gateway: "authorize_net"
+    mode: :test
+    login: "X"
+    password: "Y"
+
   server:
     url: "http://localhost:4567"
 
 test:
   database: "sqlite3:memory:"
+  payment:
+    gateway: "bogus"
+    mode: :test
+    login: "X"
+    password: "Y"
+
   server:
     url: "http://localhost:4567"
 
 
 production:
   database: "sqlite3:///production.db"
+
+  payment:
+    gateway: "authorize_net"
+    mode: :test
+    login: "X"
+    password: "Y"
+
   server:
     url: "http://localhost:4567"
-
