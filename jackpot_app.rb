@@ -1,8 +1,5 @@
 ENV['RACK_ENV'] ||= 'development'
-require_relative 'lib/jackpot/server'
-
-require 'sinatra'
-require 'json'
+require_relative 'lib/jackpot/app'
 
 
 get "/customers" do
