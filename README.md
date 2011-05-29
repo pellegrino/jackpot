@@ -29,7 +29,7 @@ For using jackpot at this current version, its necessary to run this
 rack application using passenger or other rack based web server. In
 development, its okay to use Webrick with the following command
 
-        ruby jackpot_app.rb
+        bundle exec jackpot server
 
 The client, simulating an rack based app, accessing Jackpots web
 server, in this version should be initialized in a separate shell

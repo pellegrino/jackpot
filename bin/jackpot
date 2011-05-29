@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+ENV['RACK_ENV'] ||= 'development'
+
 begin
   require 'jackpot'
 rescue LoadError
@@ -10,9 +12,12 @@ end
 
 if ARGV.first == 'client'
   require 'jackpot/console'
-
-  puts "Starting client"
+  puts "Starting client in #{ENV['RACK_ENV']} environment"
   Jackpot::Console.start
+elsif ARGV.first == 'server'
+  require 'jackpot/app'
+  puts "Starting Jackpot applicatio nin #{ENV['RACK_ENV']} environment"
+  Jackpot::Application.run!
 else
-  puts "running server"
+  puts "Invalid option. Available options are `server` or `client`"
 end
