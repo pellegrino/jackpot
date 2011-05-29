@@ -4,7 +4,7 @@ class CustomersServerTest < MiniTest::Unit::TestCase
   include Jackpot::Models
 
   def app
-    Sinatra::Application
+    Jackpot::Application
   end
 
   def test_create_customer
