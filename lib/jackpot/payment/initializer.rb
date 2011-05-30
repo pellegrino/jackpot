@@ -9,7 +9,7 @@ module Jackpot
       extend self
 
       def init(payment_configuration)
-        ActiveMerchant::Billing::Base.mode = payment_configuration['mode']
+        Jackpot::Payment::Base.mode    = payment_configuration['mode']
         Jackpot::Payment::Base.gateway = create_gateway(payment_configuration)
       end
 

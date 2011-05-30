@@ -19,6 +19,12 @@ module Jackpot
 
     class Base
       mattr_accessor :gateway
+      mattr_accessor :mode
+
+      def self.mode=(mode)
+        ActiveMerchant::Billing::Base.mode = mode
+      end
+
     end
   end
 
