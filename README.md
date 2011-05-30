@@ -58,15 +58,16 @@ Currently the following methods are supported at the API:
   * Supports one time payments
   * Supports recurring payments
 
-## For the last iteration
+## Added in third iteration of RMU
 
 * Refine jackpot's configuration
-* Provide examples of a rack app bundled with Jackpot
+* Initializer to configure Jackpot payment gateway and its client accordingly
+* Using Jackpot adapters for payment
 
 ## Later development (Post RMU)
 
 * Provide more examples of gateway adapters
-* Fully support gateways
+* Improve Gateway's API
   * Cancel subscriptions
   * Credit card storage and such
   * Support non credit card payments such as "Bank Slip"
