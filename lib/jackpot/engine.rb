@@ -1,4 +1,5 @@
 require 'haml'
+require 'active_merchant'
 
 module Jackpot
   class Engine < Rails::Engine

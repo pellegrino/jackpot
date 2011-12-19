@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     jackpot (0.0.1)
+      activemerchant
       coffee-rails
       haml-rails
       jquery-rails
@@ -25,6 +26,10 @@ GEM
       rack-mount (~> 0.8.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.0.3)
+    activemerchant (1.15.0)
+      activesupport (>= 2.3.8)
+      braintree (>= 2.0.0)
+      builder (>= 2.0.0)
     activemodel (3.1.3)
       activesupport (= 3.1.3)
       builder (~> 3.0.0)
@@ -41,6 +46,8 @@ GEM
       multi_json (~> 1.0)
     ansi (1.4.1)
     arel (2.2.1)
+    braintree (2.10.0)
+      builder
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
