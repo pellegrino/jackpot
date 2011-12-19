@@ -6,13 +6,21 @@ require "jackpot/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "jackpot"
+
   s.version     = Jackpot::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Jackpot."
-  s.description = "TODO: Description of Jackpot."
-  s.files = `git ls-files`.split("\n")
+  s.platform    = Gem::Platform::RUBY
+  s.homepage = "http://github.com/pellegrino/jackpot"
+  s.license = "MIT"
+  s.summary = "Billing for rack apps"
+  s.description = "Billing for rack apps"
+  s.email = "vitorp@gmail.com"
+  s.authors = ["Vitor Pellegrino"]
+
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib"]
+
 
   s.add_dependency "rails", "~> 3.1.3"
   s.add_dependency "jquery-rails"
