@@ -1,0 +1,10 @@
+rvm:
+  - 1.9.3
+
+branches:
+  only:
+    - rails_engine
+
+notifications:
+  irc: "irc.freenode.org#jackpot"
+
