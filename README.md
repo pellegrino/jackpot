@@ -1,5 +1,6 @@
 Jackpot
 ==========
+
 [![Build Status](https://secure.travis-ci.org/pellegrino/jackpot.png)](http://travis-ci.org/pellegrino/jackpot)
 
 WORK IN PROGRESS/ Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with.
@@ -91,6 +92,9 @@ config/jackpot.yml.example
 * is fine, but please isolate to its own commit so I can cherry-pick
 * around it.
 
+## More information
+
+There is a #jackpot channel @ freenode for this project. Feel free to stop by to ask questions and interact with other users. 
 
 
 
