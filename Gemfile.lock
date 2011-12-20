@@ -4,6 +4,7 @@ PATH
     jackpot (0.0.1)
       activemerchant
       coffee-rails
+      formtastic-bootstrap
       haml-rails
       jquery-rails
       rails (~> 3.1.3)
@@ -73,7 +74,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.1.3)
+    coffee-script-source (1.2.0)
     database_cleaner (0.7.0)
     diff-lcs (1.1.3)
     erubis (2.7.0)
@@ -85,6 +86,11 @@ GEM
       factory_girl (~> 2.3.0)
       railties (>= 3.0.0)
     ffi (1.0.11)
+    formtastic (2.0.2)
+      rails (~> 3.0)
+    formtastic-bootstrap (1.1.0)
+      formtastic
+      rails (~> 3.1.0)
     haml (3.1.4)
     haml-rails (0.3.4)
       actionpack (~> 3.0)

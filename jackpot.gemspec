@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency "sass-rails"
   s.add_dependency "haml-rails"
   s.add_dependency "activemerchant"
+  s.add_dependency "formtastic-bootstrap"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "capybara", "~> 1.1"

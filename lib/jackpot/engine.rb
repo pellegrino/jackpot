@@ -1,5 +1,6 @@
 require 'haml'
 require 'active_merchant'
+require 'formtastic-bootstrap'
 
 module Jackpot
   class Engine < Rails::Engine
@@ -11,3 +12,4 @@ module Jackpot
     end
   end
 end
+Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder

@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Jackpot</title>
-  <%= stylesheet_link_tag    "jackpot/application" %>
-  <%= javascript_include_tag "jackpot/application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Jackpot</title>
+    <%= stylesheet_link_tag    "jackpot/application" %>
+    <%= javascript_include_tag "jackpot/application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">OrigamiHub</a> 
+          TABS WILL GO HERE
+        </div>
+      </div>
+    </div>
+    <%= yield %>
 
-<%= yield %>
-
-</body>
+  </body>
 </html>
