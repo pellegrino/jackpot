@@ -1,5 +1,6 @@
 Jackpot
 ==========
+# WORK IN PROGRESS
 
 [![Build Status](https://secure.travis-ci.org/pellegrino/jackpot.png)](http://travis-ci.org/pellegrino/jackpot)
 
