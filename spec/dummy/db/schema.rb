@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219172502) do
+ActiveRecord::Schema.define(:version => 20111221002616) do
 
-  create_table "jackpot_posts", :force => true do |t|
-    t.string   "title"
+  create_table "jackpot_payments", :force => true do |t|
+    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

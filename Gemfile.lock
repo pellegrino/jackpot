@@ -185,6 +185,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-jdbcsqlite3-adapter
   bootstrap-sass
   capybara (~> 1.1)
   database_cleaner
