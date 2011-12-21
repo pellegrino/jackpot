@@ -1,4 +1,4 @@
-script: "bundle exec rake -f spec/dummy/Rakefile db:test:prepare db:migrate; bundle exec rake spec"
+script: "bundle exec rake -f spec/dummy/Rakefile db:migrate db:test:prepare; bundle exec rake spec"
 
 rvm:
   - 1.9.2
