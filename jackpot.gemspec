@@ -30,7 +30,6 @@ Gem::Specification.new do |s|
   s.add_dependency "activemerchant"
   s.add_dependency "formtastic-bootstrap"
 
-  s.add_development_dependency "sqlite3"
   s.add_development_dependency "capybara", "~> 1.1"
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency "factory_girl_rails"
