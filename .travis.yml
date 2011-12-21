@@ -1,11 +1,9 @@
 bundler_args: "--without development"
+script: "bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate; bundle exec rspec spec"
 
 rvm:
   - 1.9.2
-
-branches:
-  only:
-    - rails_engine
+  - 1.9.3
 
 notifications:
   irc: "irc.freenode.org#jackpot"
