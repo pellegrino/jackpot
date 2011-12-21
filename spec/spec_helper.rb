@@ -17,7 +17,8 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
@@ -27,7 +28,4 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
-  config.include Jackpot::Engine.routes.url_helpers 
-  config.include Capybara::DSL, :example_group => { :file_path => /\bspec\/requests\// }
 end

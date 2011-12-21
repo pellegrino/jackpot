@@ -1,3 +1,5 @@
+ActiveMerchant::Billing::Base.mode = :test
+
 Dummy::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 

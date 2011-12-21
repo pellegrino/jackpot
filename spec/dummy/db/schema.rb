@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(:version => 20111221002616) do
 
   create_table "jackpot_payments", :force => true do |t|
     t.string   "token"
+    t.integer  "amount"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

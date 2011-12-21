@@ -12,6 +12,7 @@ feature "Receive Payments", %q{
     visit "/payment.html"
 
     within "form" do
+      fill_in "amount",                 :with => '10000' 
       fill_in "credit_card[number]",    :with => '4111111111111111' 
       fill_in "credit_card[month]",     :with => '8' 
       fill_in "credit_card[year]",      :with => '2009' 
