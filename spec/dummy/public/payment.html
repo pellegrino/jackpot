@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dummy Payment Information</title>
+  <style type="text/css">
+    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+    div.dialog {
+      width: 25em;
+      padding: 0 4em;
+      margin: 4em auto 0 auto;
+      border: 1px solid #ccc;
+      border-right-color: #999;
+      border-bottom-color: #999;
+    }
+    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+  </style>
+</head>
+
+<body>
+  <!-- This file lives in public/payment.html -->
+  <div class="dialog">
+    <h1>Dummy payment information</h1>
+  </div>
+  <form name="payment" action="/billing/payments" method="POST"> 
+    <ol> 
+      <li>
+        <label for="credit_card[number]">Number</label>  
+        <input type="text" name="credit_card[number]">
+      </li>
+      <li>
+        <label for="credit_card[month]">Month</label>  
+        <input type="text" name="credit_card[month]">
+      </li>
+      <li>
+        <label for="credit_card[year]">Year</label>  
+        <input type="text" name="credit_card[year]">
+      </li>
+      <li>
+        <label for="credit_card[first_name]">First Name</label>  
+        <input type="text" name="credit_card[first_name]">
+      </li>
+      <li>
+        <label for="credit_card[last_name]">Last Name</label>  
+        <input type="text" name="credit_card[last_name]">
+      </li>
+      <li>
+        <label for="credit_card[verification_code]">Verification Code</label>  
+        <input type="text" name="credit_card[verification_code]">
+      </li>
+      <li>
+        <input type="submit" name="confirm" value="confirm"> 
+      </li>
+    <ol>
+  <form>
+</body>
+</html>

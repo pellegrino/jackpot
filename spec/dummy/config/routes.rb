@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-
-  mount Jackpot::Engine => "/jackpot"
+  mount Jackpot::Engine => "/billing"
 end
