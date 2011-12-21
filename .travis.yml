@@ -1,4 +1,4 @@
-script: "bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate; bundle exec rake spec"
+script: "bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate db:test:prepare; bundle exec rspec spec"
 
 rvm:
   - 1.9.2
@@ -6,4 +6,3 @@ rvm:
 
 notifications:
   irc: "irc.freenode.org#jackpot"
-
