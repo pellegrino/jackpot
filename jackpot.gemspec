@@ -8,7 +8,6 @@ Gem::Specification.new do |s|
   s.name        = "jackpot"
 
   s.version     = Jackpot::VERSION
-  s.platform    = Gem::Platform::RUBY
   s.homepage = "http://github.com/pellegrino/jackpot"
   s.license = "MIT"
   s.summary = "Billing for rack apps"
@@ -17,10 +16,6 @@ Gem::Specification.new do |s|
   s.authors = ["Vitor Pellegrino"]
 
   s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
-
 
   s.add_dependency "rails", "~> 3.1.0"
   s.add_dependency "jquery-rails"
@@ -35,5 +30,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency "factory_girl_rails", ">= 1.2.0"
   s.add_development_dependency 'rspec-rails', "~> 2.6"
-  s.add_development_dependency 'turn'
+  s.add_development_dependency 'launchy'
+  s.add_development_dependency 'rails', "~> 3.1.0"
 end

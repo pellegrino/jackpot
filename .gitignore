@@ -1,6 +1,13 @@
 .bundle/
-log/*.log
 pkg/
+*.sqlite3
+*.log
+.rvmrc
+.rbenv-version
+*.gem
+*.gems
+tmp
+*.sw*
+spec/dummy/log
 spec/dummy/db/*.sqlite3
-spec/dummy/log/*.log
-spec/dummy/tmp/
+*.rbc
