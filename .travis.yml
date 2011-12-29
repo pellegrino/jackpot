@@ -1,5 +1,3 @@
-script: "bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate db:test:prepare; bundle exec rspec spec"
+script: "bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate db:test:prepare; bundle exec rake spec"
 rvm:
-  - 1.9.2
   - 1.9.3
-  - rbx-2.0
