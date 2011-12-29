@@ -8,5 +8,4 @@ gem "jquery-rails"
 gem "bootstrap-sass"
 
 # database 
-gem 'sqlite3', :platform => :ruby
-gem 'activerecord-jdbcsqlite3-adapter', :platform => :jruby
+gem 'mysql2', :platform => :ruby

@@ -30,7 +30,7 @@ GEM
     active_utils (1.0.1)
       activesupport (>= 2.3.11)
       i18n
-    activemerchant (1.20.0)
+    activemerchant (1.20.1)
       active_utils (>= 1.0.1)
       activesupport (>= 2.3.11)
       braintree (>= 2.0.0)
@@ -54,8 +54,8 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.6)
     arel (2.2.1)
-    bootstrap-sass (1.4.2)
-      sass-rails (~> 3.1.0)
+    bootstrap-sass (1.4.3)
+      sass-rails (~> 3.1)
     braintree (2.13.1)
       builder (>= 2.0.0)
     builder (3.0.0)
@@ -66,7 +66,7 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
-    childprocess (0.2.3)
+    childprocess (0.2.4)
       ffi (~> 1.0.6)
     coffee-rails (3.1.1)
       coffee-script (>= 2.2.0)
@@ -102,7 +102,7 @@ GEM
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
-    json (1.6.3)
+    json (1.6.4)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     mail (2.3.0)
@@ -113,9 +113,10 @@ GEM
     money (3.7.1)
       i18n (~> 0.4)
     multi_json (1.0.4)
+    mysql2 (0.3.11)
     nokogiri (1.5.0)
     polyglot (0.3.3)
-    rack (1.3.5)
+    rack (1.3.6)
     rack-cache (1.1)
       rack (>= 0.4)
     rack-mount (0.8.3)
@@ -171,7 +172,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.5)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.10)
@@ -185,7 +185,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-jdbcsqlite3-adapter
   bootstrap-sass
   capybara (~> 1.1)
   database_cleaner
@@ -193,6 +192,6 @@ DEPENDENCIES
   jackpot!
   jquery-rails
   launchy
+  mysql2
   rails (~> 3.1.0)
   rspec-rails (~> 2.6)
-  sqlite3
