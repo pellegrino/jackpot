@@ -3,5 +3,7 @@
 - if @payments.present? 
   #latest-payments
     - @payments.each do |payment|
-      %p= payment.customer_name
+      %p.customer-name= payment.customer_name
+      %p.amount=        number_to_currency(payment.amount)
+      %p.date_created=  distance_of_time_in_words_to_now(payment.created_at)
 
