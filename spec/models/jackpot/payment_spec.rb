@@ -36,6 +36,7 @@ module Jackpot
                                    :credit_card => card_hash) 
 
           payment.amount.should          == 10000
+          payment.customer_name.should   == 'John Doe'
           payment.description.should_not be_nil 
         end 
       end 

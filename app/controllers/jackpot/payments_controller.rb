@@ -1,8 +1,16 @@
 module Jackpot
   class PaymentsController < ApplicationController
+
     def create
-      render :status => 200  
+      Payment.create(params[:payment])
+      respond_to do |format|
+        format.html { redirect_to(payments_url, notice: "Payment recorded successfully")} 
+      end 
     end
+
+    def index
+      @payments = Payment.all
+    end 
  
   end
 end

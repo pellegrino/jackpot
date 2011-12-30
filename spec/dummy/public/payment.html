@@ -24,32 +24,32 @@
   <form name="payment" action="/billing/payments" method="POST"> 
     <ol> 
       <li>
-        <label for="amount">Amount</label>  
-        <input type="text" name="amount">
+        <label for="payment[amount]">Amount</label>  
+        <input type="text" name="payment[amount]">
       </li>
       <li>
-        <label for="credit_card[number]">Number</label>  
-        <input type="text" name="credit_card[number]">
+        <label for="payment[credit_card][number]">Number</label>  
+        <input type="text" name="payment[credit_card][number]">
       </li>
       <li>
-        <label for="credit_card[month]">Month</label>  
-        <input type="text" name="credit_card[month]">
+        <label for="payment[credit_card][month]">Month</label>  
+        <input type="text" name="payment[credit_card][month]">
       </li>
       <li>
-        <label for="credit_card[year]">Year</label>  
-        <input type="text" name="credit_card[year]">
+        <label for="payment[credit_card][year]">Year</label>  
+        <input type="text" name="payment[credit_card][year]">
       </li>
       <li>
-        <label for="credit_card[first_name]">First Name</label>  
-        <input type="text" name="credit_card[first_name]">
+        <label for="payment[credit_card][first_name]">First Name</label>  
+        <input type="text" name="payment[credit_card][first_name]">
       </li>
       <li>
-        <label for="credit_card[last_name]">Last Name</label>  
-        <input type="text" name="credit_card[last_name]">
+        <label for="payment[credit_card][last_name]">Last Name</label>  
+        <input type="text" name="payment[credit_card][last_name]">
       </li>
       <li>
-        <label for="credit_card[verification_code]">Verification Code</label>  
-        <input type="text" name="credit_card[verification_code]">
+        <label for="payment[credit_card][verification_value]">Verification Value</label>  
+        <input type="text" name="payment[credit_card][verification_value]">
       </li>
       <li>
         <input type="submit" name="confirm" value="confirm"> 

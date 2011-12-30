@@ -1,0 +1,7 @@
+%h1 Payments 
+
+- if @payments.present? 
+  #latest-payments
+    - @payments.each do |payment|
+      %p= payment.customer_name
+
