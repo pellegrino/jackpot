@@ -1,3 +1,5 @@
-- flash.each do |type, value|
-  .flash{ :class => "alert-message #{type.to_s}" }
-    = value 
+- flash.each do |type, message|
+  .flash.alert-message.fade.in{ "data-alert" => "alert", :class => twitterized_type(type) }
+    %a.close{:href => "#"} ×
+    %p
+      = message
