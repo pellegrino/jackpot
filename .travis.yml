@@ -1,3 +1,11 @@
 script: "bundle exec rake db:drop db:create:all db:migrate; bundle exec rake -f spec/dummy/Rakefile db:test:clone RAILS_ENV=test; bundle exec rake spec"
 rvm:
   - 1.9.3
+  - 1.9.2
+branches:
+  only:
+    - rails_engine
+
+notifications:
+  irc: "irc.freenode.org#jackpot"
+
