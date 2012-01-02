@@ -1,0 +1,10 @@
+%p
+  %b Name:
+  = @subscription.name
+%p
+  %b Price:
+  = @subscription.price
+
+= link_to 'Edit', edit_subscription_path(@subscription)
+\|
+= link_to 'Back', subscriptions_path
