@@ -7,82 +7,43 @@ Jackpot
 
 WORK IN PROGRESS/ Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with.
 
-My May 2011 RMU project.
+It started out as my may 2011 session @ [[Mendicant University][http://mendicantuniversity.org] project and now its finally taking shape.
 
-## Goals for the first prototype release ##
+## Contributing to jackpot  ##
 
-* Handle recurring payments
-* Basic subscription management (CRUD operations)
-
-## First iteration ##
-* Created the jackspot gem, which is a consumer for the rack app which
-supports basic subscription management
-
-### How to use it ###
+### How run jackpot locally 
 This application uses bundler and rvm for dependencies management, so its
 recommended to create a gemset to test it.
 
 Run the following commands at the directory where you've checked out
 jackpot.
 
-        rvm use 1.9.2@jackpot --create
+        rvm use 1.9.3@jackpot --create
         gem install bundler
         bundle install
 
-For using jackpot at this current version, its necessary to run this
-rack application using passenger or other rack based web server. In
-development, its okay to use Webrick with the following command
+### Migrations and RSpec 
 
-        bundle exec jackpot server
+Since this project is basically a Rails Engine, some additional steps are required to run the spec suite locally. Its a pretty straightfoward process, don't worry much about it. 
 
-The client, simulating an rack based app, accessing Jackpots web
-server, in this version should be initialized in a separate shell
-using the following command
+Before running the specs for the first time, or after adding a new migration, make sure to run the following command 
 
-        bundle exec jackpot client
+    bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate db:test:prepare
 
-That will give auto completion support and initialize the client
-pointing to a jackpot instance running in localhost:4567
+That will create and initialize the database for you. The dataase.yml file used is the one located at spec/dummy/config/database.yml. If changed something that did require a migration to be created, make sure you've copied that one to spec/dummy/db/migrate folder.
+   
+    bundle exec rake -f spec/dummy/Rakefile jackpot:install:migrations 
 
-Currently the following methods are supported at the API:
-
-* Basic subscription management
-  * Jackpot::Subscription.list
-  * Jackpot::Subscription.get(id)
-  * Jackpot::Subscription.create(subscription)
-  * Jackpot::Subscription.destroy(id)
-  * Jackpot::Subscription.update(id, subscription)
-
-## Added in second iteration of RMU
-* Basic customer management
-  * Jackpot::Customer
-
-* Payment support (using Active Merchant)
-  * Jackpot::Payment
-  * Supports one time payments
-  * Supports recurring payments
-
-## Added in third iteration of RMU
-
-* Refine jackpot's configuration
-* Initializer to configure Jackpot payment gateway and its client accordingly
-* Using Jackpot adapters for payment
-
-## Later development (Post RMU)
-
-* Provide more examples of gateway adapters
-* Improve Gateway's API
-  * Cancel subscriptions
-  * Credit card storage and such
-  * Support non credit card payments such as "Bank Slip"
+The command above will copy every migration you created at Jackpot to the dummy app folder. Also, make sure to run the database initializer command above or your changes won't be reflected. 
 
 
-### Jackpot configuration file ###
-A config/jackpot.yml file is required. Check an example at
-config/jackpot.yml.example
+### Rails development Server 
 
+If you ran the migrations correctly, you can start the dummy app as you normally would start a regular Rails 3.x app.
 
-## Contributing to jackpot  ##
+    bundle exec rails server 
+
+### General advice   
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
@@ -95,11 +56,9 @@ config/jackpot.yml.example
 * is fine, but please isolate to its own commit so I can cherry-pick
 * around it.
 
-## More information
+### Get in contact! 
 
 There is a #jackpot channel @ freenode for this project. Feel free to stop by to ask questions and interact with other users. 
-
-
 
 ## Copyright ##
 
