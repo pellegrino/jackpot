@@ -13,7 +13,7 @@
     %tr
       %td= customer.email
       %td= customer.description
-      %td= customer.subscription_id
+      %td= subscription_name_when_available(customer)
       %td= link_to 'Show', customer
       %td= link_to 'Edit', edit_customer_path(customer)
       %td= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete

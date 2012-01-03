@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :subscription , class: Jackpot::Subscription do
-    name "MyString"
+    name "Gold"
     price 1
   end
 end
