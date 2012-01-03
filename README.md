@@ -1,5 +1,6 @@
 Jackpot
 ==========
+
 # WORK IN PROGRESS
 
 [![Build Status](https://secure.travis-ci.org/pellegrino/jackpot.png)](http://travis-ci.org/pellegrino/jackpot)
@@ -80,6 +81,7 @@ Currently the following methods are supported at the API:
 A config/jackpot.yml file is required. Check an example at
 config/jackpot.yml.example
 
+
 ## Contributing to jackpot  ##
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
@@ -101,6 +103,6 @@ There is a #jackpot channel @ freenode for this project. Feel free to stop by to
 
 ## Copyright ##
 
-Copyright (c) 2011 Vitor Pellegrino. See LICENSE.txt for
+Copyright (c) 2011-2012 Vitor Pellegrino. See LICENSE.txt for
 further details.
 
