@@ -5,8 +5,9 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'shoulda-matchers'
 require 'database_cleaner'
-require 'factory_girl'
+require 'factory_girl_rails'
 
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 

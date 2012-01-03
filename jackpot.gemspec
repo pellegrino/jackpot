@@ -31,5 +31,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "factory_girl_rails", ">= 1.2.0"
   s.add_development_dependency 'rspec-rails', "~> 2.6"
   s.add_development_dependency 'launchy'
-  s.add_development_dependency 'rails', "~> 3.1.0"
+  s.add_development_dependency 'shoulda-matchers', "~> 1.0.0"
 end

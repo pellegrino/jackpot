@@ -5,6 +5,16 @@
   %b Price:
   = @subscription.price
 
+
+- if @subscription.customers.present? 
+  %ul#subscribers
+    - @subscription.customers.each do |subscriber|
+      %li
+        = subscriber.email
+    -
+
+    %p john@doe.net
+
 = link_to 'Edit', edit_subscription_path(@subscription)
 \|
 = link_to 'Back', subscriptions_path
