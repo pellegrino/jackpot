@@ -7,7 +7,7 @@ Jackpot
 
 WORK IN PROGRESS/ Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with.
 
-It started out as my may 2011 session @ [[Mendicant University][http://mendicantuniversity.org] project and now its finally taking shape.
+It started out as my may 2011 session @ [[Mendicant University][http://mendicantuniversity.org]] project and now its finally taking shape.
 
 ## Contributing to jackpot  ##
 
