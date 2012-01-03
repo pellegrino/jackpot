@@ -11,7 +11,7 @@ It started out as my may 2011 session @ [[Mendicant University][http://mendicant
 
 ## Contributing to jackpot  ##
 
-### How run jackpot locally 
+### How to run jackpot locally 
 This application uses bundler and rvm for dependencies management, so its
 recommended to create a gemset to test it.
 
