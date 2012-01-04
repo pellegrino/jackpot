@@ -56,7 +56,7 @@ GEM
     arel (2.2.1)
     bootstrap-sass (1.4.3)
       sass-rails (~> 3.1)
-    braintree (2.13.1)
+    braintree (2.13.2)
       builder (>= 2.0.0)
     builder (3.0.0)
     capybara (1.1.2)

@@ -5,11 +5,28 @@ Jackpot
 
 [![Build Status](https://secure.travis-ci.org/pellegrino/jackpot.png)](http://travis-ci.org/pellegrino/jackpot)
 
-WORK IN PROGRESS/ Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with.
+_WORK IN PROGRESS_
+
+ Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with.
 
 It started out as my may 2011 session @ [Mendicant University](http://mendicantuniversity.org) project and now its finally taking shape.
 
-## Contributing to jackpot  ##
+## Recurring Payments  
+
+Even though some gateways will provide you a recurring payment option, normally it isn't a fire and forget process as you'ld normally imagine. Also, its needed to have information about when this payments actually did happen so you can send invoices accordingly. That being said, in Jackpot we opt to use Gateways that support credit card storage, instead of relying on Gateway Recurring payments. 
+
+
+
+
+The main goal of this project is to provide billing to rails apps via a rails-engine. 
+
+### List of supported gateways
+
+_TODO_ 
+
+* Braintree
+
+## Contributing to jackpot  ## 
 
 ### How to run jackpot locally 
 This application uses bundler and rvm for dependencies management, so its
