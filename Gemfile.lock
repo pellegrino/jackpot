@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     jackpot (0.0.1)
-      activemerchant
+      activemerchant (~> 1.20.1)
       coffee-rails
       formtastic-bootstrap
       haml-rails
@@ -194,6 +194,5 @@ DEPENDENCIES
   jquery-rails
   launchy
   mysql2
-  rails (~> 3.1.0)
   rspec-rails (~> 2.6)
   shoulda-matchers (~> 1.0.0)
