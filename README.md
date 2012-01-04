@@ -18,9 +18,9 @@ recommended to create a gemset to test it.
 Run the following commands at the directory where you've checked out
 jackpot.
 
-        rvm use 1.9.3@jackpot --create
-        gem install bundler
-        bundle install
+    rvm use 1.9.3@jackpot --create
+    gem install bundler
+    bundle install
 
 ### Migrations and RSpec 
 
