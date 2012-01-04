@@ -3,7 +3,7 @@ require 'spec_helper'
 module Jackpot 
   describe Jackpot::SubscriptionsController do
     def valid_attributes
-      {}
+      {name: "Gold"}
     end
 
     describe "GET index" do
