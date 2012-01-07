@@ -1,3 +1,4 @@
+.yardoc
 .bundle/
 pkg/
 *.sqlite3
