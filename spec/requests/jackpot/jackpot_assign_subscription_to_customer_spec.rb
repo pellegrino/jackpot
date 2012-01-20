@@ -15,17 +15,21 @@ feature "Assign Subscription to customer", %q{
     visit customers_path
     click_link "New Customer"
 
-
     fill_in "customer[email]", with: "john@doe.net"
     select  'Gold', :from => 'Subscription'
 
     click_button "Create Customer"
 
+    # Customer created successfully 
     page.should have_css(".alert-message.success") 
+    # Subscription is listed at Customer details 
+    page.should have_content("Gold")
     
     visit subscription_path(@subscription)
     within("#subscribers") do
       page.should have_content("john@doe.net")
     end 
+
   end 
+ 
 end 

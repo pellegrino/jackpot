@@ -8,7 +8,7 @@
   = @customer.description
 %p
   %b Subscription:
-  = @customer.subscription_id
+  = @customer.subscription.name if @customer.subscription.present? 
 
 = link_to 'Edit', edit_customer_path(@customer)
 \|

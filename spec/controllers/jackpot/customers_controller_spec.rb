@@ -3,12 +3,28 @@ require 'spec_helper'
 module Jackpot 
   describe CustomersController do
 
-    # This should return the minimal set of attributes required to create a valid
-    # Customer. As you add validations to Customer, be sure to
-    # update the return value of this method accordingly.
     def valid_attributes
       {}
     end
+
+    let(:customer) {  Customer.create! valid_attributes } 
+
+    describe "PUT edit_credit_card" do
+
+      it "fetches requested customer" do
+        Customer.any_instance.should_receive(:update_credit_card_number).with({"number" => '1' })
+        put :credit_card, :id => customer.id , :credit_card => { :number => '1' } , :use_route => "jackpot"
+      end 
+
+      it "sets a success message" do
+        customer.stub!(:update_credit_card_number).with({"number" => '1'}).and_return(true)
+        put :credit_card, :id => customer.id , :credit_card => { :number => '1' } , :use_route => "jackpot"
+        should set_the_flash
+      end 
+
+
+
+    end 
 
     describe "GET index" do
       it "assigns all customers as @customers" do

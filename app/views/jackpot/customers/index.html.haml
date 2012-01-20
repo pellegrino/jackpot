@@ -10,7 +10,7 @@
     %th
 
   - @customers.each do |customer|
-    %tr
+    %tr{ id: "customer-#{customer.id}" }
       %td= customer.email
       %td= customer.description
       %td= subscription_name_when_available(customer)

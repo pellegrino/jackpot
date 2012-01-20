@@ -1,6 +1,11 @@
 %h1 Editing customer
 
-= render 'form'
+#form-basic-information
+  %h2 Basic information
+  = render 'form'
+
+#credit-card-information
+  = render "credit_card_form"
 
 = link_to 'Show', @customer
 \|
