@@ -13,7 +13,9 @@ module Jackpot
       write_attribute  :credit_card_number            , "XXXX-XXXX-XXXX-#{original_number.last(4)}"
       write_attribute  :credit_card_expiry_month      ,  card_hash["month"] 
       write_attribute  :credit_card_expiry_year       ,  card_hash["year"] 
-      write_attribute  :credit_card_verification_value,  card_hash["verification_value"] 
+
+      self.credit_card_verification_value = card_hash["verification_value"] 
+
       save
     end 
 

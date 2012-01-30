@@ -39,7 +39,7 @@ describe Jackpot::Customer do
 
     context "when persisting" do
 
-      let(:retrieved_customer) { customer.reload } 
+      let(:retrieved_customer) { Jackpot::Customer.find customer } 
 
       it "should persist in the database the ONLY last four digits" do
         retrieved_customer.credit_card_number.should      == 'XXXX-XXXX-XXXX-4242'
