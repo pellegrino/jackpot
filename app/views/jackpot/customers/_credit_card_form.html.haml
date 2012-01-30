@@ -1,6 +1,8 @@
 = form_tag(credit_card_customer_path, :method => :put , :id => "credit-card-form") do
+
   %fieldset
     %legend Credit Card Details 
+
   .optional.text.clearfix#credit_card_number
     = label_tag      "credit_card[number]", 'Number' 
     = text_field_tag "credit_card[number]" 
@@ -12,6 +14,10 @@
   .optional.text.clearfix#credit_card_year
     = label_tag      "credit_card[year]",   "Year"
     = text_field_tag "credit_card[year]" 
+
+  .optional.text.clearfix#credit_card_year
+    = label_tag      "credit_card[verification_value]",   "Verification Value"
+    = text_field_tag "credit_card[verification_value]" 
 
   .actions
     = submit_tag     "Confirm"

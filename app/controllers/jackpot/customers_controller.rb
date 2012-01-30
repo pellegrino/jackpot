@@ -5,9 +5,10 @@ module Jackpot
     # Assigns a credit card to the given customer
     def credit_card 
       @customer = Customer.find           params[:id]
-      @customer.update_credit_card_number params[:credit_card]
+      @customer.update_credit_card        params[:credit_card]
       respond_to do |format|
-        format.html { redirect_to @customer, notice: "This customer's card was successfully updated." } 
+        format.html { redirect_to @customer, 
+                        notice: "This customer's card was successfully updated." } 
         format.json { head :ok }
       end 
     end 

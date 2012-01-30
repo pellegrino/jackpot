@@ -1,46 +1,59 @@
 require 'spec_helper'
 
 describe Jackpot::Customer do
-  it { should     belong_to(:subscription)                     } 
-  it { should_not allow_mass_assignment_of :credit_card_number } 
+  it { should     belong_to                :subscription                   } 
+  it { should_not allow_mass_assignment_of :credit_card_number             } 
+  it { should_not allow_mass_assignment_of :credit_card_expiry_year        } 
+  it { should_not allow_mass_assignment_of :credit_card_expiry_month       } 
 
-  let(:card_hash) do 
-    { :number     => '5105105105105100',
-      :month      => '12',
-      :year       => '2012',
-      :first_name => 'John',
-      :last_name  => 'Doe',
-      :verification_value  => '123 ' }
-  end 
   let(:customer) { Jackpot::Customer.new } 
 
-  describe ".update_credit_card_number=" do
+
+  describe ".expiration_date" do
+
+    it "should return this card expiration date" do
+      customer.update_credit_card credit_card_hash
+      customer.expiration_date.should == "1/#{next_year}"
+    end 
+
+  end 
+
+
+  describe ".update_credit_card_number" do
 
     before(:each) do 
-      customer.update_credit_card_number card_hash
+      customer.update_credit_card credit_card_hash
     end 
 
     it "should masquerade the card number" do
-      customer.credit_card_number.should == 'XXXX-XXXX-XXXX-5100'
+      customer.credit_card_number.should                == 'XXXX-XXXX-XXXX-4242'
     end 
 
-    it "should persist the card number" do 
+    it { customer.credit_card_expiry_month.should       == 1          } 
+    it { customer.credit_card_expiry_year.should        == next_year  } 
+
+    it "should persist the card information" do 
       reloaded_customer = customer.reload
-      reloaded_customer.credit_card_number.should == 'XXXX-XXXX-XXXX-5100'
+      reloaded_customer.credit_card_number.should == 'XXXX-XXXX-XXXX-4242'
     end 
 
     context "when persisting" do
-      before(:each) do
-        customer.save!
-      end 
-      let(:retrieved_customer) { Jackpot::Customer.last } 
+
+      let(:retrieved_customer) { customer.reload } 
 
       it "should persist in the database the ONLY last four digits" do
-        retrieved_customer.credit_card_number.should      == 'XXXX-XXXX-XXXX-5100'
+        retrieved_customer.credit_card_number.should      == 'XXXX-XXXX-XXXX-4242'
       end 
+
       it "should NEVER persist in the database the actual card number" do
-        retrieved_customer.credit_card_number.should_not  == '5105105105105100' 
+        retrieved_customer.credit_card_number.should_not  == credit_card_hash[:number]
       end 
+
+      it "should NEVER persist in the database the verification value" do 
+        retrieved_customer.credit_card_verification_value.should_not == 123       
+        retrieved_customer.credit_card_verification_value.should be_nil
+      end
+
     end 
   end
 end 

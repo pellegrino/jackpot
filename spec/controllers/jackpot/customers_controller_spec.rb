@@ -7,25 +7,23 @@ module Jackpot
       {}
     end
 
-    let(:customer ) {  Customer.create! valid_attributes } 
-    let(:card_hash) { { "number" => '371449635398431' }   } 
+    let(:customer) {  Customer.create! valid_attributes } 
 
     describe "PUT edit_credit_card" do
 
       it "updates card number"  do
-        customer = Customer.create! valid_attributes
-        Customer.any_instance.should_receive(:update_credit_card_number).with(card_hash)
+        Customer.any_instance.should_receive(:update_credit_card).with(valid_attributes)
         valid_request 
       end 
 
       it "sets the flash message" do 
-        Customer.any_instance.stub(:update_attributes).with(card_hash)
+        Customer.any_instance.stub(:update_credit_card).with(valid_attributes)
         valid_request
         should set_the_flash
       end  
 
       def valid_request
-        put :credit_card, :id => customer.id , :credit_card => card_hash  , :use_route => "jackpot"
+        put :credit_card, :id => customer.id , :credit_card => valid_attributes  , :use_route => "jackpot"
       end 
 
     end 

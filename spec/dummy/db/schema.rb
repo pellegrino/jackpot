@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120104164859) do
+ActiveRecord::Schema.define(:version => 20120130192147) do
 
   create_table "jackpot_customers", :force => true do |t|
     t.string   "email"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20120104164859) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "credit_card_number"
+    t.integer  "credit_card_expiry_month"
+    t.integer  "credit_card_expiry_year"
   end
 
   create_table "jackpot_payments", :force => true do |t|

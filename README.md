@@ -47,7 +47,7 @@ Before running the specs for the first time, or after adding a new migration, ma
 
     bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate db:test:prepare
 
-That will create and initialize the database for you. The dataase.yml file used is the one located at spec/dummy/config/database.yml. If changed something that did require a migration to be created, make sure you've copied that one to spec/dummy/db/migrate folder.
+That will create and initialize the database for you. The dataase.yml file used is the one located at spec/dummy/config/database.yml. If you changed something that did require a migration to be created, make sure you've copied that one to spec/dummy/db/migrate folder.
    
     bundle exec rake -f spec/dummy/Rakefile jackpot:install:migrations 
 
@@ -60,16 +60,6 @@ If you ran the migrations correctly, you can start the dummy app as you normally
 
     bundle exec rails server 
 
-### Migrations 
-
-If the work you want to do has something to do with creating a new migration, you will probably want to copy migrations from jackpot's db/ folder to the dummy app. To achieve this, use the following command from inside your local copy of jackpot source code.
-
-    cd spec/dummy
-    bundle exec rake app:jackpot:install:migrations 
-
-Your newly added migration will be copied to dummy app. After this, you'll be able to run `bundle exec rake db:migrate` as usual.
-    
-    
 
 ### General advice   
 

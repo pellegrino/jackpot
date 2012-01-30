@@ -1,18 +1,29 @@
 %p#notice= notice
+#customer
+  %p
+    %b Email:
+    = @customer.email
+  %p
+    %b Description:
+    = @customer.description
+  %p
+    %b subscription:
+    = @customer.subscription.name if @customer.subscription.present? 
 
-%p
-  %b Email:
-  = @customer.email
-%p
-  %b Description:
-  = @customer.description
-%p
-  %b subscription:
-  = @customer.subscription.name if @customer.subscription.present? 
+  %h2 Billing information
 
-%p
-  %b Saved Credit Card Number:
-  = @customer.credit_card_number if @customer.credit_card_number.present? 
+  -if @customer.credit_card_number.present?  
+    %p
+      %b Credit Card Number:
+      = @customer.credit_card_number 
+
+    %p
+      %b Credit Card Expiration Date:
+      = @customer.expiration_date 
+  - else
+    %p There is no credit card information assigned to this customer yet 
+  - 
+
 
 = link_to 'Edit', edit_customer_path(@customer)
 \|
