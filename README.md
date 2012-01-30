@@ -60,6 +60,17 @@ If you ran the migrations correctly, you can start the dummy app as you normally
 
     bundle exec rails server 
 
+### Migrations 
+
+If the work you want to do has something to do with creating a new migration, you will probably want to copy migrations from jackpot's db/ folder to the dummy app. To achieve this, use the following command from inside your local copy of jackpot source code.
+
+    cd spec/dummy
+    bundle exec rake app:jackpot:install:migrations 
+
+Your newly added migration will be copied to dummy app. After this, you'll be able to run `bundle exec rake db:migrate` as usual.
+    
+    
+
 ### General advice   
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
