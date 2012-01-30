@@ -23,7 +23,7 @@ feature "Create Customers", %q{
 
     # Customer should have been created successfully 
     page.should have_css    (".alert-message.success") 
-    page.should have_content("foo@bar.com")
+    page.should have_content("foo@bar.com"           )
   end 
 
   scenario "assigning credit card information to customer" do
@@ -43,7 +43,8 @@ feature "Create Customers", %q{
       click_button 'Confirm'
     end 
 
-    page.should have_css      (".alert-message.success"   ) 
+    page.should have_css      (".alert-message.success" ) 
+    page.should have_content  ("XXXX-XXXX-XXXX-1111"    )
   end 
 
 end 

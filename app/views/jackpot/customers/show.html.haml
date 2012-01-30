@@ -7,8 +7,12 @@
   %b Description:
   = @customer.description
 %p
-  %b Subscription:
+  %b subscription:
   = @customer.subscription.name if @customer.subscription.present? 
+
+%p
+  %b Saved Credit Card Number:
+  = @customer.credit_card_number if @customer.credit_card_number.present? 
 
 = link_to 'Edit', edit_customer_path(@customer)
 \|

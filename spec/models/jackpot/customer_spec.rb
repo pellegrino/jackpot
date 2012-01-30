@@ -24,6 +24,11 @@ describe Jackpot::Customer do
       customer.credit_card_number.should == 'XXXX-XXXX-XXXX-5100'
     end 
 
+    it "should persist the card number" do 
+      reloaded_customer = customer.reload
+      reloaded_customer.credit_card_number.should == 'XXXX-XXXX-XXXX-5100'
+    end 
+
     context "when persisting" do
       before(:each) do
         customer.save!
