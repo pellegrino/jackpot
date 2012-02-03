@@ -9,15 +9,10 @@ describe Jackpot::Card do
     it { subject.number.should              == '4242424242424242'    } 
     it { subject.month.should               == 1                     } 
     it { subject.year.should                == next_year             } 
+    it { subject.first_name.should          == "John"                } 
+    it { subject.last_name.should           == "Doe"                 } 
     it { subject.verification_value.should  == 123                   } 
   end 
 
-
-  describe ".store" do
-    it "store this card at the gateway" do
-      Jackpot::Payment.gateway.should_receive(:store_card).with(subject)
-      subject.store
-    end 
-  end 
 
 end 
