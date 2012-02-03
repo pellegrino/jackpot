@@ -4,7 +4,7 @@ end
 
 
 def credit_card(number = '4242424242424242', params = {})
-  ActiveMerchant::Billing::CreditCard.new credit_card_hash(number, params)
+  @credit_card ||= ActiveMerchant::Billing::CreditCard.new credit_card_hash(number, params)
 end 
 
 def credit_card_hash(number = '4242424242424242', params={})
