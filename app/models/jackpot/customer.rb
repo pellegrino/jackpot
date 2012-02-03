@@ -9,12 +9,14 @@ module Jackpot
     
 
     def update_credit_card(card_hash) 
-      original_number = card_hash["number"]
-      write_attribute  :credit_card_number            , "XXXX-XXXX-XXXX-#{original_number.last(4)}"
-      write_attribute  :credit_card_expiry_month      ,  card_hash["month"] 
-      write_attribute  :credit_card_expiry_year       ,  card_hash["year"] 
+      card = Card.new(card_hash)
 
-      self.credit_card_verification_value = card_hash["verification_value"] 
+      write_attribute  :credit_card_number            ,  card.masquerade_number
+      write_attribute  :credit_card_expiry_month      ,  card.month
+      write_attribute  :credit_card_expiry_year       ,  card.year
+
+      # This should never be recorded 
+      self.credit_card_verification_value = card.verification_value
 
       save
     end 
