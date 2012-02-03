@@ -24,4 +24,4 @@ end
 # equivalent 
 # see: https://github.com/pellegrino/jackpot/issues/5
 ActiveMerchant::Billing::Base.mode = :test
-Jackpot::Payment.gateway = ActiveMerchant::Billing::BogusGateway.new
+Jackpot::Payment.gateway = Jackpot::Gateway.new(ActiveMerchant::Billing::BogusGateway.new)

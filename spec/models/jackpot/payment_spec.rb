@@ -5,7 +5,7 @@ module Jackpot
 
     describe "payment create" do
       before do
-        Jackpot::Payment.gateway = ActiveMerchant::Billing::BogusGateway.new
+        Jackpot::Payment.gateway = Jackpot::Gateway.new(ActiveMerchant::Billing::BogusGateway.new)
       end 
 
       let(:payment) { Payment.create(:amount => 10000, 
