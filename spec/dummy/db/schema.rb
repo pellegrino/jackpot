@@ -17,27 +17,28 @@ ActiveRecord::Schema.define(:version => 20120130192147) do
     t.string   "email"
     t.text     "description"
     t.integer  "subscription_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.string   "credit_card_number"
     t.integer  "credit_card_expiry_month"
     t.integer  "credit_card_expiry_year"
+    t.string   "credit_card_token"
   end
 
   create_table "jackpot_payments", :force => true do |t|
     t.string   "token"
     t.integer  "amount"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "customer_name"
   end
 
   create_table "jackpot_subscriptions", :force => true do |t|
     t.string   "name"
     t.integer  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
