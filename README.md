@@ -5,18 +5,16 @@ Jackpot
 
 [![Build Status](https://secure.travis-ci.org/pellegrino/jackpot.png)](http://travis-ci.org/pellegrino/jackpot)
 
-_WORK IN PROGRESS_
+_WORK IN PROGRESS_ 
 
- Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with.
+Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with. It uses [Active Merchant](https://github.com/Shopify/active_merchant) internally, so Jackpot will suport the gateways (that support credit card storage) provided by Active Merchant, making it easier to extend to your own needs.
+It is built using Rails Engines so it is easy to mount Jackpot in our rails 3.1 or 3.2 app and start using it to do your billing. 
 
-It started out as my may 2011 session @ [Mendicant University](http://mendicantuniversity.org) project and now its finally taking shape.
+It started out as my may 2011 session @ [Mendicant University](http://mendicantuniversity.org) project and now its going through a major overhaul to get ready to hit its primetime.  
 
 ## Recurring Payments  
 
 Even though some gateways will provide you a recurring payment option, normally it isn't a fire and forget process as you'ld normally imagine. Also, its needed to have information about when this payments actually did happen so you can send invoices accordingly. That being said, in Jackpot we opt to use Gateways that support credit card storage, instead of relying on Gateway Recurring payments. 
-
-
-
 
 The main goal of this project is to provide billing to rails apps via a rails-engine. 
 
@@ -69,17 +67,13 @@ If you ran the migrations correctly, you can start the dummy app as you normally
 * Start a feature/bugfix branch
 * Commit and push until you are happy with your contribution
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If
-* you want to have your own version, or is otherwise necessary, that
-* is fine, but please isolate to its own commit so I can cherry-pick
-* around it.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
 ### Get in contact! 
 
-There is a #jackpot channel @ freenode for this project. Feel free to stop by to ask questions and interact with other users. 
+There is a #jackpot channel @ freenode for this project. Feel free to stop by to ask questions and interact with other users. My IRC username is _pellegrino_ and i'm happy to help. 
 
 ## Copyright ##
 
-Copyright (c) 2011-2012 Vitor Pellegrino. See LICENSE.txt for
-further details.
+Copyright (c) 2011-2012 Vitor Pellegrino. See LICENSE.txt forfurther details.
 
