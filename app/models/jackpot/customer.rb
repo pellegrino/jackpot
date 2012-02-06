@@ -10,6 +10,7 @@ module Jackpot
     
 
     def update_credit_card(card) 
+      raise Errors::CardIsInvalid unless card.valid? 
       write_attribute  :credit_card_number            ,  card.masquerade_number
       write_attribute  :credit_card_expiry_month      ,  card.month
       write_attribute  :credit_card_expiry_year       ,  card.year

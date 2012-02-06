@@ -23,7 +23,10 @@ module Jackpot
 
 
       @adapted_card        = ActiveMerchant::Billing::CreditCard.new(card_hash)
+    end 
 
+
+    def valid?
       @adapted_card.valid?
     end 
 
