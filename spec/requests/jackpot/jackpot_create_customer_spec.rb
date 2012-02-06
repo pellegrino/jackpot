@@ -26,7 +26,10 @@ feature "Create Customers", %q{
     page.should have_content("foo@bar.com"           )
   end 
 
-  scenario "assigning credit card information to customer" do
+  it "assigning credit card information to customer", :vcr  do
+    ActiveMerchant::Billing::Base.mode = :test
+    Jackpot::Payment.gateway = Jackpot::Gateway.new(ActiveMerchant::Billing::BraintreeGateway.new :login => "demo" , :password => 'password')
+
     @customer = FactoryGirl.create("customer", :email => "baz@bar.com")
 
 
@@ -37,12 +40,12 @@ feature "Create Customers", %q{
     page.should have_css      ("#credit-card-information" )
     # fill credit card's information
     within("#credit-card-form") do
-      fill_in "credit_card[number]"              , :with => "1"
-      fill_in "credit_card[month]"               , :with => "1"
+      fill_in "credit_card[number]"              , :with => "5105105105105100"
+      fill_in "credit_card[month]"               , :with => "5"
       fill_in "credit_card[year]"                , :with => next_year 
       fill_in "credit_card[first_name]"          , :with => 'John' 
       fill_in "credit_card[last_name]"           , :with => 'Doe' 
-      fill_in "credit_card[verification_value]"  , :with => 411 
+      fill_in "credit_card[verification_value]"  , :with => 123 
 
       # submit data
 
@@ -52,10 +55,10 @@ feature "Create Customers", %q{
 
     within("#customer") do
       # Not quite what would be expected but this is due Bogus Gateway usage
-      page.should have_content     ("XXXX-XXXX-XXXX-1"       )
-      page.should have_content     ( next_year               )
-      page.should have_content     ( "1"  )
-      page.should have_no_content  ( "411")
+      page.should have_content     ("XXXX-XXXX-XXXX-5100")   
+      page.should have_content     ( next_year           )
+      page.should have_content     ( "5"  )
+      page.should have_no_content  ( "123")
     end 
 
   end 

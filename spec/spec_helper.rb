@@ -8,6 +8,7 @@ require 'capybara/rspec'
 require 'shoulda-matchers'
 require 'database_cleaner'
 require 'factory_girl_rails'
+require 'vcr'
 
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 

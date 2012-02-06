@@ -6,6 +6,7 @@ gemspec
 gem "jquery-rails"
 # Twitter bootstrap for asset pipeline 
 gem "bootstrap-sass"
+gem 'ruby-debug19'
 
 # database 
 gem 'mysql2', :platform => :ruby
