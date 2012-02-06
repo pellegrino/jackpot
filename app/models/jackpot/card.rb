@@ -11,6 +11,8 @@ module Jackpot
     attr_accessor :last_name
     attr_accessor :verification_value
 
+    attr_reader   :adapted_card 
+
     def initialize(card_hash) 
       @number              = card_hash['number']
       @year                = card_hash['year'  ]

@@ -19,9 +19,3 @@ module Jackpot
     end 
   end
 end
-
-# TODO: Remove this hardcoded info and extract to an initializer or something 
-# equivalent 
-# see: https://github.com/pellegrino/jackpot/issues/5
-ActiveMerchant::Billing::Base.mode = :test
-Jackpot::Payment.gateway = Jackpot::Gateway.new(ActiveMerchant::Billing::BogusGateway.new)

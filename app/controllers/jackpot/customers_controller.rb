@@ -1,23 +1,24 @@
-module Jackpot
-  class CustomersController < ApplicationController
-    
-    # PUT /customers/37/credit_card 
-    # Assigns a credit card to the given customer
-    def credit_card 
-      @customer = Customer.find           params[:id]
-      @customer.update_credit_card        params[:credit_card]
-      respond_to do |format|
-        format.html { redirect_to @customer, 
-                        notice: "This customer's card was successfully updated." } 
-        format.json { head :ok }
+  module Jackpot
+    class CustomersController < ApplicationController
+      
+      # PUT /customers/37/credit_card 
+      # Assigns a credit card to the given customer
+      def credit_card 
+        @customer = Customer.find           params[:id]
+        @customer.update_credit_card        Card.new params[:credit_card]
+        
+        respond_to do |format|
+          format.html { redirect_to @customer, 
+                          notice: "This customer's card was successfully updated." } 
+          format.json { head :ok }
+        end 
       end 
-    end 
 
-    # GET /customers
-    # GET /customers.json
-    def index
-      @customers = Customer.all
-  
+      # GET /customers
+      # GET /customers.json
+      def index
+        @customers = Customer.all
+    
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @customers }

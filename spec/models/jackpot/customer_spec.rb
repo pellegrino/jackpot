@@ -1,18 +1,20 @@
 require 'spec_helper'
 
 describe Jackpot::Customer do
-  it { should     belong_to                :subscription                   } 
-  it { should_not allow_mass_assignment_of :credit_card_number             } 
-  it { should_not allow_mass_assignment_of :credit_card_expiry_year        } 
-  it { should_not allow_mass_assignment_of :credit_card_expiry_month       } 
+  it { should     belong_to                :subscription             } 
+  it { should_not allow_mass_assignment_of :credit_card_number       } 
+  it { should_not allow_mass_assignment_of :credit_card_expiry_year  } 
+  it { should_not allow_mass_assignment_of :credit_card_expiry_month } 
+  it { should_not allow_mass_assignment_of :credit_card_token        } 
 
-  let(:customer) { Jackpot::Customer.new } 
+  let(:customer)  { Jackpot::Customer.new } 
 
 
   describe ".expiration_date" do
+    let(:card)      { Jackpot::Card.new(credit_card_hash("1")) } 
 
     it "should return this card expiration date" do
-      customer.update_credit_card credit_card_hash
+      customer.update_credit_card(card)
       customer.expiration_date.should == "1/#{next_year}"
     end 
 
@@ -21,8 +23,12 @@ describe Jackpot::Customer do
 
   describe ".update_credit_card_number" do
 
+    let(:card)                 { Jackpot::Card.new credit_card_hash } 
+    let(:stored_card_response) { stub(:params => { :customer_vault_id => '37'}) }
+
     before(:each) do 
-      customer.update_credit_card credit_card_hash
+      Jackpot::Gateway.any_instance.stub(:store).with(card).and_return(stored_card_response)
+      customer.update_credit_card(card)
     end 
 
     it "should masquerade the card number" do
@@ -32,14 +38,18 @@ describe Jackpot::Customer do
     it { customer.credit_card_expiry_month.should       == 1          } 
     it { customer.credit_card_expiry_year.should        == next_year  } 
 
-    it "should persist the card information" do 
-      reloaded_customer = customer.reload
-      reloaded_customer.credit_card_number.should == 'XXXX-XXXX-XXXX-4242'
-    end 
 
     context "when persisting" do
 
       let(:retrieved_customer) { Jackpot::Customer.find customer } 
+
+      it "should store this card at the gateway" do
+        retrieved_customer.credit_card_token.should == '37'
+      end 
+      
+      it "should persist the card information" do 
+        retrieved_customer.credit_card_number.should == 'XXXX-XXXX-XXXX-4242'
+      end 
 
       it "should persist in the database the ONLY last four digits" do
         retrieved_customer.credit_card_number.should      == 'XXXX-XXXX-XXXX-4242'

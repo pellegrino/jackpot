@@ -11,16 +11,21 @@ module Jackpot
 
     describe "PUT edit_credit_card" do
 
+      before do
+        Card.stub!(:new).with(valid_attributes).and_return('stub')
+      end 
+
       it "updates card number"  do
-        Customer.any_instance.should_receive(:update_credit_card).with(valid_attributes)
+        Customer.any_instance.should_receive(:update_credit_card).with('stub')
         valid_request 
       end 
 
       it "sets the flash message" do 
-        Customer.any_instance.stub(:update_credit_card).with(valid_attributes)
+        Customer.any_instance.stub(:update_credit_card).with('stub')
         valid_request
         should set_the_flash
       end  
+
 
       def valid_request
         put :credit_card, :id => customer.id , :credit_card => valid_attributes  , :use_route => "jackpot"

@@ -4,19 +4,20 @@ module Jackpot
     attr_protected  :credit_card_number
     attr_protected  :credit_card_expiry_year
     attr_protected  :credit_card_expiry_month
+    attr_protected  :credit_card_token
     
     attr_accessor   :credit_card_verification_value
     
 
-    def update_credit_card(card_hash) 
-      card = Card.new(card_hash)
-
+    def update_credit_card(card) 
       write_attribute  :credit_card_number            ,  card.masquerade_number
       write_attribute  :credit_card_expiry_month      ,  card.month
       write_attribute  :credit_card_expiry_year       ,  card.year
 
       # This should never be recorded 
       self.credit_card_verification_value = card.verification_value
+      stored_card_response = Jackpot::Payment.gateway.store(card)
+      write_attribute :credit_card_token , stored_card_response.params[:customer_vault_id]
 
       save
     end 

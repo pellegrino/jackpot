@@ -7,15 +7,13 @@ module Jackpot
       @gateway = gateway
     end 
 
-    def store(card_hash)
-      @gateway.store card_hash
+    def store(card)
+      @gateway.store card.adapted_card
     end 
-
 
     def authorize(amount, card_or_token)
       @gateway.authorize(amount, card_or_token)
     end 
-    
 
     def capture(amount, authorization_code)
       @gateway.capture(amount, authorization_code)

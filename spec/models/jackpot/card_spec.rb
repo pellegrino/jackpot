@@ -14,5 +14,4 @@ describe Jackpot::Card do
     it { subject.verification_value.should  == 123                   } 
   end 
 
-
 end 
