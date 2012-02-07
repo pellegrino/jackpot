@@ -20,9 +20,10 @@ The main goal of this project is to provide billing to rails apps via a rails-en
 
 ### List of supported gateways
 
-_TODO_ 
+Currently, only a small set of gateways is supported, however, it should be fairly simple to integrate any Active Merchant powered gateway that supports card storage
 
 * Braintree
+* Bogus (for testing)
 
 ## Contributing to jackpot  ## 
 
