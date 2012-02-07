@@ -21,7 +21,7 @@ feature "Assign Subscription to customer", %q{
     click_button "Create Customer"
 
     # Customer created successfully 
-    page.should have_css(".alert-message.success") 
+    page.should have_css(".alert.alert-success") 
     # Subscription is listed at Customer details 
     page.should have_content("Gold")
     

@@ -22,7 +22,7 @@ feature "Create Customers", %q{
     end 
 
     # Customer should have been created successfully 
-    page.should have_css    (".alert-message.success") 
+    page.should have_css    (".alert.alert-success") 
     page.should have_content("foo@bar.com"           )
   end 
 
@@ -51,7 +51,7 @@ feature "Create Customers", %q{
 
       click_button 'Confirm'
     end 
-    page.should have_css         (".alert-message.success" ) 
+    page.should have_css         (".alert.alert-success" ) 
 
     within("#customer") do
       # Not quite what would be expected but this is due Bogus Gateway usage

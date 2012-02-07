@@ -16,7 +16,7 @@ feature "Create subscriptions", %q{
 
     click_button('Create Subscription')
 
-    page.should have_css(".alert-message.success") 
+    page.should have_css(".alert.alert-success") 
   end 
 
 end 
