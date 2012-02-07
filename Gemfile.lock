@@ -177,7 +177,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.31)
-    vcr (1.11.3)
+    vcr (2.0.0.rc1)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -196,4 +196,4 @@ DEPENDENCIES
   mysql2
   rspec-rails (~> 2.8)
   shoulda-matchers (~> 1.0.0)
-  vcr (= 1.11.3)
+  vcr (~> 2.0.0.rc1)

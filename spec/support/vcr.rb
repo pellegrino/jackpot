@@ -1,6 +1,6 @@
-VCR.config do |c|
+VCR.configure do |c|
   c.cassette_library_dir = "spec/fixtures/vcr"
-  c.stub_with :fakeweb
+  c.hook_into :fakeweb
 end
 
 RSpec.configure do |c|
