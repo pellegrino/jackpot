@@ -6,7 +6,7 @@ module Jackpot
     cattr_accessor :gateway
 
     def initialize_credit_card
-      card = ActiveMerchant::Billing::CreditCard.new(self.credit_card)
+      card = Card.new(self.credit_card)
       if card.valid? 
         response = Payment.gateway.authorize(self.amount, card)
 

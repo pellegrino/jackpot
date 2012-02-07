@@ -18,9 +18,10 @@ describe Jackpot::Gateway do
   describe ".authorize" do
 
     it "delegates to AM gateway" do
+      card_stub = stub(:adapted_card => 'stub')
       ActiveMerchant::Billing::BogusGateway.any_instance
                                             .should_receive(:authorize).with(10, 'stub')  
-      subject.authorize(10, 'stub')
+      subject.authorize(10, card_stub)
     end 
   end 
 
