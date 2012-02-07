@@ -12,7 +12,37 @@ It is built using Rails Engines so it is easy to mount Jackpot in our rails 3.1 
 
 It started out as my may 2011 session @ [Mendicant University](http://mendicantuniversity.org) project and now its going through a major overhaul to get ready to hit its primetime.  
 
-## Recurring Payments  
+## Installation
+
+1. Add jackpot to your gemfile as you normally would do with any bundler powered gem. 
+1. Create an initializer to configure your gateway information. Heres an example of how to do it 
+
+      Jackpot.configure do |c|
+        if Rails.env.production? or Rails.env.staging?
+          c.gateway_type      :braintree
+          c.gateway_login     ENV['jackpot_login']
+          c.gateway_password  ENV['jackpot_demo']
+          c.gateway_mode      :test
+        else
+          c.gateway_type      :braintree
+          c.gateway_login     'login'
+          c.gateway_password  'demo'
+          c.gateway_mode      :test
+        end 
+      end 
+      
+1. You should copy jackpot migrations to your project by issuing the following command
+
+      bundle exec rake jackpot:install:migrations
+
+1. Mount jackpot engine at your config/routes 
+      mount Jackpot::Engine => "/billing"
+
+After these steps, everything should be working. Don't forget to run your migrations so your database its updated
+
+## How it works 
+
+### Recurring Payments  
 
 Even though some gateways will provide you a recurring payment option, normally it isn't a fire and forget process as you'ld normally imagine. Also, its needed to have information about when this payments actually did happen so you can send invoices accordingly. That being said, in Jackpot we opt to use Gateways that support credit card storage, instead of relying on Gateway Recurring payments. 
 
