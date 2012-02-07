@@ -3,13 +3,13 @@ module Jackpot
     def twitterized_type(type)
       case type
       when :alert
-        "warning"
+        "alert"
       when :error
-        "error"
+        "alert alert-error"
       when :notice
-        "success"
+        "alert alert-success"
       when :info
-        "info"
+        "alert alert-info"
       else
         type.to_s
       end
