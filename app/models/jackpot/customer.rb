@@ -9,7 +9,7 @@ module Jackpot
     attr_accessor   :credit_card_verification_value
     
 
-    def update_credit_card(card) 
+    def update_credit_card(card)  
       raise Errors::CardIsInvalid unless card.valid? 
       write_attribute  :credit_card_number            ,  card.masquerade_number
       write_attribute  :credit_card_expiry_month      ,  card.month

@@ -1,13 +1,5 @@
 ActiveMerchant::Billing::Base.mode = :test
 
-@braintree_gateway = ActiveMerchant::Billing::BraintreeGateway.new({
-  :login => "demo",
-  :password => "password"
-})
-
-Jackpot::Payment.gateway = Jackpot::Gateway.new(@braintree_gateway)
-
-
 Dummy::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
