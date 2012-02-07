@@ -3,12 +3,13 @@ PATH
   specs:
     jackpot (0.0.1)
       activemerchant (~> 1.20.1)
+      bootstrap-sass (~> 2.0.0)
       coffee-rails
       formtastic-bootstrap
       haml-rails
-      jquery-rails
+      jquery-rails (>= 2.0.0)
       rails (>= 3.1)
-      sass-rails
+      sass-rails (>= 3.1)
 
 GEM
   remote: http://rubygems.org/
@@ -29,13 +30,12 @@ GEM
     active_utils (1.0.2)
       activesupport (>= 2.3.11)
       i18n
-    activemerchant (1.20.2)
+    activemerchant (1.20.3)
       active_utils (>= 1.0.2)
       activesupport (>= 2.3.11)
       braintree (>= 2.0.0)
       builder (>= 2.0.0)
       i18n
-      json (>= 1.5.1)
       money (<= 3.7.1)
     activemodel (3.2.1)
       activesupport (= 3.2.1)
@@ -53,9 +53,8 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.6)
     arel (3.0.0)
-    bootstrap-sass (1.4.4)
-      sass-rails (~> 3.1)
-    braintree (2.13.3)
+    bootstrap-sass (2.0.0)
+    braintree (2.13.4)
       builder (>= 2.0.0)
     builder (3.0.0)
     capybara (1.1.2)

@@ -18,12 +18,13 @@ Gem::Specification.new do |s|
   s.files         = `git ls-files`.split("\n")
 
   s.add_dependency "rails",                           ">= 3.1"
-  s.add_dependency "jquery-rails"
+  s.add_dependency "jquery-rails",                    ">= 2.0.0"
+  s.add_dependency "formtastic-bootstrap"
+  s.add_dependency "bootstrap-sass",                  "~> 2.0.0"
   s.add_dependency "coffee-rails"
-  s.add_dependency "sass-rails"
+  s.add_dependency "sass-rails",                      ">= 3.1"
   s.add_dependency "haml-rails"
   s.add_dependency "activemerchant",                  "~> 1.20.1"
-  s.add_dependency "formtastic-bootstrap"
 
   s.add_development_dependency "capybara",            "~> 1.1"
   s.add_development_dependency "database_cleaner"
