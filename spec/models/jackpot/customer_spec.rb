@@ -7,8 +7,9 @@ describe Jackpot::Customer do
   it { should_not allow_mass_assignment_of :credit_card_expiry_month } 
   it { should_not allow_mass_assignment_of :credit_card_token        } 
 
-  let(:customer)  { Jackpot::Customer.new } 
-  let(:card)      { Jackpot::Card.new credit_card_hash } 
+  let(:customer)      { Jackpot::Customer.new } 
+  let(:card)          { Jackpot::Card.new credit_card_hash } 
+  let(:invalid_card)  { Jackpot::Card.new credit_card_hash('9', :year => '2000') } 
 
   describe ".expiration_date" , :vcr do
     it "should return this card expiration date" do
@@ -19,8 +20,6 @@ describe Jackpot::Customer do
 
 
   describe ".update_credit_card_number" do
-    let(:invalid_card)         { Jackpot::Card.new credit_card_hash('9', :year => '2000') } 
-    let(:stored_card_response) { stub(:params => { :customer_vault_id => '37'}) }
 
     context "when card is invalid" do
       it "raises invalid card exception" do
@@ -52,7 +51,6 @@ describe Jackpot::Customer do
         it "should store this card at the gateway" do
           # Check corresponding VCR for this magical number 
           retrieved_customer.credit_card_token.should == '977656792'
-
         end 
 
         it "should persist the card information" do 
