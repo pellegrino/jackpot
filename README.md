@@ -24,26 +24,26 @@ It started out as my may 2011 session @ [Mendicant University](http://mendicantu
 
 1. Create an initializer to configure your gateway information. Heres an example of how to do it 
 
-      Jackpot.configure do |c|
-        if Rails.env.production? or Rails.env.staging?
-          c.gateway_type      :braintree
-          c.gateway_login     ENV['jackpot_login']
-          c.gateway_password  ENV['jackpot_demo']
-          c.gateway_mode      :test
-        else
-          c.gateway_type      :braintree
-          c.gateway_login     'login'
-          c.gateway_password  'demo'
-          c.gateway_mode      :test
+        Jackpot.configure do |c|
+          if Rails.env.production? or Rails.env.staging?
+            c.gateway_type      :braintree
+            c.gateway_login     ENV['jackpot_login']
+            c.gateway_password  ENV['jackpot_demo']
+            c.gateway_mode      :test
+          else
+            c.gateway_type      :braintree
+            c.gateway_login     'login'
+            c.gateway_password  'demo'
+            c.gateway_mode      :test
+          end 
         end 
-      end 
       
 1. You should copy jackpot migrations to your project by issuing the following command
 
-      bundle exec rake jackpot:install:migrations
+        bundle exec rake jackpot:install:migrations
 
 1. Mount jackpot engine at your config/routes 
-      mount Jackpot::Engine => "/billing"
+        mount Jackpot::Engine => "/billing"
 
 After these steps, everything should be working. Don't forget to run your migrations so your database its updated
 
