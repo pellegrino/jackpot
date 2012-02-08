@@ -8,9 +8,9 @@ module Jackpot
     def initialize_credit_card
       card = Card.new(self.credit_card)
       if card.valid? 
-        response = Payment.gateway.authorize(self.amount, card)
+        response = Jackpot::Payment.gateway.authorize(self.amount, card)
 
-        billing_response = Payment.gateway.capture(self.amount , response.authorization)
+        billing_response = Jackpot::Payment.gateway.capture(self.amount, response.authorization)
         self.token = billing_response.params['transactionid']
         self.customer_name =  "#{card.first_name} #{card.last_name}"
       else

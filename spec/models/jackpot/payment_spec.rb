@@ -4,13 +4,12 @@ module Jackpot
   describe Payment do
 
     describe "payment create", :vcr do
-
+      let(:card_hash) { credit_card_hash } 
       let(:payment) { Payment.create(:amount => 10000, 
                                      :description => "foo", 
                                      :credit_card => card_hash) }
 
       context "with valid credit card information"  do 
-        let(:card_hash) { credit_card_hash } 
 
         let(:retrieved_payment) { Payment.find(payment.id) } 
 
