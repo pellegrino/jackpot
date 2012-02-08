@@ -7,6 +7,16 @@ module Jackpot
     attr_protected  :credit_card_token
     
     attr_accessor   :credit_card_verification_value
+
+    def pay_subscription
+      if credit_card_token   
+        if subscription.charge(credit_card_token)
+          update_attribute(:good_until, Date.today + 1.month)
+        end 
+      else 
+        raise Jackpot::Errors::CustomerHasNoCardSaved.new
+      end 
+    end 
     
 
     def update_credit_card(card)  

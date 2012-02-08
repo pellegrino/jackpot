@@ -19,6 +19,25 @@ describe Jackpot::Customer do
   end 
 
 
+  describe ".pay_subscription" do 
+    let(:customer)                    { Factory(:customer_with_subscription, :credit_card_token => 42) } 
+    let(:customer_with_no_card_saved) { Factory(:customer_with_subscription, :credit_card_token => nil) } 
+
+    it "fetches charges this customer subscription using his/hers credit card token" do
+      customer.subscription.should_receive(:charge).with(42).and_return(true)
+      customer.pay_subscription
+    end
+
+    it "sets this customer as not due until the next billing period" do
+      customer.subscription.stub(:charge).with(42).and_return(true)
+      customer.pay_subscription
+
+      retrieved_customer = Jackpot::Customer.find(customer)
+      retrieved_customer.good_until.should == Date.today + 1.month
+    end 
+    it { expect { customer_with_no_card_saved.pay_subscription }.to raise_error(Jackpot::Errors::CustomerHasNoCardSaved) }
+  end 
+
   describe ".update_credit_card_number" do
 
     context "when card is invalid" do

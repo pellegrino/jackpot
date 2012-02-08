@@ -5,6 +5,8 @@ FactoryGirl.define do
     email 
     description "MyText"
 
+    sequence(:credit_card_token, 938887408)
+
     factory :customer_with_subscription do
       subscription
     end

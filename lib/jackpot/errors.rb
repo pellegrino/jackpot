@@ -8,6 +8,7 @@ module Jackpot
 
     # This error indicates the Gateway was not initialized correctly  
     InvalidGateway  = Class.new(StandardError)
+    CustomerHasNoCardSaved  = Class.new(StandardError)
   end 
     
 end 
