@@ -8,7 +8,6 @@ describe Jackpot::Gateway do
 
     it "should delegate this call to ActiveMerchant's store method" do
       card_stub = stub(:adapted_card => 'stub')
-
       ActiveMerchant::Billing::BogusGateway.any_instance
                                             .should_receive(:store).with('stub')
       subject.store(card_stub)

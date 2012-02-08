@@ -8,22 +8,17 @@ describe Jackpot::Customer do
   it { should_not allow_mass_assignment_of :credit_card_token        } 
 
   let(:customer)  { Jackpot::Customer.new } 
+  let(:card)      { Jackpot::Card.new credit_card_hash } 
 
-
-  describe ".expiration_date" do
-    let(:card)      { Jackpot::Card.new(credit_card_hash("1")) } 
-
+  describe ".expiration_date" , :vcr do
     it "should return this card expiration date" do
       customer.update_credit_card(card)
       customer.expiration_date.should == "1/#{next_year}"
     end 
-
   end 
 
 
   describe ".update_credit_card_number" do
-
-    let(:card)                 { Jackpot::Card.new credit_card_hash } 
     let(:invalid_card)         { Jackpot::Card.new credit_card_hash('9', :year => '2000') } 
     let(:stored_card_response) { stub(:params => { :customer_vault_id => '37'}) }
 
@@ -38,9 +33,8 @@ describe Jackpot::Customer do
 
     end 
 
-    context "when card is valid" do
+    context "when card is valid", :vcr  do
       before(:each) do 
-        Jackpot::Gateway.any_instance.stub(:store).with(card).and_return(stored_card_response)
         customer.update_credit_card(card)
       end 
 
@@ -56,7 +50,9 @@ describe Jackpot::Customer do
         let(:retrieved_customer) { Jackpot::Customer.find customer } 
 
         it "should store this card at the gateway" do
-          retrieved_customer.credit_card_token.should == '37'
+          # Check corresponding VCR for this magical number 
+          retrieved_customer.credit_card_token.should == '977656792'
+
         end 
 
         it "should persist the card information" do 
@@ -64,7 +60,7 @@ describe Jackpot::Customer do
         end 
 
         it "should persist in the database the ONLY last four digits" do
-          retrieved_customer.credit_card_number.should      == 'XXXX-XXXX-XXXX-4242'
+          retrieved_customer.credit_card_number.should == 'XXXX-XXXX-XXXX-4242'
         end 
 
         it "should NEVER persist in the database the actual card number" do

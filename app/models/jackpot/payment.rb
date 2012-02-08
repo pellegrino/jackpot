@@ -11,7 +11,7 @@ module Jackpot
         response = Payment.gateway.authorize(self.amount, card)
 
         billing_response = Payment.gateway.capture(self.amount , response.authorization)
-        self.token = billing_response.params['transid']
+        self.token = billing_response.params['transactionid']
         self.customer_name =  "#{card.first_name} #{card.last_name}"
       else
         raise Jackpot::Errors::CardIsInvalid 

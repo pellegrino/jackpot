@@ -15,13 +15,6 @@ ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
-# Using active merchant in test mode
-#
-# TODO: Remove this hardcoded info and extract to an initializer or something 
-# equivalent 
-# see: https://github.com/pellegrino/jackpot/issues/5
-ActiveMerchant::Billing::Base.mode = :test
-Jackpot::Payment.gateway = Jackpot::Gateway.new(ActiveMerchant::Billing::BogusGateway.new)
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
@@ -39,3 +32,10 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+Jackpot.configure do |c|
+  c.gateway_type      :braintree
+  c.gateway_login    'demo'
+  c.gateway_password 'password'  
+  c.gateway_mode     'test'
+end 

@@ -1,0 +1,34 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://secure.braintreepaymentgateway.com/api/transact.php
+    body: username=demo&password=password&customer_vault=add_customer&customer_vault_id=&ccnumber=4242424242424242&cvv=123&ccexp=0113&firstname=John&lastname=Doe
+    headers:
+      content-type:
+      - application/x-www-form-urlencoded
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 08 Feb 2012 13:10:57 GMT
+      server:
+      - Apache
+      content-length:
+      - '203'
+      connection:
+      - close
+      content-type:
+      - text/html
+    body: response=1&responsetext=Customer Added&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=1510584684
+    http_version: '1.1'
+  recorded_at: Wed, 08 Feb 2012 13:10:57 GMT
+recorded_with: VCR 2.0.0.rc1
