@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120209203752) do
+ActiveRecord::Schema.define(:version => 20120209212150) do
 
   create_table "jackpot_customers", :force => true do |t|
     t.string   "email"
@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(:version => 20120209203752) do
   end
 
   create_table "jackpot_payments", :force => true do |t|
-    t.string   "token"
+    t.string   "payment_transaction_token"
     t.integer  "amount"
     t.text     "description"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "customer_name"
     t.integer  "subscription_id"
     t.integer  "customer_id"

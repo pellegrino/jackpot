@@ -6,12 +6,11 @@ feature "Receive Payments", %q{
   I want to be able to bill credit cards from my customers 
 } do
 
-
   scenario "receiving valid credit card information" , :vcr do
     # Dummy html form to simulate a user entering data 
     visit "/payment.html"
 
-    within "form" do fill_in "payment[amount]",                 :with => '10000' 
+    within "form" do fill_in "payment[amount]",  :with => '10000' 
       fill_in "payment[credit_card][number]",    :with => '4111111111111111' 
       fill_in "payment[credit_card][month]",     :with => '8' 
       fill_in "payment[credit_card][year]",      :with => next_year

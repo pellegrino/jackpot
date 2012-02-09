@@ -3,7 +3,7 @@ http_interactions:
 - request:
     method: post
     uri: https://secure.braintreepaymentgateway.com/api/transact.php
-    body: username=demo&password=password&type=auth&orderid=&ccnumber=4242424242424242&cvv=123&ccexp=0113&firstname=John&lastname=Doe&currency=USD&tax=&amount=100.00
+    body: username=demo&password=password&type=auth&orderid=&customer_vault_id=977656792&currency=USD&tax=&amount=42.00
     headers:
       content-type:
       - application/x-www-form-urlencoded
@@ -19,22 +19,22 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Wed, 08 Feb 2012 13:29:16 GMT
+      - Thu, 09 Feb 2012 22:31:13 GMT
       server:
       - Apache
       content-length:
-      - '201'
+      - '209'
       connection:
       - close
       content-type:
       - text/html
-    body: response=2&responsetext=DECLINE&authcode=&transactionid=1559780366&avsresponse=&cvvresponse=N&orderid=&type=auth&response_code=200&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=
+    body: response=2&responsetext=DECLINE&authcode=&transactionid=1561055438&avsresponse=&cvvresponse=&orderid=&type=auth&response_code=200&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=977656792
     http_version: '1.1'
-  recorded_at: Wed, 08 Feb 2012 13:29:18 GMT
+  recorded_at: Thu, 09 Feb 2012 22:31:15 GMT
 - request:
     method: post
     uri: https://secure.braintreepaymentgateway.com/api/transact.php
-    body: username=demo&password=password&type=capture&transactionid=1559780366&amount=100.00
+    body: username=demo&password=password&type=capture&transactionid=1561055438&amount=42.00
     headers:
       content-type:
       - application/x-www-form-urlencoded
@@ -50,7 +50,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Wed, 08 Feb 2012 13:29:20 GMT
+      - Thu, 09 Feb 2012 22:31:17 GMT
       server:
       - Apache
       content-length:
@@ -60,7 +60,7 @@ http_interactions:
       content-type:
       - text/html
     body: response=3&responsetext=A capture requires that the existing transaction
-      be an AUTH REFID:326888612&authcode=&transactionid=1559780366&avsresponse=&cvvresponse=&orderid=&type=capture&response_code=300&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=
+      be an AUTH REFID:326941283&authcode=&transactionid=1561055438&avsresponse=&cvvresponse=&orderid=&type=capture&response_code=300&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=
     http_version: '1.1'
-  recorded_at: Wed, 08 Feb 2012 13:29:20 GMT
+  recorded_at: Thu, 09 Feb 2012 22:31:17 GMT
 recorded_with: VCR 2.0.0.rc1

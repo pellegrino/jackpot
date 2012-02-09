@@ -4,7 +4,6 @@ describe Jackpot::Customer do
   it { should     belong_to                :subscription             } 
   it { should     have_many(:payments).through(:subscription)        }
 
-
   it { should_not allow_mass_assignment_of :credit_card_number       } 
   it { should_not allow_mass_assignment_of :credit_card_expiry_year  } 
   it { should_not allow_mass_assignment_of :credit_card_expiry_month } 
@@ -14,7 +13,7 @@ describe Jackpot::Customer do
   let(:card)          { Jackpot::Card.new credit_card_hash } 
   let(:invalid_card)  { Jackpot::Card.new credit_card_hash('9', :year => '2000') } 
 
-  describe ".expiration_date" , :vcr do
+  describe ".expiration_date" , :vcr => { :cassette_name => "jackpot/customer_expiration_date" } do
     it "should return this card expiration date" do
       customer.update_credit_card(card)
       customer.expiration_date.should == "1/#{next_year}"
@@ -54,7 +53,7 @@ describe Jackpot::Customer do
 
     end 
 
-    context "when card is valid", :vcr  do
+    context "when card is valid", :vcr => { :cassette_name => "jackpot/customer/updatecard" } do
       before(:each) do 
         customer.update_credit_card(card)
       end 
@@ -72,7 +71,7 @@ describe Jackpot::Customer do
 
         it "should store this card at the gateway" do
           # Check corresponding VCR for this magical number 
-          retrieved_customer.credit_card_token.should == '977656792'
+          retrieved_customer.credit_card_token.should == '1519039910'
         end 
 
         it "should persist the card information" do 

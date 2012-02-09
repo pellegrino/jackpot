@@ -1,24 +1,29 @@
 module Jackpot
   class Payment < ActiveRecord::Base
-    before_create :initialize_credit_card
-    attr_accessor :credit_card 
+    before_create :perform_payment
+
+    attr_accessor :credit_card
+    attr_accessor :credit_card_token
 
     belongs_to :subscription
     belongs_to :customer
 
     cattr_accessor :gateway
 
-    def initialize_credit_card
-      card = Card.new(self.credit_card)
-      if card.valid? 
-        response = Jackpot::Payment.gateway.authorize(self.amount, card)
+    def perform_payment
+      credit_card_token = customer.credit_card_token
+      if credit_card_token
+        self.amount = self.subscription.price
+        response = Jackpot::Payment.gateway.authorize       self.amount, credit_card_token
+        billing_response = Jackpot::Payment.gateway.capture(self.amount, 
+                                                             response.authorization) 
 
-        billing_response = Jackpot::Payment.gateway.capture(self.amount, response.authorization)
-        self.token = billing_response.params['transactionid']
-        self.customer_name =  "#{card.first_name} #{card.last_name}"
-      else
-        raise Jackpot::Errors::CardIsInvalid 
+        self.payment_transaction_token = billing_response.params['transactionid']
       end 
+    end 
+
+    def customer_email
+      customer.email
     end 
   end
 end
