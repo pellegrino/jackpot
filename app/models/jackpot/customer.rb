@@ -1,6 +1,7 @@
 module Jackpot
   class Customer < ActiveRecord::Base
     belongs_to      :subscription
+    has_many        :payments, :through => :subscription  
     attr_protected  :credit_card_number
     attr_protected  :credit_card_expiry_year
     attr_protected  :credit_card_expiry_month

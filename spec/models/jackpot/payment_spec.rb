@@ -2,6 +2,8 @@ require 'spec_helper'
 
 module Jackpot 
   describe Payment do
+    it { should belong_to :customer } 
+    it { should belong_to :subscription } 
 
     describe "payment create", :vcr do
       let(:card_hash) { credit_card_hash } 

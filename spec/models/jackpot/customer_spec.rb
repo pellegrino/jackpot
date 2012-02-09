@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe Jackpot::Customer do
   it { should     belong_to                :subscription             } 
+  it { should     have_many(:payments).through(:subscription)        }
+
+
   it { should_not allow_mass_assignment_of :credit_card_number       } 
   it { should_not allow_mass_assignment_of :credit_card_expiry_year  } 
   it { should_not allow_mass_assignment_of :credit_card_expiry_month } 

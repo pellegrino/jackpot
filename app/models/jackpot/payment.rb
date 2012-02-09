@@ -3,6 +3,9 @@ module Jackpot
     before_create :initialize_credit_card
     attr_accessor :credit_card 
 
+    belongs_to :subscription
+    belongs_to :customer
+
     cattr_accessor :gateway
 
     def initialize_credit_card
