@@ -4,13 +4,13 @@
   %table#latest-payments.table.table-striped
     %thead
       %tr
-        %th Customer Name
+        %th Customer Email
         %th Amount
-        %th Date Created 
+        %th Created at
     %tbody
       - @payments.each do |payment|
         %tr 
-          %td.customer-name= payment.customer_email
-          %td.amount=        number_to_currency(payment.amount)
-          %td.date_created=  distance_of_time_in_words_to_now(payment.created_at)
+          %td.customer-email= payment.customer_email
+          %td.amount=         number_to_currency(payment.amount)
+          %td.created_at=     distance_of_time_in_words_to_now(payment.created_at)
 
