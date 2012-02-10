@@ -2,6 +2,7 @@ require "jackpot/engine"
 require 'jackpot/errors'
 require 'jackpot/configuration'
 require 'jackpot/factory'
+require 'jackpot/cron'
 
 module Jackpot
   extend self
