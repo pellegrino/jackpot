@@ -69,7 +69,7 @@ You might also want to setup a cron job for running your billing periodically ta
 This task will bill automatically every customer that is currently overdue using his/hers saved credit card token information.
 
 
-## Contributing to jackpot  ## 
+## Contributing to jackpot
 
 ### How to run jackpot locally 
 This application uses bundler and rvm for dependencies management, so its
@@ -118,7 +118,7 @@ If you ran the migrations correctly, you can start the dummy app as you normally
 
 There is a #jackpot channel @ freenode for this project. Feel free to stop by to ask questions and interact with other users. My IRC username is _pellegrino_ and i'm happy to help. 
 
-## Copyright ##
+## Copyright
 
 Copyright (c) 2011-2012 Vitor Pellegrino. See LICENSE.txt forfurther details.
 
