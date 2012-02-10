@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Fri, 10 Feb 2012 00:47:44 GMT
+      - Fri, 10 Feb 2012 01:35:50 GMT
       server:
       - Apache
       content-length:
@@ -28,7 +28,7 @@ http_interactions:
       - close
       content-type:
       - text/html
-    body: response=1&responsetext=Customer Added&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=2103227258
+    body: response=1&responsetext=Customer Added&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=1134180078
     http_version: '1.1'
-  recorded_at: Fri, 10 Feb 2012 00:47:44 GMT
+  recorded_at: Fri, 10 Feb 2012 01:35:50 GMT
 recorded_with: VCR 2.0.0.rc1
