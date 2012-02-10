@@ -21,6 +21,21 @@ describe Jackpot::Customer do
   end 
 
 
+  describe ".overdue" do
+    before do
+      @today       = Factory(:customer, :good_until => Date.today)
+      @tomorrow    = Factory(:customer, :good_until => Date.tomorrow)
+      @yesterday   = Factory(:customer, :good_until => Date.yesterday)
+    end 
+    
+    subject { Jackpot::Customer.overdue} 
+
+    it { subject.should     include @yesterday } 
+    it { subject.should_not include @tomorrow  } 
+    it { subject.should_not include @today     } 
+    
+  end 
+
   describe ".due_in" do
     before do
       @next_week    = Factory(:customer, :good_until => 1.week.from_now)

@@ -7,7 +7,12 @@ module Jackpot
     attr_protected  :credit_card_expiry_month
     attr_protected  :credit_card_token
 
-    scope :due_in , lambda { |number_of_days| where("good_until < ?", number_of_days.days.from_now) }
+    scope :due_in , lambda { |number_of_days| where("good_until <= ?", 
+                                                    number_of_days.days.from_now) }
+
+    scope :overdue , where("good_until < ? ", Date.today)
+
+
     attr_accessor   :credit_card_verification_value
 
     def pay_subscription
