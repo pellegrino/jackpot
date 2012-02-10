@@ -24,32 +24,8 @@
   <form name="payment" action="/billing/payments" method="POST"> 
     <ol> 
       <li>
-        <label for="payment[amount]">Amount</label>  
-        <input type="text" name="payment[amount]">
-      </li>
-      <li>
-        <label for="payment[credit_card][number]">Number</label>  
-        <input type="text" name="payment[credit_card][number]">
-      </li>
-      <li>
-        <label for="payment[credit_card][month]">Month</label>  
-        <input type="text" name="payment[credit_card][month]">
-      </li>
-      <li>
-        <label for="payment[credit_card][year]">Year</label>  
-        <input type="text" name="payment[credit_card][year]">
-      </li>
-      <li>
-        <label for="payment[credit_card][first_name]">First Name</label>  
-        <input type="text" name="payment[credit_card][first_name]">
-      </li>
-      <li>
-        <label for="payment[credit_card][last_name]">Last Name</label>  
-        <input type="text" name="payment[credit_card][last_name]">
-      </li>
-      <li>
-        <label for="payment[credit_card][verification_value]">Verification Value</label>  
-        <input type="text" name="payment[credit_card][verification_value]">
+        <label for="payment[customer_id]">Customer id</label>  
+        <input type="text" name="customer_id">
       </li>
       <li>
         <input type="submit" name="confirm" value="confirm"> 

@@ -3,7 +3,7 @@ http_interactions:
 - request:
     method: post
     uri: https://secure.braintreepaymentgateway.com/api/transact.php
-    body: username=demo&password=password&type=auth&orderid=&customer_vault_id=977656792&currency=USD&tax=&amount=42.00
+    body: username=demo&password=password&type=auth&orderid=&customer_vault_id=938887408&currency=USD&tax=&amount=30.00
     headers:
       content-type:
       - application/x-www-form-urlencoded
@@ -19,7 +19,38 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Thu, 09 Feb 2012 22:31:13 GMT
+      - Fri, 10 Feb 2012 00:48:09 GMT
+      server:
+      - Apache
+      content-length:
+      - '215'
+      connection:
+      - close
+      content-type:
+      - text/html
+    body: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1561128357&avsresponse=&cvvresponse=&orderid=&type=auth&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=938887408
+    http_version: '1.1'
+  recorded_at: Fri, 10 Feb 2012 00:48:11 GMT
+- request:
+    method: post
+    uri: https://secure.braintreepaymentgateway.com/api/transact.php
+    body: username=demo&password=password&type=capture&transactionid=1561128357&amount=30.00
+    headers:
+      content-type:
+      - application/x-www-form-urlencoded
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Fri, 10 Feb 2012 00:48:14 GMT
       server:
       - Apache
       content-length:
@@ -28,39 +59,7 @@ http_interactions:
       - close
       content-type:
       - text/html
-    body: response=2&responsetext=DECLINE&authcode=&transactionid=1561055438&avsresponse=&cvvresponse=&orderid=&type=auth&response_code=200&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=977656792
+    body: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1561128357&avsresponse=&cvvresponse=&orderid=&type=capture&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=
     http_version: '1.1'
-  recorded_at: Thu, 09 Feb 2012 22:31:15 GMT
-- request:
-    method: post
-    uri: https://secure.braintreepaymentgateway.com/api/transact.php
-    body: username=demo&password=password&type=capture&transactionid=1561055438&amount=42.00
-    headers:
-      content-type:
-      - application/x-www-form-urlencoded
-      accept:
-      - ! '*/*'
-      user-agent:
-      - Ruby
-      connection:
-      - close
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      date:
-      - Thu, 09 Feb 2012 22:31:17 GMT
-      server:
-      - Apache
-      content-length:
-      - '271'
-      connection:
-      - close
-      content-type:
-      - text/html
-    body: response=3&responsetext=A capture requires that the existing transaction
-      be an AUTH REFID:326941283&authcode=&transactionid=1561055438&avsresponse=&cvvresponse=&orderid=&type=capture&response_code=300&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=
-    http_version: '1.1'
-  recorded_at: Thu, 09 Feb 2012 22:31:17 GMT
+  recorded_at: Fri, 10 Feb 2012 00:48:17 GMT
 recorded_with: VCR 2.0.0.rc1

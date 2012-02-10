@@ -5,11 +5,19 @@ FactoryGirl.define do
     email 
     description "MyText"
 
-    sequence(:credit_card_token, 938887408)
-
     factory :customer_with_subscription do
       subscription
     end
+
+    factory :customer_with_valid_card do
+      after_create do |customer|
+        customer.update_credit_card valid_card 
+      end 
+    end 
+
+    factory :customer_with_subscription_and_valid_card , :parent => :customer_with_valid_card do
+      subscription
+    end 
   end
 
   sequence :email do |n|
@@ -17,3 +25,12 @@ FactoryGirl.define do
   end
 
 end
+
+
+def valid_card
+  @card ||= Jackpot::Card.new(:first_name => 'foo', :last_name => 'bar', 
+                    :number => '5555555555554444',
+                    :month => 1,
+                    :year => next_year,
+                    :verification_value => 123)
+end 

@@ -22,16 +22,18 @@ describe Jackpot::Customer do
 
 
   describe ".pay_subscription" do 
-    let(:customer)                    { Factory(:customer_with_subscription, :credit_card_token => 42) } 
-    let(:customer_with_no_card_saved) { Factory(:customer_with_subscription, :credit_card_token => nil) } 
+    let(:customer)                    { Factory(:customer_with_subscription, 
+                                                :credit_card_token => '42') }
+
+    let(:customer_with_no_card_saved) { Factory(:customer_with_subscription) } 
 
     it "fetches charges this customer subscription using his/hers credit card token" do
-      customer.subscription.should_receive(:charge).with(42).and_return(true)
+      customer.subscription.should_receive(:charge).with(customer).and_return(true)
       customer.pay_subscription
     end
 
     it "sets this customer as not due until the next billing period" do
-      customer.subscription.stub(:charge).with(42).and_return(true)
+      customer.subscription.stub(:charge).with(customer).and_return(true)
       customer.pay_subscription
 
       retrieved_customer = Jackpot::Customer.find(customer)
@@ -71,7 +73,7 @@ describe Jackpot::Customer do
 
         it "should store this card at the gateway" do
           # Check corresponding VCR for this magical number 
-          retrieved_customer.credit_card_token.should == '1519039910'
+          retrieved_customer.credit_card_token.should == '1979016654'
         end 
 
         it "should persist the card information" do 

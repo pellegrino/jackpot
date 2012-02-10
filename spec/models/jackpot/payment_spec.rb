@@ -1,26 +1,34 @@
 require 'spec_helper'
 
 module Jackpot 
-  describe Payment do
+  describe Payment , :vcr do
     it { should belong_to :customer } 
     it { should belong_to :subscription } 
 
+    let(:fail_response)     { stub("success?" => false) } 
+
     let(:subscription)      { Factory(:subscription, :price => 4200) } 
-    let(:customer)          { Factory(:customer, :email => 'john@doe.com',
-                                      :credit_card_token => credit_card_token) } 
-    let(:credit_card_token) { "977656792" } 
+    let(:customer)          { Factory(:customer_with_valid_card, :email => 'john@doe.com') } 
 
-    let(:payment)   { Payment.create(:description => "foo", 
-                       :customer     => customer, 
-                       :subscription => subscription) }
+    let(:invalid_customer)  { Factory(:customer, :email => 'john@doe.com',
+                                      :credit_card_token => '1') } 
 
-    describe ".customer_name" , :vcr => { :cassette_name => "jackpot/payments_create" } do
+    let(:payment)         { Payment.create(:description => "foo", 
+                           :customer     => customer, 
+                           :subscription => subscription) }
+
+    let(:invalid_payment) { Payment.create(:description => "foo", 
+                             :customer     => invalid_customer, 
+                             :subscription => subscription) }
+
+
+    describe ".customer_name"  do
       it "returns its customer email" do
         payment.customer_email.should == "john@doe.com"
       end 
     end 
 
-    describe "#create", :vcr => { :cassette_name => "jackpot/payments_create" } do
+    describe "#create" do
       context "with valid token information"  do 
         let(:retrieved_payment) { Payment.find(payment.id) } 
 
@@ -29,7 +37,7 @@ module Jackpot
         end 
 
         it "records the payment transaction id for future reference" do
-          retrieved_payment.payment_transaction_token.should == "1561055491"
+          retrieved_payment.payment_transaction_token.should == "1561142493"
         end 
 
         it "records this payment information" do
@@ -41,11 +49,25 @@ module Jackpot
         it "does not persist credit card token information" do
           retrieved_payment.credit_card_token.should be_nil
         end 
-
       end 
+      context "with invalid token information"  do
+        before do
+          Jackpot::Gateway.any_instance.stub(:authorize)
+                                  .with(4200, '1')
+                                  .and_return(fail_response)
+        end 
 
-      context "with invalid token information" do
-        it "raises an unauthorized token information" 
+        it "raises an unauthorized token information" do
+          expect { invalid_payment }.to raise_error Jackpot::Errors::UnauthorizedPayment
+        end
+
+        it "must not save an additional payment" do
+          begin
+            invalid_payment
+          rescue Jackpot::Errors::UnauthorizedPayment
+            Payment.count.should == 0
+          end 
+        end 
       end 
     end 
   end

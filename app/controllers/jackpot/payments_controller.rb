@@ -2,9 +2,12 @@ module Jackpot
   class PaymentsController < ApplicationController
 
     def create
-      Payment.create(params[:payment])
+      @customer = Jackpot::Customer.find params[:customer_id] 
+
       respond_to do |format|
-        format.html { redirect_to(payments_url, notice: "Payment recorded successfully")} 
+        if @customer.pay_subscription
+          format.html { redirect_to(payments_url, notice: "Payment recorded successfully")} 
+        end
       end 
     end
 

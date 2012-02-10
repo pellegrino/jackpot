@@ -15,10 +15,14 @@ module Jackpot
       if credit_card_token
         self.amount = self.subscription.price
         response = Jackpot::Payment.gateway.authorize       self.amount, credit_card_token
-        billing_response = Jackpot::Payment.gateway.capture(self.amount, 
-                                                             response.authorization) 
+        if response.success?
+          billing_response = Jackpot::Payment.gateway.capture(self.amount, 
+                                                               response.authorization) 
 
-        self.payment_transaction_token = billing_response.params['transactionid']
+          self.payment_transaction_token = billing_response.params['transactionid']
+        else
+          raise Jackpot::Errors::UnauthorizedPayment.new
+        end
       end 
     end 
 

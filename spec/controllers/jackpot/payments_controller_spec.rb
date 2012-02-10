@@ -4,22 +4,30 @@ describe Jackpot::PaymentsController do
 
   describe "POST 'create'" do
     before(:each) do
-      Jackpot::Payment.stub!(:create).with("foo" => "bar")
-    end 
-    it "creates a new payment" do 
-      Jackpot::Payment.should_receive(:create).with("foo"=>"bar")
-      post :create, payment: { foo: "bar" } , :use_route => :jackpot
+      Jackpot::Customer.stub!(:find).with('42').and_return  customer
+      Jackpot::Customer.stub!(:find).with('1').and_return   invalid_customer
     end 
 
-    it "redirects to payments list page" do
-      post :create, payment: { foo: "bar" } , :use_route => :jackpot
-      response.should redirect_to(payments_path)
-    end
+    let(:customer)         { stub(:pay_subscription => true) } 
+    let(:invalid_customer) { stub(:pay_subscription => false) } 
 
-    it "assigns a success message" do
-      post :create, payment: { foo: "bar" } , :use_route => :jackpot
-      flash[:notice].should be_present
-    end
+    context "when customer pay his/hers subscription successfuly" do 
+      it "fetches the customer we're charging" do
+        post :create, :customer_id => '42', :use_route => :jackpot
+        response.should redirect_to(payments_path)
+      end 
+      it "assigns a success message" do
+        post :create, :customer_id => '42' , :use_route => :jackpot
+        flash[:notice].should be_present
+      end
+    end 
+
+    context "when customer could not pay his/hers subscription" do 
+      it "does not assign a success message" do
+        post :create, :customer_id => '42' , :use_route => :jackpot
+        flash[:notice].should be_present
+      end
+    end 
   end
 
 

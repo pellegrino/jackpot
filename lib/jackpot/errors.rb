@@ -4,11 +4,12 @@ module Jackpot
     # 
     # This error is raised when Jackpot::Payment.initialize_credit_card tries to
     # issue a payment to an invalid card     
-    CardIsInvalid   = Class.new(StandardError)
+    CardIsInvalid           = Class.new(StandardError)
 
     # This error indicates the Gateway was not initialized correctly  
-    InvalidGateway  = Class.new(StandardError)
+    InvalidGateway          = Class.new(StandardError)
     CustomerHasNoCardSaved  = Class.new(StandardError)
+    UnauthorizedPayment     = Class.new(StandardError)
   end 
     
 end 

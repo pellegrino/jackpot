@@ -2,7 +2,6 @@ def next_year
   Time.now.year + 1 
 end
 
-
 def credit_card(number = '4242424242424242', params = {})
   @credit_card ||= ActiveMerchant::Billing::CreditCard.new credit_card_hash(number, params)
 end 

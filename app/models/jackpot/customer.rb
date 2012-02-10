@@ -11,7 +11,7 @@ module Jackpot
 
     def pay_subscription
       if credit_card_token   
-        if subscription.charge(credit_card_token)
+        if subscription.charge(self)
           update_attribute(:good_until, Date.today + 1.month)
         end 
       else 
