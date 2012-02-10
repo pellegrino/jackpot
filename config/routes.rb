@@ -10,4 +10,8 @@ Jackpot::Engine.routes.draw do
 
 
   root :to => "payments#index"
+  devise_for :users, {
+    :class_name => 'Jackpot::User',
+    :module     => :devise
+  }
 end

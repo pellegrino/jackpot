@@ -1,5 +1,6 @@
 module Jackpot
   class CustomersController < ApplicationController
+    before_filter :authenticate_user!
 
     # PUT /customers/37/credit_card 
     # Assigns a credit card to the given customer

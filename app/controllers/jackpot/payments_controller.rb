@@ -1,5 +1,6 @@
 module Jackpot
   class PaymentsController < ApplicationController
+    before_filter :authenticate_user!
 
     def create
       @customer = Jackpot::Customer.find params[:customer_id] 

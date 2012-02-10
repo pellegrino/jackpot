@@ -1,5 +1,6 @@
 require 'haml'
 require 'active_merchant'
+require 'devise'
 require 'formtastic-bootstrap'
 
 module Jackpot

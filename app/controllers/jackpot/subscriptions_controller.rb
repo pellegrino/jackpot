@@ -1,5 +1,6 @@
 module Jackpot
   class SubscriptionsController < ApplicationController
+    before_filter :authenticate_user!
     # GET /subscriptions
     # GET /subscriptions.json
     def index

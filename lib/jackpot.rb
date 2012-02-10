@@ -4,6 +4,8 @@ require 'jackpot/configuration'
 require 'jackpot/factory'
 require 'jackpot/cron'
 
+require 'devise'
+
 module Jackpot
   extend self
 

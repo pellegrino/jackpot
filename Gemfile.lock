@@ -5,6 +5,7 @@ PATH
       activemerchant (~> 1.20.1)
       bootstrap-sass (~> 2.0.0)
       coffee-rails
+      devise (~> 2.0)
       formtastic-bootstrap
       haml-rails
       jquery-rails (>= 2.0.0)
@@ -53,6 +54,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.6)
     arel (3.0.0)
+    bcrypt-ruby (3.0.1)
     bootstrap-sass (2.0.0)
     braintree (2.13.4)
       builder (>= 2.0.0)
@@ -74,6 +76,11 @@ GEM
       execjs
     coffee-script-source (1.2.0)
     database_cleaner (0.7.1)
+    devise (2.0.1)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.0.3)
+      railties (~> 3.1)
+      warden (~> 1.1)
     diff-lcs (1.1.3)
     erubis (2.7.0)
     execjs (1.3.0)
@@ -115,6 +122,7 @@ GEM
     multi_json (1.0.4)
     mysql2 (0.3.11)
     nokogiri (1.5.0)
+    orm_adapter (0.0.6)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.1)
@@ -178,6 +186,8 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.31)
     vcr (2.0.0.rc1)
+    warden (1.1.0)
+      rack (>= 1.0)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -188,6 +198,7 @@ DEPENDENCIES
   bootstrap-sass
   capybara (~> 1.1)
   database_cleaner
+  devise (~> 2.0)
   factory_girl_rails (>= 1.2.0)
   fakeweb
   jackpot!
