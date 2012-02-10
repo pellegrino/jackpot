@@ -21,6 +21,26 @@ describe Jackpot::Customer do
   end 
 
 
+  describe ".due_in" do
+    before do
+      @next_week    = Factory(:customer, :good_until => 1.week.from_now)
+      @thirty_days  = Factory(:customer, :good_until => 30.days.from_now)
+      @two_days     = Factory(:customer, :good_until => 2.days.from_now)
+      @tomorrow     = Factory(:customer, :good_until => Date.tomorrow)
+    end 
+
+    context "two days" do 
+      subject { Jackpot::Customer.due_in 2} 
+
+      it { subject.should     include @tomorrow    } 
+      it { subject.should     include @two_days    } 
+      it { subject.should_not include @thirty_days } 
+      it { subject.should_not include @next_week   } 
+    end 
+      
+  end 
+
+
   describe ".pay_subscription" do 
     let(:customer)                    { Factory(:customer_with_subscription, 
                                                 :credit_card_token => '42') }
