@@ -7,4 +7,7 @@ Jackpot::Engine.routes.draw do
 
   resources :subscriptions 
   resources :payments 
+
+
+  root :to => "payments#index"
 end
