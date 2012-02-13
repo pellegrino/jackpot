@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jackpot</title>
+    <%= stylesheet_link_tag    "jackpot/login" %>
+    <%= javascript_include_tag "jackpot/login" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <%= link_to "Jackpot", "/billing", :class => "brand" %>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="offset5"> 
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
