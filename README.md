@@ -43,6 +43,7 @@ It started out as my may 2011 session @ [Mendicant University](http://mendicantu
         bundle exec rake jackpot:install:migrations
 
 1. Mount jackpot engine at your config/routes 
+        
         mount Jackpot::Engine => "/billing"
 
 After these steps, everything should be working. Don't forget to run your migrations so your database its updated
