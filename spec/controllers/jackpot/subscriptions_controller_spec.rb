@@ -2,6 +2,12 @@ require 'spec_helper'
 
 module Jackpot 
   describe Jackpot::SubscriptionsController do
+
+    let(:user) { Factory(:user) }
+    before do
+      sign_in :user, user
+    end 
+
     def valid_attributes
       {name: "Gold"}
     end

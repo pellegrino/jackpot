@@ -8,6 +8,13 @@ feature "Create Customers", %q{
 } do
 
 
+  let(:user) { Factory(:user) } 
+
+  before do
+    sign_in user
+  end 
+
+
   scenario "customer creation" do
     visit customers_path 
     click_link "New Customer"

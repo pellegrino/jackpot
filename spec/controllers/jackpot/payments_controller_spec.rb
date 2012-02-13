@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe Jackpot::PaymentsController do
 
+  let(:user) { Factory(:user) } 
+
+  before :each do
+    sign_in :user,  user
+  end 
+
   describe "POST 'create'" do
     before(:each) do
       Jackpot::Customer.stub!(:find).with('42').and_return  customer

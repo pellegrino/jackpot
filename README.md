@@ -69,6 +69,15 @@ You might also want to setup a cron job for running your billing periodically ta
 This task will bill automatically every customer that is currently overdue using his/hers saved credit card token information.
 
 
+### Authentication
+
+Jackpot uses devise internally to protect its controllers. 
+
+You need to setup default url options for each environment you use. Heres an example for development environment.
+
+      # in config/environments/development.rb
+      config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
 ## Contributing to jackpot
 
 ### How to run jackpot locally 

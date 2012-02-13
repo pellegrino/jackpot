@@ -6,9 +6,12 @@ feature "Receive Payments", %q{
   I want to be able to bill credit cards from my customers 
 } do
 
-  background do
-     @customer = Factory(:customer_with_subscription_and_valid_card, 
-                         :email => "john@doe.com")
+  let(:customer) { Factory(:customer_with_subscription_and_valid_card, 
+                        :email => "john@doe.com") } 
+  let(:user)     { Factory(:user) } 
+
+  before do
+    sign_in user
   end 
 
   # TODO: Rewrite this test making it access the API instead
@@ -17,7 +20,7 @@ feature "Receive Payments", %q{
     visit "/payment.html"
 
     within "form" do 
-      fill_in "customer_id",        :with => "#{@customer.id}"
+      fill_in "customer_id",        :with => "#{customer.id}"
       click_button 'confirm' 
     end 
 

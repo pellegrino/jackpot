@@ -3,6 +3,12 @@ require 'spec_helper'
 module Jackpot 
   describe CustomersController do
 
+    let(:user) { Factory(:user) } 
+
+    before :each do
+      sign_in :user, user
+    end
+
     def valid_attributes
       {}
     end

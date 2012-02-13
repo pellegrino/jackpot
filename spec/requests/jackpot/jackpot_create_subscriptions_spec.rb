@@ -7,6 +7,11 @@ feature "Create subscriptions", %q{
   I want to be able to record their pricing and name
 } do
 
+  let(:user) { Factory(:user) } 
+  background do
+    sign_in user
+  end 
+
   scenario "creating a new subscription" do 
     visit subscriptions_path
     click_link "New Subscription"

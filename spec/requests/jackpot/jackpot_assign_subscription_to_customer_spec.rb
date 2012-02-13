@@ -7,8 +7,12 @@ feature "Assign Subscription to customer", %q{
   I want to record their plan and subscription  
 } do
   
-  background do
-    @subscription = FactoryGirl.create(:subscription, :name => "Gold")
+  let(:user)         {  Factory(:user) }
+
+  before do
+    sign_in user
+
+    @subscription = Factory :subscription, :name => "Gold"
   end
 
   scenario "creating a customer and assigning a new subscription" do
