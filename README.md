@@ -78,6 +78,9 @@ You need to setup default url options for each environment you use. Heres an exa
 
       # in config/environments/development.rb
       config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+## Docs
+
+This project uses YARD and the current can always be found at [http://rubydoc.info/github/pellegrino/jackpot](http://rubydoc.info/github/pellegrino/jackpot)
 
 ## Contributing to jackpot
 
