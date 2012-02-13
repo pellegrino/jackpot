@@ -5,7 +5,7 @@ rvm:
   - 1.9.2
 branches:
   only:
-    - rails-engine
+    - master
 
 notifications:
   irc: "irc.freenode.org#jackpot"
