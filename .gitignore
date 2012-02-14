@@ -12,4 +12,5 @@ tmp
 *.sw*
 spec/dummy/log
 spec/dummy/db/*.sqlite3
+spec/dummy/db/migrate
 *.rbc

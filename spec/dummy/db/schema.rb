@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120210145902) do
+ActiveRecord::Schema.define(:version => 20120214020231) do
 
   create_table "jackpot_customers", :force => true do |t|
     t.string   "email"
     t.text     "description"
     t.integer  "subscription_id"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "credit_card_number"
     t.integer  "credit_card_expiry_month"
     t.integer  "credit_card_expiry_year"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20120210145902) do
     t.string   "payment_transaction_token"
     t.integer  "amount"
     t.text     "description"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "customer_name"
     t.integer  "subscription_id"
     t.integer  "customer_id"
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(:version => 20120210145902) do
   create_table "jackpot_subscriptions", :force => true do |t|
     t.string   "name"
     t.integer  "price"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "billing_period"
   end
 
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(:version => 20120210145902) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "jackpot_users", ["authentication_token"], :name => "index_jackpot_users_on_authentication_token", :unique => true
