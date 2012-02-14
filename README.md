@@ -101,7 +101,7 @@ Since this project is basically a Rails Engine, some additional steps are requir
 
 Before running the specs for the first time, or after adding a new migration, make sure to run the following command 
 
-    bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate db:test:prepare
+    bundle exec rake -f spec/dummy/Rakefile db:drop jackpot:install:migrations db:create db:migrate db:test:prepare
 
 That will create and initialize the database for you. The dataase.yml file used is the one located at spec/dummy/config/database.yml. If you changed something that did require a migration to be created, make sure you've copied that one to spec/dummy/db/migrate folder.
    
