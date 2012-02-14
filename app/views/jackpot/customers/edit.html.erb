@@ -1,0 +1,13 @@
+<h1> Editing customer </h1>
+
+<div id="form-basic-information">
+
+  <h2> Basic information </h2>
+  <%= render 'form' %>
+</div>
+
+<div id="credit-card-information"> 
+  <%= render 'credit_card_form' %>
+</div>
+<%= link_to 'Show', @customer %> |
+<%= link_to 'Back', customers_path %>

@@ -1,0 +1,42 @@
+<%= form_tag(credit_card_customer_path, :method => :put , :id => "credit-card-form") do %>
+  <fieldset>
+    <legend>Credit Card Details</legend>
+
+
+    <div class="optional text clearfix" id="credit_card_number">
+      <%= label_tag      "credit_card[number]", "Number" %>
+      <%= text_field_tag "credit_card[number]" %>
+    </div>
+
+    <div class="optional text clearfix" id="credit_card_month">
+      <%= label_tag      "credit_card[month]", "Month" %>
+      <%= text_field_tag "credit_card[month]" %>
+    </div>
+
+    <div class="optional text clearfix" id="credit_card_year">
+      <%= label_tag      "credit_card[year]", "Year" %>
+      <%= text_field_tag "credit_card[year]" %>
+    </div>
+
+    <div class="optional text clearfix" id="credit_card_first_name">
+      <%= label_tag      "credit_card[first_name]", "First Name" %>
+      <%= text_field_tag "credit_card[first_name]" %>
+    </div>
+
+    <div class="optional text clearfix" id="credit_card_last_name">
+      <%= label_tag      "credit_card[last_name]", "Last Name" %>
+      <%= text_field_tag "credit_card[last_name]" %>
+    </div>
+
+    <div class="optional text clearfix" id="credit_card_verification_value">
+      <%= label_tag      "credit_card[verification_value]", 
+                                      "Verification Value" %>
+      <%= text_field_tag "credit_card[verification_value]" %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Confirm" %>
+    </div>
+
+  </fieldset>
+<% end %> 
