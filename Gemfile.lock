@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jackpot (0.0.1)
+    jackpot (0.0.2)
       activemerchant (~> 1.20.1)
       bootstrap-sass (~> 2.0.0)
       devise (~> 2.0)
