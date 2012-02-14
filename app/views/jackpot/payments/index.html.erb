@@ -1,0 +1,25 @@
+<h1> Payments </h1>
+
+<% if @payments.present? %>
+
+  <table id="latest-payments" class="table table-striped">
+    <thead>
+      <tr>
+        <th> Customer Email </th>
+        <th> Amount</th>
+        <th> Created at</th>
+      </tr>
+
+      <tbody>
+        <% @payments.each do |payment| %>
+          <tr>
+            <td class="customer-email"><%= payment.customer_email %></td>
+            <td class="amount"><%= number_to_currency(payment.amount) %></td>
+            <td class="created_at"><%= distance_of_time_in_words_to_now(payment.created_at) %></td>
+          </tr>
+        <% end %>  
+      </tbody>
+    </thead>
+
+  </table>
+<% end %>
