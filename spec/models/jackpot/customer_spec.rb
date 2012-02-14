@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'timecop'
 
 describe Jackpot::Customer do
   it { should     belong_to                :subscription             } 
@@ -23,9 +24,11 @@ describe Jackpot::Customer do
 
   describe ".overdue" do
     before do
-      @today       = Factory(:customer, :good_until => Date.today)
-      @tomorrow    = Factory(:customer, :good_until => Date.tomorrow)
-      @yesterday   = Factory(:customer, :good_until => Date.yesterday)
+      Timecop.freeze(Date.today) do
+        @today       = Factory(:customer, :good_until => Date.today)
+        @tomorrow    = Factory(:customer, :good_until => Date.tomorrow)
+        @yesterday   = Factory(:customer, :good_until => Date.yesterday)
+      end 
     end 
     
     subject { Jackpot::Customer.overdue} 
@@ -38,10 +41,12 @@ describe Jackpot::Customer do
 
   describe ".due_in" do
     before do
-      @next_week    = Factory(:customer, :good_until => 1.week.from_now)
-      @thirty_days  = Factory(:customer, :good_until => 30.days.from_now)
-      @two_days     = Factory(:customer, :good_until => 2.days.from_now)
-      @tomorrow     = Factory(:customer, :good_until => Date.tomorrow)
+      Timecop.freeze(Date.today) do
+        @next_week    = Factory(:customer, :good_until => 1.week.from_now)
+        @thirty_days  = Factory(:customer, :good_until => 30.days.from_now)
+        @two_days     = Factory(:customer, :good_until => 2.days.from_now)
+        @tomorrow     = Factory(:customer, :good_until => Date.tomorrow)
+      end 
     end 
 
     context "two days" do 
