@@ -1,0 +1,30 @@
+<h1> Listing customers </h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Description</th>
+      <th>Subscription</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <% @customers.each do |customer| %>
+    <tr id="customer-<%= customer.id %>">
+      <td><%= customer.email %> </td>
+      <td><%= customer.description %> </td>
+      <td><%= subscription_name_when_available(customer) %> </td>
+      <td><%= link_to 'Show', customer %> </td>
+      <td><%= link_to 'Edit', edit_customer_path(customer) %> </td>
+      <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %> </td>
+    </tr>
+  <% end %>
+
+</table>
+
+
+<p>
+  <%= link_to 'New Customer', new_customer_path %>
+</p>

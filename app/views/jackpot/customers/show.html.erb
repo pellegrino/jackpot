@@ -1,0 +1,32 @@
+<p id="notice"> <%= notice %> </p>
+<div id="customer">
+  <p>
+    <b> Email: </b> <%= @customer.email %>
+  </p>
+
+  <p>
+    <b> Description: </b> <%= @customer.description %>
+  </p>
+  
+  <p>
+    <b> Subscription: </b> <%= @customer.subscription.name if @customer.subscription.present? %>
+  </p>
+
+  <h2> Billing information </h2>
+
+  <% if @customer.credit_card_number.present? %>
+    <p>
+      <b> Credit Card Number: </b> <%= @customer.credit_card_number %>
+    </p>
+    <p>
+      <b> Credit Card Expiration Date: </b> <%= @customer.expiration_date %>
+    </p>
+  <% else %>
+    <p>
+      There is no credit card information assigned to this customer yet 
+    </p>
+  <% end %> 
+</div>
+
+<%= link_to "Edit", edit_customer_path(@customer) %> | 
+<%= link_to "Back", customers_path %>

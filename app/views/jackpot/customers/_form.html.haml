@@ -1,9 +1,0 @@
-= semantic_form_for @customer do |f|
-  = f.semantic_errors
-  = f.inputs do
-    = f.input :email
-    = f.input :description, :input_html => { :class => 'autogrow', :rows => 10, :cols => 20, :maxlength => 10  } 
-    = f.input :subscription
-
-  = f.buttons do
-    = f.commit_button :button_html => {:class => "primary"} 
