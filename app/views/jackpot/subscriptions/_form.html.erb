@@ -1,0 +1,13 @@
+<%= semantic_form_for @subscription do |f| %>
+  <%= f.semantic_errors %>
+
+  <%= f.inputs do %>
+    <%= f.input :name  %>
+    <%= f.input :price , hint: "Price in cents. Eq: 100 for 1 dolar/month subscriptions" %>
+  <% end %> 
+
+  <%= f.buttons do %>
+    <%= f.commit_button :button_html => { :class => "primary" }  %>
+  <% end %>
+
+<% end %>

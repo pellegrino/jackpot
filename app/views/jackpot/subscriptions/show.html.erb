@@ -1,0 +1,23 @@
+<h1> Subscription details </h1>
+<p>
+  <b>Name:</b> <%= @subscription.name %>
+</p>
+
+
+<p>
+  <b>Price:</b> <%= number_to_currency @subscription.price %>
+</p>
+
+<% if @subscription.customers.present? %>
+  <h2> Subscribers </h2>
+  <ul id="subscribers">
+    <% @subscription.customers.each do |subscriber| %>
+      <li>
+        <%= link_to subscriber.email , customer_path(subscriber) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Edit', edit_subscription_path(@subscription) %> |
+<%= link_to 'Back', subscriptions_path %>
