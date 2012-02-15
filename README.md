@@ -17,10 +17,8 @@ It started out as my may 2011 session @ [Mendicant University](http://mendicantu
 1. Add jackpot to your Gemfile as you normally would do with any bundler powered gem. You might also have to add bootstrap-sass and jquery-rails as they are used extensively at jackpot.
 
         gem 'jackpot'
-        group :assets do
-          gem 'bootstrap-sass', "~> 2.0.0"
-          gem 'jquery-rails',   "~> 2.0.0"
-        end
+        gem 'bootstrap-sass', "~> 2.0.0"
+        gem 'jquery-rails',   "~> 2.0.0"
 
 1. Create an initializer to configure your gateway information. Heres an example of how to do it 
 
