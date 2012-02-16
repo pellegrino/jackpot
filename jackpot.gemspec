@@ -28,9 +28,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'fakeweb'
 
   s.add_dependency "rails",                           "~> 3.1"
-  s.add_dependency "formtastic-bootstrap",            "~> 1.1" 
-  s.add_dependency "bootstrap-sass",                  "~> 2.0.0"
   s.add_dependency "sass-rails",                      "~> 3.1"
+  s.add_dependency "formtastic-bootstrap",            "~> 1.1" 
   s.add_dependency "activemerchant",                  "~> 1.20.1"
   s.add_dependency "devise",                          "~> 2.0"
 end

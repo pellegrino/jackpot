@@ -1,6 +1,8 @@
-@import "bootstrap";
-@import "bootstrap-responsive";
-
+/*
+ *= require bootstrap/bootstrap
+ *= require bootstrap/bootstrap-responsive
+ *= require_self
+*/
 h1 {
   padding-top: 40px;
 }
