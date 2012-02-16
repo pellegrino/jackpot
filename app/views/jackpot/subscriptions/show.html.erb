@@ -1,12 +1,17 @@
 <h1> Subscription details </h1>
-<p>
-  <b>Name:</b> <%= @subscription.name %>
-</p>
+<div id="subscription-details">
+  <p>
+    <b>Name:</b> <%= @subscription.name %>
+  </p>
 
+  <p>
+    <b>Price:</b> <%= number_to_currency @subscription.price %>
+  </p>
 
-<p>
-  <b>Price:</b> <%= number_to_currency @subscription.price %>
-</p>
+  <p>
+    <b>Description:</b> <%= @subscription.description %>
+  </p>
+</div>
 
 <% if @subscription.customers.present? %>
   <h2> Subscribers </h2>

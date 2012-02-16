@@ -41,7 +41,7 @@ module Jackpot
         end 
 
         it "records this payment information" do
-          retrieved_payment.amount.should          == 4200
+          retrieved_payment.amount.should          == 42
           retrieved_payment.description.should_not be_nil 
           retrieved_payment.subscription.should_not be_nil 
         end 
@@ -53,7 +53,7 @@ module Jackpot
       context "with invalid token information"  do
         before do
           Jackpot::Gateway.any_instance.stub(:authorize)
-                                  .with(4200, '1')
+                                  .with(42, '1')
                                   .and_return(fail_response)
         end 
 

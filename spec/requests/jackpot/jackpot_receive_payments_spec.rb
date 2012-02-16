@@ -27,7 +27,7 @@ feature "Receive Payments", %q{
     page.should have_content("success") 
     within('#latest-payments') do 
       page.should have_content('john@doe.com')
-      page.should have_content('$3,000.00')
+      page.should have_content('$30.00')
       page.should have_content('less than a minute') 
     end
   end 

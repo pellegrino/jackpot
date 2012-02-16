@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214020231) do
+ActiveRecord::Schema.define(:version => 20120216220531) do
 
   create_table "jackpot_customers", :force => true do |t|
     t.string   "email"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20120214020231) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "billing_period"
+    t.text     "description"
   end
 
   create_table "jackpot_users", :force => true do |t|
