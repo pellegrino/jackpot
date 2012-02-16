@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jackpot (0.0.2)
+    jackpot (0.0.3)
       activemerchant (~> 1.20.1)
       devise (~> 2.0)
       formtastic-bootstrap (~> 1.1)
