@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
 
   s.files       = `git ls-files`.split("\n")
 
-  s.add_development_dependency "devise",              "~> 2.0"
   s.add_development_dependency "capybara",            "~> 1.1"
   s.add_development_dependency "timecop",             "~> 0.3"
   s.add_development_dependency "database_cleaner",    "~> 0.7"
@@ -28,7 +27,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'fakeweb'
 
   s.add_dependency "rails",                           "~> 3.1"
-  s.add_dependency "sass-rails",                      "~> 3.1"
   s.add_dependency "formtastic-bootstrap",            "~> 1.1" 
   s.add_dependency "activemerchant",                  "~> 1.20.1"
   s.add_dependency "devise",                          "~> 2.0"

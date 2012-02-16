@@ -6,7 +6,6 @@ PATH
       devise (~> 2.0)
       formtastic-bootstrap (~> 1.1)
       rails (~> 3.1)
-      sass-rails (~> 3.1)
 
 GEM
   remote: http://rubygems.org/
@@ -139,12 +138,6 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.8.0)
     rubyzip (0.9.6.1)
-    sass (3.1.15)
-    sass-rails (3.1.5)
-      actionpack (~> 3.1.0)
-      railties (~> 3.1.0)
-      sass (~> 3.1.10)
-      tilt (~> 1.3.2)
     selenium-webdriver (2.19.0)
       childprocess (>= 0.2.5)
       ffi (~> 1.0.9)
