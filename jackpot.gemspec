@@ -1,6 +1,6 @@
 $:.push File.expand_path("../lib", __FILE__)
 
-# Maintain your gem's version:
+# Maintain your gem's version: 
 require "jackpot/version"
 
 # Describe your gem and declare its dependencies:
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'fakeweb'
 
   s.add_dependency "rails",                           "~> 3.1"
+  s.add_dependency "jquery-rails",                    "~> 1.0"
   s.add_dependency "formtastic-bootstrap",            "~> 1.1" 
   s.add_dependency "activemerchant",                  "~> 1.20.1"
   s.add_dependency "devise",                          "~> 2.0"

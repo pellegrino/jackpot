@@ -5,6 +5,7 @@ PATH
       activemerchant (~> 1.20.1)
       devise (~> 2.0)
       formtastic-bootstrap (~> 1.1)
+      jquery-rails (~> 1.0)
       rails (~> 3.1)
 
 GEM
@@ -63,7 +64,7 @@ GEM
     childprocess (0.3.1)
       ffi (~> 1.0.6)
     database_cleaner (0.7.1)
-    devise (2.0.1)
+    devise (2.0.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
       railties (~> 3.1)
@@ -170,7 +171,6 @@ PLATFORMS
 DEPENDENCIES
   capybara (~> 1.1)
   database_cleaner (~> 0.7)
-  devise (~> 2.0)
   factory_girl_rails (~> 1.6.0)
   fakeweb
   jackpot!

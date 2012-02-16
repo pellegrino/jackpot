@@ -1,4 +1,5 @@
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
-//= require bootstrap/bootstrap
-//= require_tree .
+//= require twitter/bootstrap 
+//= require jackpot/bootstrap

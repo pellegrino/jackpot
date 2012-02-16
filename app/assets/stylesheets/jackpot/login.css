@@ -1,6 +1,6 @@
 /*
- *= require bootstrap/bootstrap
- *= require bootstrap/bootstrap-responsive
+ *= require twitter/bootstrap/bootstrap
+ *= require twitter/bootstrap/bootstrap-responsive
  *= require_self
 */
 h1 {
