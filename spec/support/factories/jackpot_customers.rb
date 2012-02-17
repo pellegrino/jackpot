@@ -18,6 +18,9 @@ FactoryGirl.define do
     factory :customer_with_subscription_and_valid_card , :parent => :customer_with_valid_card do
       subscription
     end 
+
+    # Because i always guess the opposite order 
+    factory :customer_with_valid_card_and_subscription , :parent => :customer_with_subscription_and_valid_card
   end
 
   sequence :email do |n|

@@ -13,21 +13,30 @@ module Jackpot
     def perform_payment
       credit_card_token = customer.credit_card_token
       if credit_card_token
-        self.amount = self.subscription.price
-        response = Jackpot::Payment.gateway.authorize       self.amount, credit_card_token
+        self.amount = self.subscription.price_in_cents
+        response = Jackpot::Payment.gateway.authorize(self.amount_in_cents, credit_card_token)
         if response.success?
-          billing_response = Jackpot::Payment.gateway.capture(self.amount, 
+          billing_response = Jackpot::Payment.gateway.capture(self.amount_in_cents, 
                                                                response.authorization) 
-
           self.payment_transaction_token = billing_response.params['transactionid']
         else
           raise Jackpot::Errors::UnauthorizedPayment.new
         end
+      else
+        raise Jackpot::Errors::CustomerHasNoCardSaved.new
       end 
     end 
 
     def customer_email
       customer.email
+    end 
+
+    def amount
+      amount_in_cents / 100 unless amount_in_cents.nil?
+    end 
+
+    def amount_in_cents
+      read_attribute(:amount) 
     end 
   end
 end

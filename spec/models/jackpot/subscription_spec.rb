@@ -23,12 +23,16 @@ describe Jackpot::Subscription do
   end 
 
   describe ".charge" do
-    let(:customer_to_be_charged) { Factory(:customer_with_subscription)  } 
-    subject { customer_to_be_charged.subscription  } 
 
-    it "creates a payment for the given customer" , 
-      :vcr => { :cassette_name => "jackpot/subscription_charge" } do
-      expect { subject.charge(customer_to_be_charged)}.to change(subject.payments, :count).by(1)
+    it "creates a payment for given customer" do
+      subscription  = Factory.build :subscription
+      customer = 'customer'
+
+      payments = mock(['payments']) 
+      payments.stub(:create).with(:customer => customer).and_return('42')
+      subscription.stub!(:payments).and_return(payments)
+
+      subscription.charge(customer).should == '42'
     end 
   end   
 

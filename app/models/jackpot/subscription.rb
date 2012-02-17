@@ -6,7 +6,6 @@ module Jackpot
     has_many :payments
 
     validates_presence_of :name
-    
 
     # Charge the subscriber the price of this subscription, using its saved credit card token
     def charge(customer_to_be_charged)
