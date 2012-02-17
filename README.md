@@ -29,8 +29,8 @@ It started out as my may 2011 session @ [Mendicant University](http://mendicantu
             c.gateway_mode      :test
           else
             c.gateway_type      :braintree
-            c.gateway_login     'login'
-            c.gateway_password  'demo'
+            c.gateway_login     'demo'
+            c.gateway_password  'password'
             c.gateway_mode      :test
           end 
         end 
