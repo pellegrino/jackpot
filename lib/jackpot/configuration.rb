@@ -1,5 +1,6 @@
 module Jackpot
 
+  # Simple object that stores mounting app's preferences
   class Configuration
 
     attr_accessor :default_options

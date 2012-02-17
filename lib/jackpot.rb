@@ -12,7 +12,9 @@ module Jackpot
 
   def configure
     yield configuration
-    factory = Jackpot::Factory.new(configuration.gateway)  
+    ActiveMerchant::Billing::Base.mode = configuration.gateway[:mode]
+
+    factory = Jackpot::Factory.new(configuration.gateway)
     Jackpot::Payment.gateway = factory.build 
   end 
 
