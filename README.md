@@ -4,6 +4,7 @@ Jackpot
 # WORK IN PROGRESS
 
 [![Build Status](https://secure.travis-ci.org/pellegrino/jackpot.png)](http://travis-ci.org/pellegrino/jackpot)
+[![Dependency Status](https://gemnasium.com/pellegrino/jackpot.png)](https://gemnasium.com/pellegrino/jackpot)
 
 _WORK IN PROGRESS_ 
 
