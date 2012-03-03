@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "factory_girl_rails",  "~> 1.7.0"
   s.add_development_dependency 'rspec-rails',         "~> 2.8"
   s.add_development_dependency 'shoulda-matchers',    "~> 1.0.0"
-  s.add_development_dependency 'vcr',                 "~> 2.0.0.rc1"
+  s.add_development_dependency 'vcr',                 "~> 2.0.0"
   s.add_development_dependency 'fakeweb'
 
   s.add_dependency "rails",                           "~> 3.1"

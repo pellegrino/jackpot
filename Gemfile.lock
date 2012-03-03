@@ -158,7 +158,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.31)
-    vcr (2.0.0.rc1)
+    vcr (2.0.0)
     warden (1.1.0)
       rack (>= 1.0)
     xpath (0.1.4)
@@ -178,4 +178,4 @@ DEPENDENCIES
   rspec-rails (~> 2.8)
   shoulda-matchers (~> 1.0.0)
   timecop (~> 0.3)
-  vcr (~> 2.0.0.rc1)
+  vcr (~> 2.0.0)
