@@ -3,7 +3,9 @@ http_interactions:
 - request:
     method: post
     uri: https://secure.braintreepaymentgateway.com/api/transact.php
-    body: username=demo&password=password&customer_vault=add_customer&customer_vault_id=&ccnumber=5105105105105100&cvv=123&ccexp=0513&firstname=John&lastname=Doe
+    body:
+      encoding: US-ASCII
+      string: username=demo&password=password&customer_vault=add_customer&customer_vault_id=&ccnumber=5105105105105100&cvv=123&ccexp=0513&firstname=John&lastname=Doe
     headers:
       content-type:
       - application/x-www-form-urlencoded
@@ -19,16 +21,18 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Fri, 10 Feb 2012 01:36:46 GMT
+      - Mon, 05 Mar 2012 14:46:51 GMT
       server:
       - Apache
       content-length:
-      - '202'
+      - '203'
       connection:
       - close
       content-type:
       - text/html
-    body: response=1&responsetext=Customer Added&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=125106857
+    body:
+      encoding: US-ASCII
+      string: response=1&responsetext=Customer Added&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=1663398967
     http_version: '1.1'
-  recorded_at: Fri, 10 Feb 2012 01:36:46 GMT
-recorded_with: VCR 2.0.0.rc1
+  recorded_at: Mon, 05 Mar 2012 14:46:52 GMT
+recorded_with: VCR 2.0.0
