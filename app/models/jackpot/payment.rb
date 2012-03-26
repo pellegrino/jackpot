@@ -8,15 +8,13 @@ module Jackpot
     belongs_to :subscription
     belongs_to :customer
 
-    cattr_accessor :gateway
-
     def perform_payment
       credit_card_token = customer.credit_card_token
       if credit_card_token
         self.amount = self.subscription.price_in_cents
-        response = Jackpot::Payment.gateway.authorize(self.amount_in_cents, credit_card_token)
+        response = Jackpot::Base.gateway.authorize(self.amount_in_cents, credit_card_token)
         if response.success?
-          billing_response = Jackpot::Payment.gateway.capture(self.amount_in_cents, 
+          billing_response = Jackpot::Base.gateway.capture(self.amount_in_cents, 
                                                                response.authorization) 
           self.payment_transaction_token = billing_response.params['transactionid']
         else

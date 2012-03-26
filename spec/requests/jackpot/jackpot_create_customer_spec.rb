@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 feature "Create Customers", %q{ 
   To bill monthly my customers 
   As a user
@@ -10,8 +9,9 @@ feature "Create Customers", %q{
 
   let(:user) { Factory(:user) } 
 
-  before do
+  background do
     sign_in user
+    @customer = FactoryGirl.create("customer", :email => "baz@bar.com")
   end 
 
 
@@ -30,19 +30,12 @@ feature "Create Customers", %q{
 
     # Customer should have been created successfully 
     page.should have_css    (".alert.alert-success") 
-    page.should have_content("foo@bar.com"           )
+    page.should have_content("foo@bar.com"         )
   end 
 
-  it "assigning credit card information to customer", :vcr  do
-    ActiveMerchant::Billing::Base.mode = :test
-    Jackpot::Payment.gateway = Jackpot::Gateway.new(ActiveMerchant::Billing::BraintreeGateway.new :login => "demo" , :password => 'password')
-
-    @customer = FactoryGirl.create("customer", :email => "baz@bar.com")
-
-
+  scenario "assigning credit card information to customer", :vcr  do
     visit customers_path 
     within("#customer-#{@customer.id}") { click_link "Edit" } 
-
 
     page.should have_css      ("#credit-card-information" )
     # fill credit card's information
@@ -55,13 +48,12 @@ feature "Create Customers", %q{
       fill_in "credit_card[verification_value]"  , :with => 123 
 
       # submit data
-
       click_button 'Confirm'
     end 
+
     page.should have_css         (".alert.alert-success" ) 
 
     within("#customer") do
-      # Not quite what would be expected but this is due Bogus Gateway usage
       page.should have_content     ("XXXX-XXXX-XXXX-5100")   
       page.should have_content     ( next_year           )
       page.should have_content     ( "5"  )

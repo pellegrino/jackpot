@@ -9,7 +9,6 @@ module Jackpot
       @gateway = HashWithIndifferentAccess.new
     end 
 
-
     def configure
       yield self
 

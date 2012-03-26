@@ -37,5 +37,5 @@ Jackpot.configure do |c|
   c.gateway_type      :braintree
   c.gateway_login    'demo'
   c.gateway_password 'password'  
-  c.gateway_mode     'test'
+  c.gateway_mode     :test
 end 

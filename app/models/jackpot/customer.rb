@@ -34,7 +34,7 @@ module Jackpot
 
       # This should never be recorded 
       self.credit_card_verification_value = card.verification_value
-      stored_card_response = Jackpot::Payment.gateway.store(card)
+      stored_card_response = Jackpot::Base.gateway.store(card)
       write_attribute :credit_card_token , stored_card_response.params["customer_vault_id"]
 
       save
