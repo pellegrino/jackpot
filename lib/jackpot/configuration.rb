@@ -3,11 +3,18 @@ module Jackpot
   # Simple object that stores mounting app's preferences
   class Configuration
 
-    attr_accessor :default_options
     attr_accessor :gateway
 
     def initialize
       @gateway = HashWithIndifferentAccess.new
+    end 
+
+
+    def configure
+      yield self
+
+      ActiveMerchant::Billing::Base.mode = @gateway[:mode]
+      Jackpot::Factory.new(gateway).build
     end 
 
 

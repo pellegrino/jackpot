@@ -9,13 +9,8 @@ require 'devise'
 module Jackpot
   extend self
 
-
-  def configure
-    yield configuration
-    ActiveMerchant::Billing::Base.mode = configuration.gateway[:mode]
-
-    factory = Jackpot::Factory.new(configuration.gateway)
-    Jackpot::Payment.gateway = factory.build 
+  def configure(&block)
+    Jackpot::Payment.gateway = configuration.configure &block
   end 
 
   def configuration
