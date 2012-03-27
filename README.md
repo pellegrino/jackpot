@@ -1,17 +1,16 @@
 Jackpot
 ==========
 
-# WORK IN PROGRESS
 
 [![Build Status](https://secure.travis-ci.org/pellegrino/jackpot.png)](http://travis-ci.org/pellegrino/jackpot)
 [![Dependency Status](https://gemnasium.com/pellegrino/jackpot.png)](https://gemnasium.com/pellegrino/jackpot)
-
-_WORK IN PROGRESS_ 
 
 Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with. It uses [Active Merchant](https://github.com/Shopify/active_merchant) internally, so Jackpot will suport the gateways (that support credit card storage) provided by Active Merchant, making it easier to extend to your own needs.
 It is built using Rails Engines so it is easy to mount Jackpot in our rails 3.1 or 3.2 app and start using it to do your billing. 
 
 It started out as my may 2011 session @ [Mendicant University](http://mendicantuniversity.org) project and now its going through a major overhaul to get ready to hit its primetime.  
+
+I warn you also that Jackpot is currently under heavy development and in a very alpha state and should be treated accordingly.
 
 ## Installation
 
