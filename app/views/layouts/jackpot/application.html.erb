@@ -3,10 +3,10 @@
   <head>
     <title>Jackpot</title>
     <%= stylesheet_link_tag    "jackpot/application" %>
-    <%= javascript_include_tag "jackpot/application" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
+
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -21,23 +21,22 @@
             <%= render "jackpot/shared/navigation" %> 
 
             <p class="navbar-text pull-right">
-              &nbsp;
-              <a class="btn btn-small btn-info" href="#"><i class="icon-info-sign icon-white"></i> More Info</a>
-            </p>
-            <p class="navbar-text pull-right">
-              Logged in as <strong> <%= current_user.email %></strong>  <%= link_to "Sign out", destroy_user_session_path , :method => :delete %> 
-            </p>
+            Logged in as <strong> <%= current_user.email %></strong>  <%= link_to "Sign out", destroy_user_session_path , :method => :delete %> 
+          </p>
         </div>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <%= render "jackpot/shared/flash_messages" %>
-      </div>
-      <div class="row-fluid"> 
-        <%= yield %>
-      </div>
-    </div>
+  </div>
 
-  </body>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <%= render "jackpot/shared/flash_messages" %>
+    </div>
+    <div class="row-fluid"> 
+      <%= yield %>
+    </div>
+  </div>
+
+  <%= javascript_include_tag "jackpot/application" %>
+</body>
 </html>
