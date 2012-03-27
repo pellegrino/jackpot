@@ -80,6 +80,10 @@ You need to setup default url options for each environment you use. Heres an exa
 
 This project uses YARD and the current can always be found at [http://rubydoc.info/github/pellegrino/jackpot](http://rubydoc.info/github/pellegrino/jackpot)
 
+## Demo
+
+There is a small rails 3.2 application to demonstrate how to use jackpot within a rails app. [http://github.com/pellegrino/jackpot-demo](jackpot-demo). Make sure to check this out to see how things are wired under the covers. 
+
 ## Contributing to jackpot
 
 ### How to run jackpot locally 
@@ -114,22 +118,11 @@ If you ran the migrations correctly, you can start the dummy app as you normally
 
     bundle exec rails server 
 
-
-### General advice   
-
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
-* Fork the project
-* Start a feature/bugfix branch
-* Commit and push until you are happy with your contribution
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
-
 ### Get in contact! 
 
 There is a #jackpot channel @ freenode for this project. Feel free to stop by to ask questions and interact with other users. My IRC username is _pellegrino_ and i'm happy to help. 
 
 ## Copyright
 
-Copyright (c) 2011-2012 Vitor Pellegrino. See LICENSE.txt forfurther details.
+Copyright (c) 2011-2012 Vitor Pellegrino. See MIT-LICENSE.txt for further details.
 
