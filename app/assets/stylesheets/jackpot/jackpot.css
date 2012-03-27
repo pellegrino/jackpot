@@ -11,3 +11,14 @@ body {
 .sidebar-nav {
   padding: 9px 0;
 }
+
+a.dropdown-toggle {
+  text-decoration: none;
+}
+
+#jackpot-settings {
+  display: none;
+}
+
+
+

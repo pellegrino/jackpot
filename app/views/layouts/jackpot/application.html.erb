@@ -20,9 +20,18 @@
           <div class="nav-collapse">
             <%= render "jackpot/shared/navigation" %> 
 
-            <p class="navbar-text pull-right">
-            Logged in as <strong> <%= current_user.email %></strong>  <%= link_to "Sign out", destroy_user_session_path , :method => :delete %> 
-          </p>
+            <div class="navbar-text pull-right dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <%= gravatar_for_current_user :size => '32x32' %>&nbsp;<%= current_user.email %>
+                <i class="icon-chevron-down icon-white"></i>
+              </a>
+
+              <ul class="dropdown-menu">
+                <li> <%= link_to "Sign out", destroy_user_session_path , :method => :delete %> </li>
+              </ul>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
@@ -33,7 +42,18 @@
       <%= render "jackpot/shared/flash_messages" %>
     </div>
     <div class="row-fluid"> 
-      <%= yield %>
+      <div class="span10"><%= yield %></div>
+      <div class="span2">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <h4>Settings</h4>
+            <p>Jackpot is currently configured to use</p>
+            <li>Gateway: <strong><%= jackpot_gateway %></strong></li>
+            <li>Mode: <strong><%= jackpot_gateway_mode %></strong></li>
+          <ul>
+        </div>
+      </div>
+      <div class="clear"></div>
     </div>
   </div>
 
