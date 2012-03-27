@@ -14,8 +14,10 @@ module Jackpot
           :login =>    @gateway_configuration['login'], 
           :password => @gateway_configuration['password'], 
           :mode =>     @gateway_configuration['mode'])) 
+
       elsif @gateway_configuration['type'] == :bogus
          Jackpot::Gateway.new(ActiveMerchant::Billing::BogusGateway.new) 
+
       else 
         raise Jackpot::Errors::InvalidGateway.new "There is no #{@gateway_configuration['type']}: available options are :braintree, :bogus"
       end 

@@ -1,6 +1,5 @@
 require './lib/jackpot/cron'
 require './lib/jackpot/errors'
-require 'rspec'
 
 describe Jackpot::Cron do
   let(:logger) { stub(:info => true) } 
@@ -12,9 +11,7 @@ describe Jackpot::Cron do
     cron.run
   end 
 
-
   context "when something has failed" do
-
     it "logs the execption" do
       customers = [ mock_customer(true), failed_customer ]
       customer_storage = stub(:overdue => customers) 

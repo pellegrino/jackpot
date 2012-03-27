@@ -15,7 +15,6 @@ task :default => :spec
 
 Bundler::GemHelper.install_tasks
 
-
 namespace :jackpot do
   desc "Run billing cron job"
   task :cron => :environment do
