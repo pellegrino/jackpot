@@ -1,10 +1,13 @@
 /*
  *= require twitter/bootstrap/bootstrap
- *= require twitter/bootstrap/bootstrap-responsive
  *= require_self
+ *= require twitter/bootstrap/bootstrap-responsive
 */
-
-h1 {
-  padding-top: 40px;
+body {
+  padding-top:    60px;
+  padding-bottom: 40px;
 }
 
+.sidebar-nav {
+  padding: 9px 0;
+}

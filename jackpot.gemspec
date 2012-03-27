@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.version     = Jackpot::VERSION
   s.homepage    = "http://github.com/pellegrino/jackpot"
   s.license     = "MIT"
-  s.summary     = "Billing for rack apps"
-  s.description = "Billing for rack apps"
+  s.summary     = "Billing for rails apps"
+  s.description = "Billing for rails apps"
   s.email       = "vitorp@gmail.com"
   s.authors     = ["Vitor Pellegrino"]
 

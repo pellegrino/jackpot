@@ -21,6 +21,10 @@
             <%= render "jackpot/shared/navigation" %> 
 
             <p class="navbar-text pull-right">
+              &nbsp;
+              <a class="btn btn-small btn-info" href="#"><i class="icon-info-sign icon-white"></i> More Info</a>
+            </p>
+            <p class="navbar-text pull-right">
               Logged in as <strong> <%= current_user.email %></strong>  <%= link_to "Sign out", destroy_user_session_path , :method => :delete %> 
             </p>
         </div>
