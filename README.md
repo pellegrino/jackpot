@@ -83,6 +83,13 @@ This project uses YARD and the current can always be found at [http://rubydoc.in
 
 There is a small rails 3.2 application to demonstrate how to use jackpot within a rails app. [http://github.com/pellegrino/jackpot-demo](jackpot-demo). Make sure to check this out to see how things are wired under the covers. 
 
+## Future roadmap 
+
+* Generate invoices and send 
+* Notify about credit cards expiration
+* Trial plans
+* Discounts coupons
+
 ## Contributing to jackpot
 
 ### How to run jackpot locally 
