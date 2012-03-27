@@ -62,10 +62,11 @@ describe Jackpot::Customer do
 
 
   describe ".pay_subscription" do 
-    let(:customer)                    { Factory(:customer_with_subscription, 
+    let(:customer)                       { Factory(:customer_with_subscription, 
                                                 :credit_card_token => '42') }
 
-    let(:customer_with_no_card_saved) { Factory(:customer_with_subscription) } 
+    let(:customer_with_no_card_saved)    { Factory(:customer_with_subscription) } 
+    let(:customer_without_subscription)  { Factory(:customer_with_valid_card) } 
 
     it "fetches charges this customer subscription using his/hers credit card token" do
       customer.subscription.should_receive(:charge).with(customer).and_return(true)
@@ -79,7 +80,21 @@ describe Jackpot::Customer do
       retrieved_customer = Jackpot::Customer.find(customer)
       retrieved_customer.good_until.should == Date.today + 1.month
     end 
+
     it { expect { customer_with_no_card_saved.pay_subscription }.to raise_error(Jackpot::Errors::CustomerHasNoCardSaved) }
+
+
+    context "when there is no subscription assigned" , :vcr do
+      it "doesn't throw a no method error" do
+        expect { customer_without_subscription.pay_subscription }.to_not raise_error
+      end 
+
+      it "doesn't updates the good_until date" do
+        expect { customer_without_subscription.pay_subscription }.should_not change(customer_without_subscription, :good_until)
+      end 
+
+    end 
+
   end 
 
   describe ".update_credit_card_number" do
