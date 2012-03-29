@@ -36,7 +36,6 @@ describe Jackpot::PaymentsController do
     end 
   end
 
-
   describe "GET 'index'" do
     it "returns all the payments already received" do
       Jackpot::Payment.stub!(:all).and_return(['payments'])

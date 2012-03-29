@@ -1,0 +1,3 @@
+<h1>Payment receipt</h1>
+
+Your account <%= @payment.customer.email %> was successfuly billed at <%= h @payment.created_at %> the amount of <%= number_to_currency @payment.amount %>, for the usage of the <%= @payment.subscription.name %> Plan .

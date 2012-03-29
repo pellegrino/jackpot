@@ -15,7 +15,7 @@
     <% @subscriptions.each do |subscription| %>
       <tr>
         <td><%= subscription.name %></td>
-        <td><%= subscription.price %></td>
+        <td><%= number_to_currency subscription.price %></td>
         <td><%= link_to 'Show', subscription %></td>
         <td><%= link_to 'Edit', edit_subscription_path(subscription)%></td>
         <td><%= link_to 'Destroy', subscription, :confirm => 'Are you sure?',:method => :delete%></td>
