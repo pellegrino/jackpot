@@ -1,5 +1,5 @@
-require_relative '../../lib/jackpot/configuration'
-require_relative '../../lib/jackpot/factory'
+require_relative '../../../lib/jackpot/configuration'
+require_relative '../../../lib/jackpot/factory'
 
 require 'active_merchant'
 require 'active_support/core_ext/hash/indifferent_access'
