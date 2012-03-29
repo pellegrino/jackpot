@@ -3,7 +3,7 @@ require 'spec_helper'
 module Jackpot 
   describe CustomersController do
 
-    let(:user) { Factory(:user) } 
+    let(:user) { FactoryGirl.create(:user) } 
 
     before :each do
       sign_in :user, user

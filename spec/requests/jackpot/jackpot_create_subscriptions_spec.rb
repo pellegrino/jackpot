@@ -7,7 +7,7 @@ feature "Create subscriptions", %q{
   I want to be able to record their pricing and name
 } do
 
-  let(:user) { Factory(:user) } 
+  let(:user) { FactoryGirl.create(:user) } 
   background do
     sign_in user
   end 

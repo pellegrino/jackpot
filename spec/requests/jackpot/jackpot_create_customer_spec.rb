@@ -7,7 +7,7 @@ feature "Create Customers", %q{
 } do
 
 
-  let(:user) { Factory(:user) } 
+  let(:user) { FactoryGirl.create(:user) } 
 
   background do
     sign_in user

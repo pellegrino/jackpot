@@ -7,12 +7,12 @@ module Jackpot
 
     let(:fail_response)     { stub("success?" => false) } 
 
-    let(:subscription)      { Factory(:subscription, :price => 4200) } 
-    let(:customer)          { Factory(:customer_with_valid_card, :email => 'john@doe.com') } 
+    let(:subscription)      { FactoryGirl.create(:subscription, :price => 4200) } 
+    let(:customer)          { FactoryGirl.create(:customer_with_valid_card, :email => 'john@doe.com') } 
 
-    let(:invalid_customer)  { Factory(:customer, :email => 'john@doe.com',
+    let(:invalid_customer)  { FactoryGirl.create(:customer, :email => 'john@doe.com',
                                       :credit_card_token => '1') } 
-    let(:no_card_customer)  { Factory(:customer, :email => 'john@doe.com') } 
+    let(:no_card_customer)  { FactoryGirl.create(:customer, :email => 'john@doe.com') } 
 
     let(:payment)         { Payment.create(:description => "foo", 
                            :customer     => customer, 

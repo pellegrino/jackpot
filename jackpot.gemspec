@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "capybara",            "~> 1.1"
   s.add_development_dependency "timecop",             "~> 0.3"
   s.add_development_dependency "database_cleaner",    "~> 0.7"
-  s.add_development_dependency "factory_girl_rails",  "~> 1.7.0"
+  s.add_development_dependency "factory_girl_rails",  "~> 3.0"
   s.add_development_dependency 'rspec-rails',         "~> 2.9"
   s.add_development_dependency 'shoulda-matchers',    "~> 1.0.0"
   s.add_development_dependency 'vcr',                 "~> 2.0.0"

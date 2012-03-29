@@ -6,7 +6,7 @@ describe Jackpot::Subscription do
   it { should have_many(:payments)        }
 
   describe ".price" do
-    let(:subscription) { subscription = Factory.build(:subscription, :price => 1095) } 
+    let(:subscription) { subscription = FactoryGirl.create(:subscription, :price => 1095) } 
 
     it "outputs the current price in dollars" do
       subscription.price.should == 10.95
@@ -25,7 +25,7 @@ describe Jackpot::Subscription do
   describe ".charge" do
 
     it "creates a payment for given customer" do
-      subscription  = Factory.build :subscription
+      subscription  = FactoryGirl.create :subscription
       customer = 'customer'
 
       payments = mock(['payments']) 

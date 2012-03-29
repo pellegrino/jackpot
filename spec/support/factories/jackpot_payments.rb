@@ -5,9 +5,9 @@ FactoryGirl.define do
     amount 1000
     description "description"
     created_at Time.now
-    subscription 
-    association :customer, :factory => :customer_with_valid_card_and_subscription, :strategy => :create
 
+    association :subscription 
+    association :customer, :factory => :customer_with_valid_card_and_subscription
   end
 end
 

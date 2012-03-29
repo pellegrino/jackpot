@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Jackpot::PaymentsController do
 
-  let(:user) { Factory(:user) } 
+  let(:user) { FactoryGirl.create(:user) } 
 
   before :each do
     sign_in :user,  user

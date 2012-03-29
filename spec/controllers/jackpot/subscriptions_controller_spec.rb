@@ -3,7 +3,7 @@ require 'spec_helper'
 module Jackpot 
   describe Jackpot::SubscriptionsController do
 
-    let(:user) { Factory(:user) }
+    let(:user) { FactoryGirl.create(:user) }
     before do
       sign_in :user, user
     end 

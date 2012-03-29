@@ -25,9 +25,9 @@ describe Jackpot::Customer do
   describe ".overdue" do
     before do
       Timecop.freeze(Date.today) do
-        @today       = Factory(:customer, :good_until => Date.today)
-        @tomorrow    = Factory(:customer, :good_until => Date.tomorrow)
-        @yesterday   = Factory(:customer, :good_until => Date.yesterday)
+        @today       = FactoryGirl.create(:customer, :good_until => Date.today)
+        @tomorrow    = FactoryGirl.create(:customer, :good_until => Date.tomorrow)
+        @yesterday   = FactoryGirl.create(:customer, :good_until => Date.yesterday)
       end 
     end 
     
@@ -42,10 +42,10 @@ describe Jackpot::Customer do
   describe ".due_in" do
     before do
       Timecop.freeze(Date.today) do
-        @next_week    = Factory(:customer, :good_until => 1.week.from_now)
-        @thirty_days  = Factory(:customer, :good_until => 30.days.from_now)
-        @two_days     = Factory(:customer, :good_until => 2.days.from_now)
-        @tomorrow     = Factory(:customer, :good_until => Date.tomorrow)
+        @next_week    = FactoryGirl.create(:customer, :good_until => 1.week.from_now)
+        @thirty_days  = FactoryGirl.create(:customer, :good_until => 30.days.from_now)
+        @two_days     = FactoryGirl.create(:customer, :good_until => 2.days.from_now)
+        @tomorrow     = FactoryGirl.create(:customer, :good_until => Date.tomorrow)
       end 
     end 
 
@@ -62,11 +62,11 @@ describe Jackpot::Customer do
 
 
   describe ".pay_subscription" do 
-    let(:customer)                       { Factory(:customer_with_subscription, 
+    let(:customer)                       { FactoryGirl.create(:customer_with_subscription, 
                                                 :credit_card_token => '42') }
 
-    let(:customer_with_no_card_saved)    { Factory(:customer_with_subscription) } 
-    let(:customer_without_subscription)  { Factory(:customer_with_valid_card) } 
+    let(:customer_with_no_card_saved)    { FactoryGirl.create(:customer_with_subscription) } 
+    let(:customer_without_subscription)  { FactoryGirl.create(:customer_with_valid_card) } 
 
     it "fetches charges this customer subscription using his/hers credit card token" do
       customer.subscription.should_receive(:charge).with(customer).and_return(true)
