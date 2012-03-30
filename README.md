@@ -19,14 +19,14 @@ I warn you also that Jackpot is currently under heavy development and in a very 
         gem 'jackpot'
         gem 'jquery-rails'
 
-1. Create an initializer to configure your gateway information. Heres an example of how to do it 
+1. Create an initializer to configure your gateway information. Heres an example of how to do it with braintree
 
         Jackpot.configure do |c|
-          if Rails.env.production? or Rails.env.staging?
+          if Rails.env.production? 
             c.gateway_type      :braintree
             c.gateway_login     ENV['JACKPOT_LOGIN']
             c.gateway_password  ENV['JACKPOT_PASSWORD']
-            c.gateway_mode      :test
+            c.gateway_mode      :production
           else
             c.gateway_type      :braintree
             c.gateway_login     'demo'
@@ -62,10 +62,17 @@ Currently, only a small set of gateways is supported, however, it should be fair
 
 ### Cron job for Nightly billing 
 
-You might also want to setup a cron job for running your billing periodically task. There is a jackpot:cron rake task provided. Edit your cron or similar to run that rake task as much as you want to. 
+You might also want to setup a cron job for running your billing periodically task. There is a example jackpot:cron rake task provided. Edit your cron or similar to run that rake task as much as you want to. 
 
 This task will bill automatically every customer that is currently overdue using his/hers saved credit card token information.
 
+### Receipts 
+
+Jackpot also generate PDFs receipts from your payments, so you can use them to mail your customers. There is a basic layout provided, but you might want to customize it to add your own branding or styling.
+
+To do, simply create a file Rails.root/app/views/jackpot/receipts/show.pdf.erb in your project structure. This will override the view provided by the engine and use your custom pdf template instead.
+
+Here is how the default pdf is being generated. [https://github.com/pellegrino/jackpot/blob/master/app/views/jackpot/receipts/show.pdf.erb](https://github.com/pellegrino/jackpot/blob/master/app/views/jackpot/receipts/show.pdf.erb). It uses [wicked\_pdf](https://github.com/mileszs/wicked_pdf) internally, so you might want to check its docs to see what is possible in terms of pdf generation.
 
 ### Authentication
 
@@ -85,10 +92,11 @@ There is a small rails 3.2 application to demonstrate how to use jackpot within 
 
 ## Future roadmap 
 
-* Generate invoices and send 
+* Automate receipts mailing
 * Notify about credit cards expiration
 * Trial plans
 * Discounts coupons
+* Add support to non monthly payments
 
 ## Contributing to jackpot
 
