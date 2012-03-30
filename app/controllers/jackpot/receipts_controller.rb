@@ -8,7 +8,10 @@ module Jackpot
 
       respond_to do |format|
         format.html
-        format.pdf { render :pdf => 'receipt' }  
+        format.pdf do 
+          render :pdf => 'receipt' , 
+                 :wkhtmltopdf  => "#{Jackpot::Engine.root}/bin/wkhtmltopdf" 
+        end 
       end 
     end 
 
