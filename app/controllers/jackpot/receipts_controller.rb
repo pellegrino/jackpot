@@ -5,7 +5,7 @@ module Jackpot
 
     def show
       @payment = Payment.find params[:payment_id]
-      render :pdf => 'receipt', :wkhtmltopdf  => "#{Jackpot::Engine.root}/bin/wkhtmltopdf" 
+      render :pdf => 'receipt' 
     end 
 
   end 
