@@ -2,6 +2,8 @@ require 'active_merchant'
 require 'devise'
 require 'formtastic-bootstrap'
 
+require 'wicked_pdf'
+
 module Jackpot
   class Engine < Rails::Engine
     isolate_namespace Jackpot

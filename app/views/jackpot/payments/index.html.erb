@@ -17,7 +17,7 @@
             <td class="customer-email"><%= payment.customer_email %></td>
             <td class="amount"><%= number_to_currency(payment.amount) %></td>
             <td class="created_at"><%= distance_of_time_in_words_to_now(payment.created_at) %></td>
-            <td class="view_receipt"><%= link_to "View Receipt", receipt_payment_path(payment) %></td>
+            <td class="view_receipt"><%= link_to "View Receipt", receipt_payment_path(payment, :format => 'pdf') %></td>
           </tr>
         <% end %>  
       </tbody>

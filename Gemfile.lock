@@ -6,6 +6,7 @@ PATH
       devise (~> 2.0)
       formtastic-bootstrap (~> 1.1)
       rails (~> 3.1)
+      wicked_pdf (~> 0.7)
 
 GEM
   remote: http://rubygems.org/
@@ -159,6 +160,7 @@ GEM
     vcr (2.0.0)
     warden (1.1.1)
       rack (>= 1.0)
+    wicked_pdf (0.7.7)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
