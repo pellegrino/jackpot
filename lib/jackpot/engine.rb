@@ -12,14 +12,12 @@ module Jackpot
       g.fixture_replacement :factory_girl, :dir => "spec/support/factories" 
     end
 
-
     initializer "jackpot.wicked_pdf" do |app|
       # To use local wicket pdf provided with jackpot 
       WickedPdf.config = {
         :exe_path  => wkhtmltopdf_bin_acording_to_the_platform
       }
     end
-
 
     private 
     def wkhtmltopdf_bin_acording_to_the_platform
@@ -33,7 +31,5 @@ module Jackpot
 
   end
 end
-
-
 
 Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder

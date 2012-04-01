@@ -5,8 +5,8 @@ Jackpot
 [![Build Status](https://secure.travis-ci.org/pellegrino/jackpot.png)](http://travis-ci.org/pellegrino/jackpot)
 [![Dependency Status](https://gemnasium.com/pellegrino/jackpot.png)](https://gemnasium.com/pellegrino/jackpot)
 
-Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about billing that every Saas app have to deal with. It uses [Active Merchant](https://github.com/Shopify/active_merchant) internally, so Jackpot will suport the gateways (that support credit card storage) provided by Active Merchant, making it easier to extend to your own needs.
-It is built using Rails Engines so it is easy to mount Jackpot in our rails 3.1 or 3.2 app and start using it to do your billing. 
+Jackpot is the easiest way to get paid using ruby. It abstracts all the nasty details about subscription management that every Saas app have to deal with. It uses [Active Merchant](https://github.com/Shopify/active_merchant) internally, so Jackpot will suport the gateways (that support credit card storage) provided by Active Merchant, making it easier to extend to your own needs.
+It is built using Rails Engines so it is easy to mount Jackpot in our rails 3.1 or 3.2 app and start using it to do your subscription management. 
 
 It started out as my may 2011 session @ [Mendicant University](http://mendicantuniversity.org) project and now its going through a major overhaul to get ready to hit its primetime.  
 
@@ -51,7 +51,7 @@ After these steps, everything should be working. Don't forget to run your migrat
 
 Even though some gateways will provide you a recurring payment option, normally it isn't a fire and forget process as you'ld normally imagine. Also, its needed to have information about when this payments actually did happen so you can send invoices accordingly. That being said, in Jackpot we opt to use Gateways that support credit card storage, instead of relying on Gateway Recurring payments. 
 
-The main goal of this project is to provide billing to rails apps via a rails-engine. 
+The main goal of this project is to provide subscription management to rails apps via a rails-engine. 
 
 ### List of supported gateways
 
