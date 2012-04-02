@@ -5,8 +5,9 @@ FactoryGirl.define do
     amount 1000
     description "description"
     created_at Time.now
+    public_token 'abc'
 
-    association :subscription 
+    subscription
     association :customer, :factory => :customer_with_valid_card_and_subscription
   end
 end

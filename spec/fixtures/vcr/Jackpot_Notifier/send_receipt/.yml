@@ -1,0 +1,151 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://secure.braintreepaymentgateway.com/api/transact.php
+    body:
+      encoding: US-ASCII
+      string: username=demo&password=password&customer_vault=add_customer&customer_vault_id=&ccnumber=5555555555554444&cvv=123&ccexp=0113&firstname=foo&lastname=bar
+    headers:
+      content-type:
+      - application/x-www-form-urlencoded
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Mon, 02 Apr 2012 17:49:14 GMT
+      server:
+      - Apache
+      content-length:
+      - '202'
+      connection:
+      - close
+      content-type:
+      - text/html
+    body:
+      encoding: US-ASCII
+      string: response=1&responsetext=Customer Added&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=190432529
+    http_version: '1.1'
+  recorded_at: Mon, 02 Apr 2012 17:49:15 GMT
+- request:
+    method: post
+    uri: https://secure.braintreepaymentgateway.com/api/transact.php
+    body:
+      encoding: US-ASCII
+      string: username=demo&password=password&type=auth&orderid=&customer_vault_id=190432529&currency=USD&tax=&amount=30.00
+    headers:
+      content-type:
+      - application/x-www-form-urlencoded
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Mon, 02 Apr 2012 17:49:18 GMT
+      server:
+      - Apache
+      content-length:
+      - '215'
+      connection:
+      - close
+      content-type:
+      - text/html
+    body:
+      encoding: US-ASCII
+      string: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1592887241&avsresponse=&cvvresponse=&orderid=&type=auth&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=190432529
+    http_version: '1.1'
+  recorded_at: Mon, 02 Apr 2012 17:49:20 GMT
+- request:
+    method: post
+    uri: https://secure.braintreepaymentgateway.com/api/transact.php
+    body:
+      encoding: US-ASCII
+      string: username=demo&password=password&type=capture&transactionid=1592887241&amount=30.00
+    headers:
+      content-type:
+      - application/x-www-form-urlencoded
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+      connection:
+      - close
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Mon, 02 Apr 2012 17:49:23 GMT
+      server:
+      - Apache
+      content-length:
+      - '209'
+      connection:
+      - close
+      content-type:
+      - text/html
+    body:
+      encoding: US-ASCII
+      string: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1592887241&avsresponse=&cvvresponse=&orderid=&type=capture&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=
+    http_version: '1.1'
+  recorded_at: Mon, 02 Apr 2012 17:49:25 GMT
+- request:
+    method: get
+    uri: http://jackpot-demo.herokuapp.com/billing/payments/7/receipt.pdf
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: ! 'Unauthorized '
+    headers:
+      cache-control:
+      - no-cache
+      content-type:
+      - application/pdf; charset=utf-8
+      date:
+      - Mon, 02 Apr 2012 17:49:26 GMT
+      server:
+      - WEBrick/1.3.1 (Ruby/1.9.2/2011-07-09)
+      www-authenticate:
+      - Basic realm="Application"
+      x-rack-cache:
+      - miss
+      x-request-id:
+      - 729110c299290ae2f595aed57c733127
+      x-runtime:
+      - '0.004216'
+      x-ua-compatible:
+      - IE=Edge,chrome=1
+      content-length:
+      - '49'
+      connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: You need to sign in or sign up before continuing.
+    http_version: '1.1'
+  recorded_at: Mon, 02 Apr 2012 17:49:26 GMT
+recorded_with: VCR 2.0.0

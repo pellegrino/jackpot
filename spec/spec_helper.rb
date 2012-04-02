@@ -33,6 +33,8 @@ RSpec.configure do |config|
   end
 end
 
+ActionMailer::Base.delivery_method = :test
+
 Jackpot.configure do |c|
   c.gateway_type      :braintree
   c.gateway_login    'demo'

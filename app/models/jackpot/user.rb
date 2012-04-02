@@ -19,6 +19,7 @@ module Jackpot
     attr_accessible :email, 
                     :password, 
                     :password_confirmation, 
+                    :authentication_token, 
                     :remember_me
   end
 

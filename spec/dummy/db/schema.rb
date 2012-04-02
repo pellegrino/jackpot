@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216220531) do
+ActiveRecord::Schema.define(:version => 20120402184056) do
 
   create_table "jackpot_customers", :force => true do |t|
     t.string   "email"
@@ -35,7 +35,10 @@ ActiveRecord::Schema.define(:version => 20120216220531) do
     t.string   "customer_name"
     t.integer  "subscription_id"
     t.integer  "customer_id"
+    t.string   "public_token"
   end
+
+  add_index "jackpot_payments", ["public_token"], :name => "index_jackpot_payments_on_public_token"
 
   create_table "jackpot_subscriptions", :force => true do |t|
     t.string   "name"

@@ -22,6 +22,25 @@ module Jackpot
                              :subscription => subscription) }
 
 
+    describe "#public_fetch" , :vcr do
+      before do
+        @expected_payment = FactoryGirl.create(:payment, :public_token => 'abc')
+        @other_payment    = FactoryGirl.create(:payment, :public_token => 'xyz')
+      end 
+
+      it "fetches a payment with the id and a public token" do
+        Payment.public_fetch(@expected_payment.id, :public_token => 'abc').should == @expected_payment
+      end 
+
+      it "raises not found error when the payment does not exist" do
+        expect do
+          Payment.public_fetch(@expected_payment.id, :public_token => 'xyz')
+        end.to raise_error ActiveRecord::RecordNotFound
+      end 
+
+    end 
+
+
     describe ".amount and .amount_in_cents" do
       it "is stored in cents but displayed in units" do
         Payment.new(:amount => 1000).amount.should == 10.0
@@ -42,9 +61,24 @@ module Jackpot
       end 
     end 
 
+    describe ".send_receipt" do
+      let(:mail_mock)         { stub(:deliver => true) }
+
+      it "uses the notifier to send a receipt" do
+        Jackpot::Notifier.stub!(:send_receipt).and_return(mail_mock)
+        mail_mock.should_receive(:deliver)
+        payment.send_receipt
+      end 
+    end 
+
     describe "#create" do
       context "with valid token information"  do 
         let(:retrieved_payment) { Payment.find(payment.id) } 
+        let(:mail_mock)         { stub(:deliver => true) }
+
+        before do
+          Jackpot::Notifier.stub!(:send_receipt).and_return(mail_mock)
+        end 
 
         it "creates a new payment" do
           expect { payment }.to change(Payment, :count).by(1)
@@ -64,7 +98,18 @@ module Jackpot
         it "does not persist credit card token information" do
           retrieved_payment.credit_card_token.should be_nil
         end 
+        
+        it "creates a random public token so it can be accessed from outside" do
+          ::SecureRandom.stub!(:hex).with(16).and_return('foobar')
+          retrieved_payment.public_token.should be_eql('foobar')
+        end 
+
+        it "sends a notification email" do
+          mail_mock.should_receive(:deliver).and_return(true)
+          retrieved_payment
+        end 
       end 
+
       context "with no credit card token" do
         it "raises an error" do
           expect { no_card_payment }.to raise_error 
