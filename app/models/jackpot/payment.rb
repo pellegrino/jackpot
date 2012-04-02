@@ -1,5 +1,3 @@
-require 'active_support/secure_random'
-
 module Jackpot
   class Payment < ActiveRecord::Base
     before_create :perform_payment

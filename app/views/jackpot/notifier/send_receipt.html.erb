@@ -17,8 +17,9 @@
     </tbody>
   </table>
   <hr>
-    <p>
+  <p>
     The payment was successfully processed 
-    </p>
+  </p>
 </div>
-You can check your receipt at this URL <%= public_receipt_payment_url(:payment_id => @payment.id, :public_token => @payment.public_token)%>
+
+<p><%= link_to "Check your payment receipt in PDF",  @payment_url %></p>

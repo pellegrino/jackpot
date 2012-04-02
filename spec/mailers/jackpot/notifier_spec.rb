@@ -10,7 +10,7 @@ describe Jackpot::Notifier , :vcr do
       mail.to.should == [payment.customer.email]
     end
 
-    it { mail.from.should == ['ohai@example.com'] }
+    it { mail.from.should == ['dont-reply@example.com'] }
     it { mail.subject.should == 'Payment receipt' }
 
     it "sends the receipt link at the body" do

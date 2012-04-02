@@ -17,6 +17,16 @@ Dummy::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = {
+    :host => "example.com",
+    :port => 3000
+  }
+
+  config.default_url_options = {
+    :host => "example.com",
+    :port => 3000
+  }
+  config.action_mailer.delivery_method = :test
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
