@@ -130,10 +130,6 @@ describe Jackpot::Customer do
           retrieved_customer.credit_card_token.should_not be_nil
         end 
 
-        it "should persist the card information" do 
-          retrieved_customer.credit_card_number.should == 'XXXX-XXXX-XXXX-4242'
-        end 
-
         it "should persist in the database the ONLY last four digits" do
           retrieved_customer.credit_card_number.should == 'XXXX-XXXX-XXXX-4242'
         end 
