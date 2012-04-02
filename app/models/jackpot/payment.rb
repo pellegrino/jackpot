@@ -13,6 +13,7 @@ module Jackpot
       if credit_card_token
         self.amount = self.subscription.price_in_cents
         response = Jackpot::Base.gateway.authorize(self.amount_in_cents, credit_card_token)
+
         if response.success?
           billing_response = Jackpot::Base.gateway.capture(self.amount_in_cents, 
                                                                response.authorization) 

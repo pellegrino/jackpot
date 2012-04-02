@@ -5,22 +5,18 @@ module Jackpot
     it { should belong_to :customer } 
     it { should belong_to :subscription } 
 
-    let(:fail_response)     { stub("success?" => false) } 
 
     let(:subscription)      { FactoryGirl.create(:subscription, :price => 4200) } 
     let(:customer)          { FactoryGirl.create(:customer_with_valid_card, :email => 'john@doe.com') } 
 
     let(:invalid_customer)  { FactoryGirl.create(:customer, :email => 'john@doe.com',
-                                      :credit_card_token => '1') } 
+                                      :credit_card_token => '-1') } 
     let(:no_card_customer)  { FactoryGirl.create(:customer, :email => 'john@doe.com') } 
 
     let(:payment)         { Payment.create(:description => "foo", 
                            :customer     => customer, 
                            :subscription => subscription) }
 
-    let(:invalid_payment) { Payment.create(:description => "baz", 
-                             :customer     => invalid_customer, 
-                             :subscription => subscription) }
     let(:no_card_payment) { Payment.create(:description => "bar", 
                              :customer     => no_card_customer, 
                              :subscription => subscription) }
@@ -76,20 +72,22 @@ module Jackpot
         end 
       end 
 
-      context "with invalid token information"  do
-        before do
-          Jackpot::Gateway.any_instance.stub(:authorize)
-                                  .with(4200, '1')
-                                  .and_return(fail_response)
-        end 
+      context "with invalid token information" , :vcr do
 
         it "raises an unauthorized token information" do
-          expect { invalid_payment }.to raise_error Jackpot::Errors::UnauthorizedPayment
+          expect do
+            Payment.create(:description => "baz", 
+                           :customer     => invalid_customer, 
+                           :subscription => subscription) 
+          end.to raise_error Jackpot::Errors::UnauthorizedPayment
         end
 
         it "must not save an additional payment" do
           begin
-            invalid_payment
+            Payment.create(:description => "baz", 
+                           :customer     => invalid_customer, 
+                           :subscription => subscription) 
+            
           rescue Jackpot::Errors::UnauthorizedPayment
             Payment.count.should == 0
           end 
