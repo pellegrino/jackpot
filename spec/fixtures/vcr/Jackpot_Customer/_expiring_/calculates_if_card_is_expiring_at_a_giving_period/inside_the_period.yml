@@ -5,7 +5,7 @@ http_interactions:
     uri: https://secure.braintreepaymentgateway.com/api/transact.php
     body:
       encoding: US-ASCII
-      string: username=demo&password=password&type=auth&orderid=&customer_vault_id=-1&currency=USD&tax=&amount=42.00
+      string: username=demo&password=password&customer_vault=add_customer&customer_vault_id=&ccnumber=4242424242424242&cvv=123&ccexp=0612&firstname=John&lastname=Doe
     headers:
       content-type:
       - application/x-www-form-urlencoded
@@ -21,18 +21,18 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 03 Apr 2012 19:51:29 GMT
+      - Tue, 03 Apr 2012 19:48:41 GMT
       server:
       - Apache
       content-length:
-      - '226'
+      - '202'
       connection:
       - close
       content-type:
       - text/html
     body:
       encoding: US-ASCII
-      string: response=3&responsetext=Invalid Customer Vault Id REFID:328835482&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=auth&response_code=300&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=-1
+      string: response=1&responsetext=Customer Added&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=376030608
     http_version: '1.1'
-  recorded_at: Tue, 03 Apr 2012 19:51:29 GMT
+  recorded_at: Tue, 03 Apr 2012 19:48:41 GMT
 recorded_with: VCR 2.0.0

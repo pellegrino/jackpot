@@ -12,5 +12,5 @@ def credit_card_hash(number = '4242424242424242', params={})
                    "year"                => next_year,
                    "first_name"          => 'John',
                    "last_name"           => 'Doe',
-                   "verification_value"  => 123 }.reverse_merge(params)
+                   "verification_value"  => 123 }.merge(params)
 end 

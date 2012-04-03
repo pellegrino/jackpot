@@ -15,14 +15,109 @@ describe Jackpot::Customer do
   let(:invalid_card)  { Jackpot::Card.new credit_card_hash('9', :year => '2000') } 
 
   describe ".expiration_date" , :vcr => { :cassette_name => "jackpot/customer_expiration_date" } do
-    it "should return this card expiration date" do
+    it "returns this card expiration date" do
       customer.update_credit_card(card)
       customer.expiration_date.should == "1/#{next_year}"
     end 
   end 
 
 
-  describe ".overdue" do
+  describe ".expiring?", :vcr do
+
+    let(:customer) { Jackpot::Customer.new  } 
+
+
+    context "calculates if card is expiring at a giving period" do
+
+      it "at the last month of the period"  do
+        date = Date.today.at_beginning_of_month + 5.months
+        customer.update_credit_card(Jackpot::Card.new(credit_card_hash '4242424242424242', 
+                                                      "month" => date.month,
+                                                      "year" => date.year))
+
+        customer.should be_expiring(5)
+      end 
+
+      it "not expiring"  do
+        date = Date.today.at_beginning_of_month + 10.months
+        customer.update_credit_card(Jackpot::Card.new(credit_card_hash '4242424242424242', 
+                                                      "month" => date.month,
+                                                      "year" => date.year))
+        customer.should_not be_expiring
+
+      end 
+
+      it "inside the period" do
+        date = Date.today.at_beginning_of_month + 2.months
+        customer.update_credit_card(Jackpot::Card.new(credit_card_hash '4242424242424242', 
+                                                       "month" => date.month,
+                                                       "year" => date.year))
+        customer.should be_expiring
+      end 
+    end 
+  end 
+
+
+  describe "#with_expiring_cards" do
+
+    before do
+      last_month   = (Date.today - 1.month).at_beginning_of_month
+      three_months = (Date.today + 3.month).at_beginning_of_month
+      not_expiring = (Date.today + 1.year).at_beginning_of_month
+
+      @this_month   = FactoryGirl.create(:customer, 
+                                         :credit_card_expiry_month => Date.today.month,
+                                         :credit_card_expiry_year => Date.today.year)
+
+      @last_month   = FactoryGirl.create(:customer, 
+                                         :credit_card_expiry_month => last_month.month,
+                                         :credit_card_expiry_year => last_month.year)
+
+      @three_months = FactoryGirl.create(:customer, 
+                                         :credit_card_expiry_month => three_months.month,
+                                         :credit_card_expiry_year => three_months.year)
+
+      @not_expiring = FactoryGirl.create(:customer, 
+                                         :credit_card_expiry_month => not_expiring.month,
+                                         :credit_card_expiry_year => not_expiring.year)
+    end 
+    
+
+    context "with the default 3 month period"  do
+
+      subject { Jackpot::Customer.with_expiring_card} 
+
+      it { subject.should     include @this_month       } 
+      it { subject.should     include @last_month       } 
+      it { subject.should     include @three_months     } 
+      it { subject.should_not include @not_expiring     } 
+    end 
+
+    context "within 2 months"  do
+
+      subject { Jackpot::Customer.with_expiring_card(2)} 
+
+      it { subject.should     include @this_month       } 
+      it { subject.should     include @last_month       } 
+      it { subject.should_not include @three_months     } 
+      it { subject.should_not include @not_expiring     } 
+    end 
+
+
+    context "expired cards"  do
+
+      subject { Jackpot::Customer.with_expired_card     } 
+
+      it { subject.should     include @last_month       } 
+
+      it { subject.should_not include @this_month       } 
+      it { subject.should_not include @three_months     } 
+      it { subject.should_not include @not_expiring     } 
+    end 
+  end
+
+
+  describe "#overdue" do
     before do
       Timecop.freeze(Date.today) do
         @today       = FactoryGirl.create(:customer, :good_until => Date.today)
@@ -39,7 +134,7 @@ describe Jackpot::Customer do
     
   end 
 
-  describe ".due_in" do
+  describe "#due_in" do
     before do
       Timecop.freeze(Date.today) do
         @next_week    = FactoryGirl.create(:customer, :good_until => 1.week.from_now)
