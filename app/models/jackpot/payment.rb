@@ -1,6 +1,7 @@
 module Jackpot
   class Payment < ActiveRecord::Base
     before_create :perform_payment
+    before_create :assign_public_token
     after_create  :send_receipt
 
     attr_accessor :credit_card
@@ -15,8 +16,6 @@ module Jackpot
 
     def perform_payment
       credit_card_token = customer.credit_card_token
-      # Sets a public token so it can be accessed without being signed in
-      self.public_token  ||= SecureRandom.hex(16)
       if credit_card_token
         self.amount = self.subscription.price_in_cents
         response = Jackpot::Base.gateway.authorize(self.amount_in_cents, credit_card_token)
@@ -35,6 +34,11 @@ module Jackpot
 
     def send_receipt
       Jackpot::Notifier.send_receipt(self).deliver
+    end 
+
+    def assign_public_token
+      # Sets a public token so it can be accessed without being signed in
+      self.public_token  ||= SecureRandom.hex(16)
     end 
 
     def customer_email

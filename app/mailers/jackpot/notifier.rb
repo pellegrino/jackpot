@@ -1,5 +1,3 @@
-require 'open-uri'
-
 module Jackpot
 
   # Uses the Jackpot configuration mailer options 
