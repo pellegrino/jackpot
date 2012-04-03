@@ -10,11 +10,17 @@ describe Jackpot::Notifier , :vcr do
       mail.to.should == [payment.customer.email]
     end
 
-    it { mail.from.should == ['dont-reply@example.com'] }
     it { mail.subject.should == 'Payment receipt' }
+
+    it "uses the configured default from" do 
+      Jackpot.configuration.mailer[:from] = 'foo@example.com'
+      mail.from.should == ['foo@example.com'] 
+    end 
 
     it "sends the receipt link at the body" do
       mail.body.encoded.should match(public_receipt_payment_url(:payment_id => payment.id, :public_token => payment.public_token))
     end 
+
+
   end 
 end

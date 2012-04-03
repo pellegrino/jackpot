@@ -4,9 +4,11 @@ module Jackpot
   class Configuration
 
     attr_accessor :gateway
+    attr_accessor :mailer 
 
     def initialize
       @gateway = HashWithIndifferentAccess.new
+      @mailer = HashWithIndifferentAccess.new
     end 
 
     def configure
@@ -33,6 +35,11 @@ module Jackpot
 
     def gateway_mode(mode)
       @gateway[:mode] = mode 
+    end 
+
+
+    def default_from(from)
+      @mailer[:from] = from
     end 
    
   end 

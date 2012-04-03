@@ -40,4 +40,5 @@ Jackpot.configure do |c|
   c.gateway_login    'demo'
   c.gateway_password 'password'  
   c.gateway_mode     :test
+  c.default_from     'dont-reply@example.com'
 end 

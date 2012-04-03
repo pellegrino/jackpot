@@ -33,6 +33,7 @@ I warn you also that Jackpot is currently under heavy development and in a very 
             c.gateway_password  'password'
             c.gateway_mode      :test
           end 
+          c.default_from      'dont-reply@mycompany.com'
         end 
       
 1. You should copy jackpot migrations to your project by issuing the following command
