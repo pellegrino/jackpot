@@ -4,6 +4,7 @@ PATH
     jackpot (0.0.3)
       activemerchant (~> 1.20)
       devise (~> 2.0)
+      formtastic (~> 2.1.1)
       formtastic-bootstrap (~> 1.1)
       rails (~> 3.1)
       wicked_pdf (~> 0.7)

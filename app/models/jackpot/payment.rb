@@ -42,11 +42,11 @@ module Jackpot
     end 
 
     def customer_email
-      customer.email
+      customer.email  if customer.present?
     end 
 
     def amount
-      amount_in_cents / 100 unless amount_in_cents.nil?
+      amount_in_cents / 100 if amount_in_cents.present?
     end 
 
     def amount_in_cents

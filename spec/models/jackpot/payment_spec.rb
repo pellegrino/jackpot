@@ -5,7 +5,6 @@ module Jackpot
     it { should belong_to :customer } 
     it { should belong_to :subscription } 
 
-
     let(:subscription)      { FactoryGirl.create(:subscription, :price => 4200) } 
     let(:customer)          { FactoryGirl.create(:customer_with_valid_card, :email => 'john@doe.com') } 
 
@@ -58,6 +57,11 @@ module Jackpot
     describe ".customer_name"  do
       it "returns its customer email" do
         payment.customer_email.should == "john@doe.com"
+      end 
+
+      it "returns blank when customer is nil" do
+        payment.customer = nil
+        payment.customer_email.should be_blank
       end 
     end 
 
