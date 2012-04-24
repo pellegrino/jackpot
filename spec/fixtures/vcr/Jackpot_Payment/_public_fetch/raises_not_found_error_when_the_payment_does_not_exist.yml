@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 03 Apr 2012 19:49:18 GMT
+      - Tue, 24 Apr 2012 11:04:31 GMT
       server:
       - Apache
       content-length:
@@ -32,15 +32,15 @@ http_interactions:
       - text/html
     body:
       encoding: US-ASCII
-      string: response=1&responsetext=Customer Added&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=447317761
+      string: response=1&responsetext=Customer Added&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=559377974
     http_version: '1.1'
-  recorded_at: Tue, 03 Apr 2012 19:49:18 GMT
+  recorded_at: Tue, 24 Apr 2012 11:04:32 GMT
 - request:
     method: post
     uri: https://secure.braintreepaymentgateway.com/api/transact.php
     body:
       encoding: US-ASCII
-      string: username=demo&password=password&type=auth&orderid=&customer_vault_id=447317761&currency=USD&tax=&amount=30.00
+      string: username=demo&password=password&type=auth&orderid=&customer_vault_id=559377974&currency=USD&tax=&amount=30.00
     headers:
       content-type:
       - application/x-www-form-urlencoded
@@ -56,7 +56,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 03 Apr 2012 19:49:21 GMT
+      - Tue, 24 Apr 2012 11:04:40 GMT
       server:
       - Apache
       content-length:
@@ -67,15 +67,15 @@ http_interactions:
       - text/html
     body:
       encoding: US-ASCII
-      string: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1593710547&avsresponse=&cvvresponse=&orderid=&type=auth&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=447317761
+      string: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1605323733&avsresponse=&cvvresponse=&orderid=&type=auth&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=559377974
     http_version: '1.1'
-  recorded_at: Tue, 03 Apr 2012 19:49:22 GMT
+  recorded_at: Tue, 24 Apr 2012 11:04:43 GMT
 - request:
     method: post
     uri: https://secure.braintreepaymentgateway.com/api/transact.php
     body:
       encoding: US-ASCII
-      string: username=demo&password=password&type=capture&transactionid=1593710547&amount=30.00
+      string: username=demo&password=password&type=capture&transactionid=1605323733&amount=30.00
     headers:
       content-type:
       - application/x-www-form-urlencoded
@@ -91,7 +91,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 03 Apr 2012 19:49:25 GMT
+      - Tue, 24 Apr 2012 11:04:52 GMT
       server:
       - Apache
       content-length:
@@ -102,9 +102,9 @@ http_interactions:
       - text/html
     body:
       encoding: US-ASCII
-      string: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1593710547&avsresponse=&cvvresponse=&orderid=&type=capture&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=
+      string: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1605323733&avsresponse=&cvvresponse=&orderid=&type=capture&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=
     http_version: '1.1'
-  recorded_at: Tue, 03 Apr 2012 19:49:26 GMT
+  recorded_at: Tue, 24 Apr 2012 11:04:55 GMT
 - request:
     method: post
     uri: https://secure.braintreepaymentgateway.com/api/transact.php
@@ -126,7 +126,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 03 Apr 2012 19:49:29 GMT
+      - Tue, 24 Apr 2012 11:05:04 GMT
       server:
       - Apache
       content-length:
@@ -137,15 +137,15 @@ http_interactions:
       - text/html
     body:
       encoding: US-ASCII
-      string: response=1&responsetext=Customer Added&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=172432042
+      string: response=1&responsetext=Customer Added&authcode=&transactionid=&avsresponse=&cvvresponse=&orderid=&type=&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=772436464
     http_version: '1.1'
-  recorded_at: Tue, 03 Apr 2012 19:49:29 GMT
+  recorded_at: Tue, 24 Apr 2012 11:05:06 GMT
 - request:
     method: post
     uri: https://secure.braintreepaymentgateway.com/api/transact.php
     body:
       encoding: US-ASCII
-      string: username=demo&password=password&type=auth&orderid=&customer_vault_id=172432042&currency=USD&tax=&amount=30.00
+      string: username=demo&password=password&type=auth&orderid=&customer_vault_id=772436464&currency=USD&tax=&amount=30.00
     headers:
       content-type:
       - application/x-www-form-urlencoded
@@ -161,7 +161,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 03 Apr 2012 19:49:32 GMT
+      - Tue, 24 Apr 2012 11:05:11 GMT
       server:
       - Apache
       content-length:
@@ -172,15 +172,15 @@ http_interactions:
       - text/html
     body:
       encoding: US-ASCII
-      string: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1593710680&avsresponse=&cvvresponse=&orderid=&type=auth&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=172432042
+      string: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1605323834&avsresponse=&cvvresponse=&orderid=&type=auth&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=772436464
     http_version: '1.1'
-  recorded_at: Tue, 03 Apr 2012 19:49:34 GMT
+  recorded_at: Tue, 24 Apr 2012 11:05:14 GMT
 - request:
     method: post
     uri: https://secure.braintreepaymentgateway.com/api/transact.php
     body:
       encoding: US-ASCII
-      string: username=demo&password=password&type=capture&transactionid=1593710680&amount=30.00
+      string: username=demo&password=password&type=capture&transactionid=1605323834&amount=30.00
     headers:
       content-type:
       - application/x-www-form-urlencoded
@@ -196,7 +196,7 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Tue, 03 Apr 2012 19:49:37 GMT
+      - Tue, 24 Apr 2012 11:05:15 GMT
       server:
       - Apache
       content-length:
@@ -207,7 +207,7 @@ http_interactions:
       - text/html
     body:
       encoding: US-ASCII
-      string: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1593710680&avsresponse=&cvvresponse=&orderid=&type=capture&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=
+      string: response=1&responsetext=SUCCESS&authcode=123456&transactionid=1605323834&avsresponse=&cvvresponse=&orderid=&type=capture&response_code=100&merchant_defined_field_6=&merchant_defined_field_7=&customer_vault_id=
     http_version: '1.1'
-  recorded_at: Tue, 03 Apr 2012 19:49:39 GMT
-recorded_with: VCR 2.0.0
+  recorded_at: Tue, 24 Apr 2012 11:05:17 GMT
+recorded_with: VCR 2.0.1

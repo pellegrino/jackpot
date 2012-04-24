@@ -21,4 +21,25 @@ describe Jackpot::Gateway do
     subject.capture 100, 123 , 456
   end 
 
+
+  describe ".process_payment" , :vcr do
+
+    let(:customer) { FactoryGirl.create(:customer_with_valid_card) }
+
+    it "raises error when the card is nil" do
+      expect { subject.process_payment(nil, 10) }.to raise_error(Jackpot::Errors::CustomerHasNoCardSaved)
+    end 
+
+    it "raises error when not authorized" do
+      expect { subject.process_payment('456', 10) }.to raise_error(Jackpot::Errors::UnauthorizedPayment)
+    end
+
+    context "when authorized" do
+      it "returns the authorization code" do
+        subject.process_payment(customer.credit_card_token, 
+                                            5000).should_not be_nil
+      end 
+    end 
+  end 
+
 end 
