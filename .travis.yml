@@ -3,9 +3,6 @@ script: "bundle exec rake -f spec/dummy/Rakefile db:drop jackpot:install:migrati
 rvm:
   - 1.9.3
   - 1.9.2
-branches:
-  only:
-    - master
 
 notifications:
   irc: "irc.freenode.org#jackpot"
