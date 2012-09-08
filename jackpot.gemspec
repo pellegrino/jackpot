@@ -1,6 +1,6 @@
 $:.push File.expand_path("../lib", __FILE__)
 
-# Maintain your gem's version: 
+# Maintain your gem's version:
 require "jackpot/version"
 
 # Describe your gem and declare its dependencies:
@@ -20,14 +20,14 @@ Gem::Specification.new do |s|
   s.add_development_dependency "capybara",            "~> 1.1"
   s.add_development_dependency "timecop",             "~> 0.3"
   s.add_development_dependency "database_cleaner",    "~> 0.7"
-  s.add_development_dependency "factory_girl_rails",  "~> 3.0"
+  s.add_development_dependency "factory_girl_rails",  "~> 4.0"
   s.add_development_dependency 'rspec-rails',         "~> 2.9"
-  s.add_development_dependency 'shoulda-matchers',    "~> 1.1.0"
-  s.add_development_dependency 'vcr',                 "~> 2.0.0"
+  s.add_development_dependency 'shoulda-matchers',    "~> 1.3.0"
+  s.add_development_dependency 'vcr',                 "~> 2.2.0"
   s.add_development_dependency 'fakeweb'
 
   s.add_dependency "rails",                           "~> 3.1"
-  s.add_dependency "formtastic-bootstrap",            "~> 1.1" 
+  s.add_dependency "formtastic-bootstrap",            "~> 1.1"
   s.add_dependency 'formtastic',                      "~> 2.1.1"
 
   s.add_dependency "activemerchant",                  "~> 1.20"

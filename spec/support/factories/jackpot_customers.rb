@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :customer , class: Jackpot::Customer do
-    email 
+    email
     description "MyText"
 
     factory :customer_with_subscription do
@@ -10,16 +10,16 @@ FactoryGirl.define do
     end
 
     factory :customer_with_valid_card do
-      after_create do |customer|
-        customer.update_credit_card valid_card 
-      end 
-    end 
+      after(:create) do |customer|
+        customer.update_credit_card valid_card
+      end
+    end
 
     factory :customer_with_subscription_and_valid_card , :parent => :customer_with_valid_card do
       subscription
-    end 
+    end
 
-    # Because i always guess the opposite order 
+    # Because i always guess the opposite order
     factory :customer_with_valid_card_and_subscription , :parent => :customer_with_subscription_and_valid_card
   end
 
@@ -31,9 +31,9 @@ end
 
 
 def valid_card
-  @card ||= Jackpot::Card.new(:first_name => 'foo', :last_name => 'bar', 
+  @card ||= Jackpot::Card.new(:first_name => 'foo', :last_name => 'bar',
                     :number => '5555555555554444',
                     :month => 1,
                     :year => next_year,
                     :verification_value => 123)
-end 
+end
