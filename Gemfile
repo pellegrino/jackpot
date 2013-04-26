@@ -1,9 +1,9 @@
-source "http://rubygems.org"
+source 'https://rubygems.org'
 
 gemspec
 
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 
-# database 
+# database
 gem 'mysql2', :platform => :ruby
