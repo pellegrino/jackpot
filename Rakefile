@@ -14,11 +14,3 @@ RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
 
 Bundler::GemHelper.install_tasks
-
-namespace :jackpot do
-  desc "Run billing cron job"
-  task :cron => :environment do
-    cron = Jackpot::Cron.new(Jackpot::Customer, Rails.logger)
-    cron.run
-  end 
-end 

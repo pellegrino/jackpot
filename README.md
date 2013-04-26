@@ -61,12 +61,6 @@ Currently, only a small set of gateways is supported, however, it should be fair
 * Braintree
 * Bogus (for testing)
 
-### Cron job for Nightly billing
-
-You might also want to setup a cron job for running your billing periodically task. There is a example jackpot:cron rake task provided. Edit your cron or similar to run that rake task as much as you want to.
-
-This task will bill automatically every customer that is currently overdue using his/hers saved credit card token information.
-
 ### Receipts
 
 Jackpot also generate PDFs receipts from your payments, so you can use them to mail your customers. There is a basic layout provided, but you might want to customize it to add your own branding or styling.
