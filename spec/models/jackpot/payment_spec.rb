@@ -22,21 +22,18 @@ module Jackpot
 
 
     describe "#public_fetch" , :vcr do
-      before do
-        @expected_payment = FactoryGirl.create(:payment, :public_token => 'abc')
-        @other_payment    = FactoryGirl.create(:payment, :public_token => 'xyz')
-      end
+      let(:expected_payment) { FactoryGirl.create(:payment, :public_token => 'abc') }
+      let(:other_payment)    { FactoryGirl.create(:payment, :public_token => 'xyz') }
 
       it "fetches a payment with the id and a public token" do
-        Payment.public_fetch(@expected_payment.id, :public_token => 'abc').should == @expected_payment
+        Payment.public_fetch(expected_payment.id, :public_token => 'abc').should == expected_payment
       end
 
       it "raises not found error when the payment does not exist" do
         expect do
-          Payment.public_fetch(@expected_payment.id, :public_token => 'xyz')
+          Payment.public_fetch(expected_payment.id, :public_token => 'xyz')
         end.to raise_error ActiveRecord::RecordNotFound
       end
-
     end
 
 

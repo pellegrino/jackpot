@@ -1,10 +1,10 @@
-def next_year 
-  Time.now.year + 1 
+def next_year
+  Time.now.year + 1
 end
 
 def credit_card(number = '4242424242424242', params = {})
-  @credit_card ||= ActiveMerchant::Billing::CreditCard.new credit_card_hash(number, params)
-end 
+  @credit_card ||= Jackpot::Card.new credit_card_hash(number, params)
+end
 
 def credit_card_hash(number = '4242424242424242', params={})
   default_opts = { "number"              => number,
@@ -13,4 +13,4 @@ def credit_card_hash(number = '4242424242424242', params={})
                    "first_name"          => 'John',
                    "last_name"           => 'Doe',
                    "verification_value"  => 123 }.merge(params)
-end 
+end

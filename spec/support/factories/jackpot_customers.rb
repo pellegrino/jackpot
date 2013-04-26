@@ -11,7 +11,7 @@ FactoryGirl.define do
 
     factory :customer_with_valid_card do
       after(:create) do |customer|
-        customer.update_credit_card valid_card
+        customer.update_credit_card credit_card
       end
     end
 
@@ -26,14 +26,4 @@ FactoryGirl.define do
   sequence :email do |n|
     "john#{n}@doe.com"
   end
-
-end
-
-
-def valid_card
-  @card ||= Jackpot::Card.new(:first_name => 'foo', :last_name => 'bar',
-                    :number => '5555555555554444',
-                    :month => 1,
-                    :year => next_year,
-                    :verification_value => 123)
 end
