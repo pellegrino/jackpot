@@ -141,3 +141,7 @@ There is a #jackpot channel @ freenode for this project. Feel free to stop by to
 
 Copyright (c) 2013 Vitor Pellegrino. See MIT-LICENSE.txt for further details.
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/pellegrino/jackpot/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
