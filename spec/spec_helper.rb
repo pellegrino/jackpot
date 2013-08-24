@@ -1,6 +1,11 @@
 # Configure Rails Envinronment
 ENV["RAILS_ENV"] = "test"
 
+if ENV["CI"]
+  require 'coveralls'
+  Coveralls.wear!
+end
+
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
 require 'rspec/rails'

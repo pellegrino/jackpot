@@ -7,3 +7,5 @@ gem "jquery-rails"
 
 # database
 gem 'mysql2', :platform => :ruby
+
+gem 'coveralls', require: false
